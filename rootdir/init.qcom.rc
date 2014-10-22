@@ -43,6 +43,7 @@ on early-boot
     setrlimit 8 67108864 67108864
 
     write /sys/kernel/boot_adsp/boot 1
+    chown root audio /sys/kernel/boot_adsp/boot
 
     # SSR Setup
     write /sys/bus/msm_subsys/devices/subsys0/restart_level "related"
