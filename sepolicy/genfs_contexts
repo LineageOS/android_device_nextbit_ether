@@ -14,6 +14,7 @@ genfscon proc  /sys/kernel/sched_min_runtime           u:object_r:proc_kernel_sc
 genfscon proc  /sys/kernel/sched_ravg_hist_size        u:object_r:proc_kernel_sched:s0
 genfscon proc  /sys/kernel/sched_small_task            u:object_r:proc_kernel_sched:s0
 genfscon proc  /sys/kernel/sched_upmigrate             u:object_r:proc_kernel_sched:s0
+genfscon proc  /sys/kernel/sched_upmigrate_min_nice    u:object_r:proc_kernel_sched:s0
 genfscon proc  /sys/kernel/sched_window_stats_policy   u:object_r:proc_kernel_sched:s0
 
 genfscon sysfs /devices/soc.0/qcom,cpubw.27/devfreq    u:object_r:sysfs_devfreq:s0
