@@ -228,7 +228,7 @@ PRODUCT_PACKAGES += \
     init.nbq.power.sh
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/perf-profiles/perf-profile1.conf:system/vendor/etc/perf-profile0.conf \
+    $(LOCAL_PATH)/configs/perf-profiles/perf-profile0.conf:system/vendor/etc/perf-profile0.conf \
     $(LOCAL_PATH)/configs/perf-profiles/perf-profile1.conf:system/vendor/etc/perf-profile1.conf \
     $(LOCAL_PATH)/configs/perf-profiles/perf-profile2.conf:system/vendor/etc/perf-profile2.conf \
     $(LOCAL_PATH)/configs/perf-profiles/perf-profile3.conf:system/vendor/etc/perf-profile3.conf \
