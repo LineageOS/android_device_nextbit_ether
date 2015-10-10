@@ -5209,12 +5209,11 @@ int32_t QCameraParameters::initDefaultParameters()
     if (!m_bHDRModeSensor) {
         hdrNeed1xValues = createValuesStringFromMap(TRUE_FALSE_MODES_MAP,
                 PARAM_MAP_SIZE(TRUE_FALSE_MODES_MAP));
-        setHDRNeed1x(VALUE_TRUE);
     } else {
         hdrNeed1xValues.append(VALUE_FALSE);
-        setHDRNeed1x(VALUE_FALSE);
     }
     set(KEY_QC_SUPPORTED_HDR_NEED_1X, hdrNeed1xValues);
+    setHDRNeed1x(VALUE_FALSE);
 
     //Set True Portrait
     if ((m_pCapability->qcom_supported_feature_mask & CAM_QCOM_FEATURE_TRUEPORTRAIT) > 0) {
@@ -5288,7 +5287,6 @@ int32_t QCameraParameters::initDefaultParameters()
     set(KEY_QC_SUPPORTED_SCENE_DETECT, onOffValues);
     setSceneDetect(VALUE_OFF);
     m_bHDREnabled = false;
-    m_bHDR1xFrameEnabled = true;
 
     m_bHDRThumbnailProcessNeeded = false;
     m_bHDR1xExtraBufferNeeded = true;
