@@ -1,0 +1,3 @@
+allow cameraserver sensorservice_service:service_manager find;
+binder_call(cameraserver, servicemanager);
+binder_call(cameraserver, sensorservice_service);
