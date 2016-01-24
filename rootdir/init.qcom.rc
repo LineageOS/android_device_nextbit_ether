@@ -865,3 +865,5 @@ on property:persist.sys.qlogd=1
 on property:persist.sys.qlogd=0
     stop qlogd
 
+on property:dev.bootcomplete=1
+    setprop sys.io.scheduler "bfq"
