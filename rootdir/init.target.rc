@@ -33,8 +33,8 @@ on early-init
     symlink /data/tombstones /tombstones
 
 on fs
-    wait /dev/block/platform/soc.0/f9824900.sdhci/mmcblk0
-    symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
+    wait /dev/block/platform/soc.0/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc.0/${ro.boot.bootdevice} /dev/block/bootdevice
 
     mount_all fstab.qcom
 
