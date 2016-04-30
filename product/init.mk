@@ -11,7 +11,6 @@ PRODUCT_PACKAGES += \
     init.nbq.smartamp_post.sh \
     init.nbq.target.rc \
     init.nbq.usb.rc \
-    init.nfc_default.sh \
     init.qcom.fs.rc \
     init.qcom.rc \
     init.qcom.sh \

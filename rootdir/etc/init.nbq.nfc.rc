@@ -13,9 +13,3 @@ on boot
 	chmod 0666 /dev/fpc1020
 	chown system system /dev/fpc1020
 
-service nfc-default-sh /system/bin/sh /init.nfc_default.sh
-    disabled
-    class core
-    user root
-    oneshot
-

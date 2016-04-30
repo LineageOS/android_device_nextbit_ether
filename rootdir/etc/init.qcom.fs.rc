@@ -13,13 +13,3 @@ on fs
     mount ext4 /dev/block/bootdevice/by-name/securefs /securefs nosuid nodev barrier=1
     restorecon_recursive /securefs
 
-# create filesystems if necessary
-service setup_fs /system/bin/setup_fs \
-        /dev/block/bootdevice/by-name/cache \
-        /dev/block/bootdevice/by-name/userdata \
-        /dev/block/bootdevice/by-name/box \
-        /dev/block/bootdevice/by-name/securefs
-    class core
-    user root
-    group root
-    oneshot
