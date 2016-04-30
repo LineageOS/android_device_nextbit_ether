@@ -27,6 +27,8 @@ DEVICE_PACKAGE_OVERLAYS := \
 
 include $(LOCAL_PATH)/product/*.mk
 
+TARGET_BOOTANIMATION_HALF_RES := true
+
 # setup dalvik vm configs.
 $(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
 
