@@ -284,7 +284,6 @@ bin/imscmservice
 bin/imsdatadaemon
 bin/imsqmidaemon
 bin/ims_rtp_daemon
--app/DMAgent/DMAgent.apk
 -app/RCSBootstraputil/RCSBootstraputil.apk
 -app/RcsImsBootstraputil/RcsImsBootstraputil.apk
 vendor/lib64/lib-dplmedia.so
