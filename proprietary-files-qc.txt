@@ -187,7 +187,6 @@ vendor/lib64/libconnctrl.so
 # Perf
 bin/energy-awareness
 bin/msm_irqbalance
-lib/modules/core_ctl.ko
 vendor/bin/perfd
 vendor/lib/libqc-opt.so
 vendor/lib/libqti-perfd-client.so
