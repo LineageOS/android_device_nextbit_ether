@@ -54,20 +54,20 @@ vendor/lib64/libwqe.so
 vendor/lib64/libxml.so
 
 # DPM
-bin/dpmd
-etc/dpm/dpm.conf
-etc/dpm/nsrm/NsrmConfiguration.xml
-etc/permissions/dpmapi.xml
--framework/com.qti.dpmframework.jar
--framework/dpmapi.jar
-vendor/lib/libdpmctmgr.so
-vendor/lib/libdpmfdmgr.so
-vendor/lib/libdpmframework.so
-vendor/lib/libdpmnsrm.so
-vendor/lib64/libdpmctmgr.so
-vendor/lib64/libdpmfdmgr.so
-vendor/lib64/libdpmframework.so
-vendor/lib64/libdpmnsrm.so
+#bin/dpmd
+#etc/dpm/dpm.conf
+#etc/dpm/nsrm/NsrmConfiguration.xml
+#etc/permissions/dpmapi.xml
+#-framework/com.qti.dpmframework.jar
+#-framework/dpmapi.jar
+#vendor/lib/libdpmctmgr.so
+#vendor/lib/libdpmfdmgr.so
+#vendor/lib/libdpmframework.so
+#vendor/lib/libdpmnsrm.so
+#vendor/lib64/libdpmctmgr.so
+#vendor/lib64/libdpmfdmgr.so
+#vendor/lib64/libdpmframework.so
+#vendor/lib64/libdpmnsrm.so
 
 # DRM
 bin/qseecomd
