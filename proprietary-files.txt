@@ -144,8 +144,9 @@ vendor/firmware/fpctzappfingerprint.b03
 vendor/firmware/fpctzappfingerprint.mdt
 
 # NXP amplifier
-bin/fihnxptest
-etc/silence.wav
+lib/libFIHNxp.so
+lib/libtfa98xx_hal.so
+lib/libtfa98xx.so
 lib64/libFIHNxp.so
 lib64/libtfa98xx_hal.so
 lib64/libtfa98xx.so
