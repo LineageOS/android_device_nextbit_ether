@@ -1,0 +1,10 @@
+on post-fs-data
+    chown system system /sys/class/leds/nbq_wled/blink
+    chown system system /sys/class/leds/nbq_wled/brightness
+    chown system system /sys/class/leds/nbq_wled/duty_pcts
+    chown system system /sys/class/leds/nbq_wled/pause_lo
+    chown system system /sys/class/leds/nbq_wled/pause_hi
+    chown system system /sys/class/leds/nbq_wled/pwm_us
+    chown system system /sys/class/leds/nbq_wled/ramp_step_ms
+    chown system system /sys/class/leds/nbq_wled/start_idx
+

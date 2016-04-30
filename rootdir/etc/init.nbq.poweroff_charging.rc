@@ -1,0 +1,10 @@
+# when receieve charger tag, it needs to execute "power off charging" program
+on charger
+# power consumption
+	write /sys/devices/system/cpu/cpu1/online 0
+	write /sys/devices/system/cpu/cpu2/online 0
+	write /sys/devices/system/cpu/cpu3/online 0
+	write /sys/devices/system/cpu/cpu4/online 0
+	write /sys/devices/system/cpu/cpu5/online 0
+	write /sys/class/input/mouse0/device/touch_state 1
+	write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor powersave

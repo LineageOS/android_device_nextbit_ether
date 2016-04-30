@@ -1,0 +1,21 @@
+
+# msm specific files that need to be created on /data
+on post-fs-data
+    mkdir /data/nfc
+    mkdir /etc/param
+    start nfc-default-sh
+
+# permissions for NFC
+on boot
+    setprop ro.nfc.port "I2C"
+    chmod 0660 /dev/pn544
+    chown nfc nfc /dev/pn544
+	chmod 0666 /dev/fpc1020
+	chown system system /dev/fpc1020
+
+service nfc-default-sh /system/bin/sh /init.nfc_default.sh
+    disabled
+    class core
+    user root
+    oneshot
+

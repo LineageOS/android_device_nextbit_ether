@@ -1,0 +1,48 @@
+on init
+	chown root audio /dev/i2c-1
+	chmod 660 /dev/i2c-1
+
+service amp-sh /system/bin/sh /init.nbq.smartamp.sh
+	class core
+	user root
+	oneshot
+	disabled
+
+service amp-mode-sh /system/bin/sh /init.nbq.smartamp_mode.sh
+	disabled
+	class core
+	user root
+	oneshot
+
+on property:init.svc.bootanim=running
+	start amp-sh
+
+on property:audio.smartamp.mode=power_off
+	start amp-mode-sh
+
+on property:audio.smartamp.mode=power1_off
+	start amp-mode-sh
+
+on property:audio.smartamp.mode=power_on
+	start amp-mode-sh
+
+on property:audio.smartamp.mode=clk_off
+	start amp-mode-sh
+
+on property:audio.smartamp.mode=clk_on
+	start amp-mode-sh
+
+on property:audio.smartamp.mode=kill_tinyplay
+	start amp-mode-sh
+
+on property:audio.smartamp.mode=bypass
+	start amp-mode-sh
+
+on property:audio.smartamp.mode=playback
+	start amp-mode-sh
+
+on property:audio.smartamp.mode=keytone
+	start amp-mode-sh
+
+on property:audio.smartamp.mode=alarm
+	start amp-mode-sh
