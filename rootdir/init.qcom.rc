@@ -278,6 +278,8 @@ on post-fs-data
     mkdir /data/data/media 0770 media media
 
     #Create PERFD deamon related dirs
+    mkdir /data/misc/perfd 0755 root system
+    chmod 2755 /data/misc/perfd
     mkdir /data/system/perfd 0770 root system
     chmod 2770 /data/system/perfd
 
@@ -308,7 +310,7 @@ service ss_ramdump /system/bin/subsystem_ramdump
 service perfd /system/vendor/bin/perfd
    class main
    user root
-   socket perfd seqpacket 0666 root system
+   group system
    writepid /dev/cpuset/system-background/tasks
 
 on property:persist.sys.ssr.restart_level=*
