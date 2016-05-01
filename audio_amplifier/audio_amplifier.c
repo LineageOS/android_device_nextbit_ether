@@ -74,6 +74,17 @@ typedef struct tfa9887_amplifier {
     int preset;
 } tfa9887_amplifier_t;
 
+struct pcm_config pcm_config_low_latency = {
+    .channels = 2,
+    .rate = DEFAULT_OUTPUT_SAMPLING_RATE,
+    .period_size = LOW_LATENCY_OUTPUT_PERIOD_SIZE,
+    .period_count = LOW_LATENCY_OUTPUT_PERIOD_COUNT,
+    .format = PCM_FORMAT_S16_LE,
+    .start_threshold = LOW_LATENCY_OUTPUT_PERIOD_SIZE / 4,
+    .stop_threshold = INT_MAX,
+    .avail_min = LOW_LATENCY_OUTPUT_PERIOD_SIZE / 4,
+};
+
 #define MI2S_CLK_CTL "PRI_MI2S Clock"
 #define MI2S_MIXER "PRI_MI2S_RX Audio Mixer MultiMedia2"
 
@@ -112,25 +123,14 @@ void *write_dummy_data(void *param)
     char *buffer;
     int size;
     struct pcm *pcm;
-    struct pcm_config config;
     tfa9887_amplifier_t *tfa9887 = (tfa9887_amplifier_t *) param;
-
-    config.channels = 2;
-    config.rate = 48000;
-    config.period_size = 256;
-    config.period_count = 2;
-    config.format = PCM_FORMAT_S16_LE;
-    config.start_threshold = config.period_size * config.period_count - 1;
-    config.stop_threshold = UINT_MAX;
-    config.silence_threshold = 0;
-    config.avail_min = 1;
 
     if (mi2s_interface_en(true)) {
         ALOGE("Failed to enable %s", MI2S_MIXER);
         return NULL;
     }
 
-    pcm = pcm_open(CARD, DEVICE, PCM_OUT | PCM_MONOTONIC, &config);
+    pcm = pcm_open(CARD, DEVICE, PCM_OUT | PCM_MONOTONIC, &pcm_config_low_latency);
     if (!pcm || !pcm_is_ready(pcm)) {
         ALOGE("pcm_open failed: %s", pcm_get_error(pcm));
         if (pcm) {
@@ -139,7 +139,7 @@ void *write_dummy_data(void *param)
         goto err_disable_mi2s;
     }
 
-    size = DEEP_BUFFER_OUTPUT_PERIOD_SIZE * 8;
+    size = LOW_LATENCY_OUTPUT_PERIOD_SIZE * 2;
     buffer = calloc(size, 1);
     if (!buffer) {
         ALOGE("failed to allocate buffer");
