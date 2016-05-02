@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_9c7d5070",
+        "filename": "proprietary-files-qc.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 200,
+      "author": {
+        "id": 848
+      },
+      "writtenOn": "2016-05-02T14:36:24Z",
+      "side": 1,
+      "message": "Exists here, not in another .txt",
+      "range": {
+        "startLine": 200,
+        "startChar": 0,
+        "endLine": 200,
+        "endChar": 36
+      },
+      "revId": "d5c1671e80e7d6581754297edc0620db3e09d0fa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
