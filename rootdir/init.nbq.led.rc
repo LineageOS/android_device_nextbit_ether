@@ -8,3 +8,5 @@ on post-fs-data
     chown system system /sys/class/leds/nbq_wled/ramp_step_ms
     chown system system /sys/class/leds/nbq_wled/start_idx
 
+    chmod 660 /sys/class/leds/lp5523:channel0/device/leds_on_off
+    chown system system /sys/class/leds/lp5523:channel0/device/leds_on_off
