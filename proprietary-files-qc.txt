@@ -334,6 +334,14 @@ vendor/lib/libTimeService.so
 vendor/lib64/libTimeService.so
 -vendor/lib64/libtime_genoff.so
 
+# Widevine DRM
+lib/libdrmdecrypt.so
+vendor/lib/libwvdrm_L3.so
+vendor/lib/libwvm.so
+vendor/lib/libWVStreamControlAPI_L3.so
+vendor/lib/drm/libdrmwvmplugin.so
+vendor/lib/mediadrm/libwvdrmengine.so
+
 # Wifi
 bin/cnss-daemon
 bin/cnss_diag
