@@ -18,4 +18,6 @@
     <bool name="config_proximityCheckOnWake">true</bool>
     <bool name="config_proximityCheckOnWakeEnabledByDefault">false</bool>
 
+    <bool name="config_useBatteryLevelAsLedBrightness">true</bool>
+
 </resources>
