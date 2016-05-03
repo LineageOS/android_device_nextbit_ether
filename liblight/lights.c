@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "lights"
+#define LOG_NDEBUG 0
 #include <cutils/log.h>
 
 #include <stdint.h>
@@ -36,7 +36,6 @@ static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 static struct light_state_t g_attention;
 static struct light_state_t g_notification;
-static struct light_state_t g_battery;
 
 char const*const WHITE_LED_FILE
         = "/sys/class/leds/nbq_wled/brightness";
@@ -61,6 +60,12 @@ char const*const WHITE_RAMP_STEP_MS_FILE
 
 char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
+
+char const*const SEGMENTED_LED_FILE
+        = "/sys/class/leds/lp5523:channel0/device/leds_on_off";
+
+#define NUM_LED_SEGMENTS 4
+#define SEGMENT_BRIGHTNESS 100
 
 #define RAMP_SIZE 8
 static int BRIGHTNESS_RAMP[RAMP_SIZE]
@@ -112,13 +117,12 @@ write_str(char const* path, char* value)
         ssize_t amt = write(fd, buffer, (size_t)bytes);
         close(fd);
         return amt == -1 ? -errno : 0;
-    } else {
-        if (already_warned == 0) {
-            ALOGE("write_int failed to open %s\n", path);
-            already_warned = 1;
-        }
-        return -errno;
     }
+    if (already_warned == 0) {
+        ALOGE("write_int failed to open %s\n", path);
+        already_warned = 1;
+    }
+    return -errno;
 }
 
 static int
@@ -134,6 +138,57 @@ rgb_to_brightness(struct light_state_t const* state)
     return ((77*((color>>16)&0x00ff))
             + (150*((color>>8)&0x00ff)) + (29*(color&0x00ff))) >> 8;
 }
+
+static int
+set_light_battery(struct light_device_t* dev,
+        struct light_state_t const* state)
+{
+    int brightness = 0;
+    char buf[20];
+	int err = 0;
+
+    if (!dev)
+        return -1;
+
+	pthread_mutex_lock(&g_lock);
+
+    // framework sends the level as the alpha component of color
+    int level = (state->color & 0xff);
+    ALOGV("%s: color=%x level=%d", __func__, state->color, level);
+
+    // sanity check
+    if (level < 0)
+        level = 0;
+    else if (level > 100)
+        level = 100;
+
+    // level is a percentage, so find the number of bars which
+    // should be lit, and light 'em up
+    int bars = 0;
+    if (level > 90)
+        bars = 4;
+    else if (level > 60)
+        bars = 3;
+    else if (level > 30)
+        bars = 2;
+    else if (level > 5)
+        bars = 1;
+
+    for (int i = 1; i <= NUM_LED_SEGMENTS; i++) {
+        brightness = (bars >= i) ? SEGMENT_BRIGHTNESS : 0;
+        snprintf(buf, sizeof(buf), "%d %d", i, brightness);
+        ALOGV("%s: %d = %s (bars=%d)", __func__, i, buf, bars);
+        err = write_str(SEGMENTED_LED_FILE, buf);
+		if (err < 0) {
+		    ALOGD("%s failed to write LED segment %s err=%d", __func__, buf, err);
+            break;
+        }
+    }
+
+	pthread_mutex_unlock(&g_lock);
+    return err;
+}
+
 
 static int
 set_light_backlight(struct light_device_t* dev,
@@ -240,20 +295,7 @@ handle_speaker_light_locked(struct light_device_t* dev)
         set_speaker_light_locked(dev, &g_attention);
     } else if (is_lit(&g_notification)) {
         set_speaker_light_locked(dev, &g_notification);
-    } else {
-        set_speaker_light_locked(dev, &g_battery);
     }
-}
-
-static int
-set_light_battery(struct light_device_t* dev,
-        struct light_state_t const* state)
-{
-    pthread_mutex_lock(&g_lock);
-    g_battery = *state;
-    handle_speaker_light_locked(dev);
-    pthread_mutex_unlock(&g_lock);
-    return 0;
 }
 
 static int
@@ -344,7 +386,7 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
     .version_major = 1,
     .version_minor = 0,
     .id = LIGHTS_HARDWARE_MODULE_ID,
-    .name = "Lights Module",
+    .name = "Ether Lights Module",
     .author = "The CyanogenMod Project",
     .methods = &lights_module_methods,
 };
