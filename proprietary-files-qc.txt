@@ -263,6 +263,7 @@ etc/permissions/qcrilhook.xml
 etc/permissions/telephonyservice.xml
 -framework/qcnvitems.jar
 -framework/qcrilhook.jar
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/qti
 vendor/lib/liblqe.so
 -vendor/lib/libmdmdetect.so
@@ -283,8 +284,6 @@ bin/imscmservice
 bin/imsdatadaemon
 bin/imsqmidaemon
 bin/ims_rtp_daemon
--app/RCSBootstraputil/RCSBootstraputil.apk
--app/RcsImsBootstraputil/RcsImsBootstraputil.apk
 vendor/lib64/lib-dplmedia.so
 vendor/lib64/libimscamera_jni.so
 vendor/lib64/libimsmedia_jni.so
