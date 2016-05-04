@@ -41,10 +41,16 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>40</item>
-        <item>600</item>
-        <item>1100</item>
-        <item>10000</item>
+        <item>1</item>        <!-- pitch black -->
+        <item>5</item>        <!-- dark indoor -->
+        <item>10</item>       <!-- twilight -->
+        <item>50</item>       <!-- dim indoor -->
+        <item>100</item>      <!-- home -->
+        <item>300</item>      <!-- office -->
+        <item>500</item>      <!-- sunrise -->
+        <item>1000</item>     <!-- overcast -->
+        <item>3000</item>     <!-- indirect sun -->
+        <item>10000</item>    <!-- daylight -->
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -52,11 +58,17 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>48</item>
-        <item>100</item>
-        <item>180</item>
-        <item>214</item>
-        <item>214</item>
+        <item>16</item>        <!-- pitch black, 0-1, 30cd/m2  -->
+        <item>20</item>
+        <item>24</item>       <!-- twilight, 2-10, 45/m2 -->
+        <item>31</item>       <!-- dim indoor, 11-50, 60cd/m2 -->
+        <item>48</item>      <!-- indoor home, 51-100, 90cd/m2 -->
+        <item>74</item>      <!-- indoor office 101-300, 140cd/m2 -->
+        <item>107</item>      <!-- sunrise, 301-500, 200cd/m2 -->
+        <item>152</item>     <!-- overcast, 501-1000, 280cd/m2 -->
+        <item>194</item>     <!-- indirect sun, 1001-3000, 350cd/m2  -->
+        <item>254</item>    <!-- daylight, 3001-10000, 500cd/m2 -->
+		<item>255</item>	  <!-- direct sun, 10001+ -->
     </integer-array>
 
     <!-- Array of output values for button backlight corresponding to the LUX values
@@ -69,14 +81,20 @@
         <item>0</item>
         <item>0</item>
         <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
     </integer-array>
 
     <!-- Minimum screen brightness allowed by the power manager. -->
-    <integer name="config_screenBrightnessDim">10</integer>
+    <integer name="config_screenBrightnessDim">5</integer>
 
     <!-- Default screen brightness setting.
          Must be in the range specified by minimum and maximum. -->
-    <integer name="config_screenBrightnessSettingDefault">78</integer>
+    <integer name="config_screenBrightnessSettingDefault">55</integer>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
