@@ -249,6 +249,12 @@ set_speaker_light_locked(struct light_device_t* dev,
         return -1;
     }
 
+    if (state == NULL) {
+        write_int(WHITE_BLINK_FILE, 0);
+        write_int(WHITE_LED_FILE, 0);
+        return 0;
+    }
+
     switch (state->flashMode) {
         case LIGHT_FLASH_TIMED:
             onMS = state->flashOnMS;
@@ -303,6 +309,7 @@ set_speaker_light_locked(struct light_device_t* dev,
 static void
 handle_speaker_light_locked(struct light_device_t* dev)
 {
+    set_speaker_light_locked(dev, NULL);
     if (is_lit(&g_attention)) {
         set_speaker_light_locked(dev, &g_attention);
     } else if (is_lit(&g_notification)) {
