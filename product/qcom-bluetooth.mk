@@ -1,3 +1,6 @@
+PRODUCT_PACKAGES += \
+    init.qcom.bt.sh
+
 PRODUCT_PROPERTY_OVERRIDES += \
     bluetooth.enable_timeout_ms=12000 \
     bluetooth.hfp.client=1 \
