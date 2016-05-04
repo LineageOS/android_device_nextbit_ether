@@ -270,7 +270,8 @@ set_speaker_light_locked(struct light_device_t* dev,
     ALOGV("set_speaker_light_locked mode %d, color=%08X, onMS=%d, offMS=%d\n",
             state->flashMode, state->color, onMS, offMS);
 
-    white = state->color & 0xFF;
+    // take the alpha value since we support custom brightness
+    white = (state->color & 0xFF000000) >> 24;
     blink = onMS > 0 && offMS > 0;
 
     // disable all blinking to start
