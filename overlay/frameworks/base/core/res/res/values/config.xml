@@ -41,10 +41,16 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>40</item>
-        <item>600</item>
-        <item>1100</item>
-        <item>10000</item>
+        <item>1</item>        <!-- pitch black -->
+        <item>5</item>        <!-- dark indoor -->
+        <item>10</item>       <!-- twilight -->
+        <item>50</item>       <!-- dim indoor -->
+        <item>100</item>      <!-- home -->
+        <item>300</item>      <!-- office -->
+        <item>500</item>      <!-- sunrise -->
+        <item>1000</item>     <!-- overcast -->
+        <item>3000</item>     <!-- indirect sun -->
+        <item>10000</item>    <!-- daylight -->
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -52,11 +58,17 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
+        <item>16</item>
+        <item>20</item>
+        <item>24</item>
+        <item>31</item>
         <item>48</item>
-        <item>100</item>
-        <item>180</item>
-        <item>214</item>
-        <item>214</item>
+        <item>74</item>
+        <item>107</item>
+        <item>152</item>
+        <item>194</item>
+        <item>254</item>
+        <item>255</item>
     </integer-array>
 
     <!-- Array of output values for button backlight corresponding to the LUX values
@@ -69,14 +81,20 @@
         <item>0</item>
         <item>0</item>
         <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
+        <item>0</item>
     </integer-array>
 
     <!-- Minimum screen brightness allowed by the power manager. -->
-    <integer name="config_screenBrightnessDim">10</integer>
+    <integer name="config_screenBrightnessDim">5</integer>
 
     <!-- Default screen brightness setting.
          Must be in the range specified by minimum and maximum. -->
-    <integer name="config_screenBrightnessSettingDefault">78</integer>
+    <integer name="config_screenBrightnessSettingDefault">55</integer>
 
     <!-- Minimum screen brightness setting allowed by the power manager.
          The user is forbidden from setting the brightness below this level. -->
