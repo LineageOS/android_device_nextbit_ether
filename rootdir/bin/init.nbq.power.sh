@@ -108,6 +108,21 @@ write /sys/module/msm_performance/parameters/cpu_max_freq "4:4294967295 5:429496
 write /sys/module/cpu_boost/parameters/input_boost_freq "0:1248000"
 write /sys/module/cpu_boost/parameters/input_boost_ms 40
 
+# core-ctl, if available
+if [ -e /system/lib/modules/core_ctl.ko ]; then
+    insmod /system/lib/modules/core_ctl.ko
+    if [ $? -eq 0 ]; then
+        restorecon -R /sys/devices/system/cpu/cpu0/core_ctl/
+        restorecon -R /sys/devices/system/cpu/cpu4/core_ctl/
+        write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 2
+        write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 60
+        write /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres 30
+        write /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms 100
+        write /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster 1
+        write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 2
+    fi
+fi
+
 # Setting B.L scheduler parameters
 write /proc/sys/kernel/sched_migration_fixup 1
 write /proc/sys/kernel/sched_small_task 30
@@ -124,11 +139,23 @@ write /sys/class/net/rmnet_ipa0/queues/rx-0/rps_cpus 8
 # android background processes are set to nice 10. Never schedule these on the a57s.
 write /proc/sys/kernel/sched_upmigrate_min_nice 9
 
-get-set-forall  /sys/class/devfreq/qcom,cpubw*/governor bw_hwmon
-get-set-forall  /sys/class/devfreq/qcom,mincpubw*/governor cpufreq
+# devfreq
+get-set-forall /sys/class/devfreq/qcom,cpubw*/governor bw_hwmon
+restorecon -R /sys/class/devfreq/qcom,cpubw*
+get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/sample_ms 4
+get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/io_percent 34
+get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/hist_memory 20
+get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/hyst_length 10
+get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/low_power_ceil_mbps 0
+get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/low_power_io_percent 34
+get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/low_power_delay 20
+get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/guard_band_mbps 0
+get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/up_scale 250
+get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/idle_mbps 1600
+get-set-forall /sys/class/devfreq/qcom,mincpubw*/governor cpufreq
 
 # Disable sched_boost
 write /proc/sys/kernel/sched_boost 0
-# set GPU default power level to 5 (180MHz) instead of 4 (305MHz)
 
+# set GPU default power level to 5 (180MHz) instead of 4 (305MHz)
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
