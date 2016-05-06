@@ -170,6 +170,9 @@ on boot
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
 
+    #Create IOP  deamon related dirs
+    mkdir /data/misc/iop 0770 root system
+
     # Mark the copy complete flag to not completed
     write /data/misc/radio/copy_complete 0
     chown radio radio /data/misc/radio/copy_complete
@@ -313,6 +316,12 @@ service perfd /system/vendor/bin/perfd
    group system
    writepid /dev/cpuset/system-background/tasks
 
+service iop /system/bin/iop
+    class main
+    user root
+    group root
+    writepid /dev/cpuset/system-background/tasks
+
 on property:persist.sys.ssr.restart_level=*
     start ssr_setup
 
@@ -440,18 +449,6 @@ service start_hci_filter /system/bin/wcnss_filter
     class late_start
     user bluetooth
     group bluetooth qcom_diag
-    disabled
-
-on property:wc_transport.start_root=true
-    start hci_filter_root
-
-on property:wc_transport.start_root=false
-    stop hci_filter_root
-
-service hci_filter_root /system/bin/wcnss_filter
-    class late_start
-    user bluetooth
-    group bluetooth qcom_diag system
     disabled
 
 on property:wc_transport.start_root=true

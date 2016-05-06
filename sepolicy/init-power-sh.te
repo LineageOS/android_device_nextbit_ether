@@ -23,3 +23,6 @@ allow init-power-sh sysfs_devices_system_cpu:{ dir file lnk_file } relabelto;
 
 # execute toybox/toolbox
 allow init-power-sh toolbox_exec:file rx_file_perms;
+
+# load core_ctl
+allow init-power-sh self:capability sys_module;
