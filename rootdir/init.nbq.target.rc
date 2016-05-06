@@ -24,10 +24,8 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-import /init.fih.nbq.rc
 import /init.nbq.charger.rc
 import /init.nbq.fingerprint.rc
-import /init.nbq.fs.rc
 import /init.nbq.led.rc
 import /init.nbq.nfc.rc
 import /init.nbq.poweroff_charging.rc

@@ -92,6 +92,7 @@ EOF
 # Pick up overlay for features that depend on non-open-source files
 PRODUCT_PACKAGES += \\
     CNEService \\
+    fastdormancy \\
     ims \\
     imssettings \\
     shutdownlistener \\
@@ -211,6 +212,17 @@ LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)
 LOCAL_MODULE_CLASS := APPS
 LOCAL_CERTIFICATE := platform
 include \$(BUILD_PREBUILT)
+
+include \$(CLEAR_VARS)
+LOCAL_MODULE := fastdormancy
+LOCAL_MODULE_OWNER := $VENDOR
+LOCAL_SRC_FILES := proprietary/app/fastdormancy/fastdormancy.apk
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)
+LOCAL_MODULE_CLASS := APPS
+LOCAL_CERTIFICATE := platform
+include \$(BUILD_PREBUILT)
+
 
 include \$(CLEAR_VARS)
 LOCAL_MODULE := qcrilmsgtunnel
