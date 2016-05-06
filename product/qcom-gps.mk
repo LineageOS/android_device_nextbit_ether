@@ -2,6 +2,7 @@ PRODUCT_PACKAGES += \
     flp.conf \
     gps.conf \
     izat.conf \
+    lowi.conf \
     sap.conf
 
 PRODUCT_PROPERTY_OVERRIDES += \
