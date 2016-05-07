@@ -48,6 +48,7 @@ static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 static struct light_state_t g_attention;
 static struct light_state_t g_notification;
+static int g_battery_bars = -1;
 
 char const*const WHITE_LED_FILE
         = "/sys/class/leds/nbq_wled/brightness";
@@ -157,15 +158,15 @@ set_light_battery(struct light_device_t* dev,
 {
     int brightness = 0;
     char buf[20];
-	int err = 0;
+    int err = 0;
 
     if (!dev)
         return -1;
 
-	pthread_mutex_lock(&g_lock);
+    pthread_mutex_lock(&g_lock);
 
     // framework sends the level as the lower 8 bits of color
-    int level = (state->color & 0xff);
+    int level = (state->color & 0xFF000000) >> 24;
     ALOGV("%s: color=%x level=%d", __func__, state->color, level);
 
     // sanity check
@@ -177,27 +178,34 @@ set_light_battery(struct light_device_t* dev,
     // level is a percentage, so find the number of bars which
     // should be lit, and light 'em up
     int bars = 0;
-    if (level > 90)
-        bars = 4;
-    else if (level > 60)
-        bars = 3;
-    else if (level > 30)
-        bars = 2;
-    else if (level > 5)
-        bars = 1;
+    if (is_lit(state)) {
+        if (level > 90)
+            bars = 4;
+        else if (level > 60)
+            bars = 3;
+        else if (level > 30)
+            bars = 2;
+        else if (level > 5)
+            bars = 1;
+    }
+
+    if (bars == g_battery_bars)
+        goto out;
 
     for (int i = 1; i <= NUM_LED_SEGMENTS; i++) {
         brightness = (bars >= i) ? SEGMENT_BRIGHTNESS : 0;
         snprintf(buf, sizeof(buf), "%d %d", i, brightness);
         ALOGV("%s: %d = %s (bars=%d)", __func__, i, buf, bars);
         err = write_str(SEGMENTED_LED_FILE, buf);
-		if (err < 0) {
-		    ALOGD("%s failed to write LED segment %s err=%d", __func__, buf, err);
+        if (err < 0) {
+            ALOGD("%s failed to write LED segment %s err=%d", __func__, buf, err);
             break;
         }
     }
+    g_battery_bars = bars;
 
-	pthread_mutex_unlock(&g_lock);
+out:
+    pthread_mutex_unlock(&g_lock);
     return err;
 }
 
@@ -299,12 +307,12 @@ set_speaker_light_locked(struct light_device_t* dev,
         // start the party
         write_int(WHITE_BLINK_FILE, 1);
 
-	} else {
+    } else {
 
-		write_int(WHITE_LED_FILE, white);
-	}
+        write_int(WHITE_LED_FILE, white);
+    }
 
-	return 0;
+    return 0;
 }
 
 static void
