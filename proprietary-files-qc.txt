@@ -35,6 +35,7 @@ etc/permissions/ConnectivityExt.xml
 etc/permissions/cneapiclient.xml
 etc/permissions/com.quicinc.cne.xml
 framework/cneapiclient.jar
+framework/com.quicinc.cne.jar
 framework/ConnectivityExt.jar
 vendor/lib/libNimsWrap.so
 vendor/lib/libcne.so
