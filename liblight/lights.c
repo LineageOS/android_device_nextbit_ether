@@ -165,7 +165,7 @@ set_light_battery(struct light_device_t* dev,
 	pthread_mutex_lock(&g_lock);
 
     // framework sends the level as the lower 8 bits of color
-    int level = (state->color & 0xff);
+    int level = (state->color & 0xFF000000) >> 24;
     ALOGV("%s: color=%x level=%d", __func__, state->color, level);
 
     // sanity check
