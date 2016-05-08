@@ -32,9 +32,6 @@ on early-init
     mkdir /bt_firmware 0771 system system
     symlink /data/tombstones /tombstones
 
-on post-fs
-    export LD_PRELOAD libNimsWrap.so
-
 on fs
     wait /dev/block/platform/soc.0/f9824900.sdhci/mmcblk0
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
