@@ -26,22 +26,27 @@
 <!-- IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.                          -->
 <audio_platform_info>
     <acdb_ids>
+        <device name="SND_DEVICE_IN_CAMCORDER_STEREO_DMIC" acdb_id="4" />
         <device name="SND_DEVICE_IN_SPEAKER_DMIC" acdb_id="42" />
         <device name="SND_DEVICE_IN_SPEAKER_DMIC_AEC" acdb_id="112" />
         <device name="SND_DEVICE_IN_SPEAKER_DMIC_NS" acdb_id="113" />
         <device name="SND_DEVICE_IN_SPEAKER_DMIC_AEC_NS" acdb_id="114" />
 
         <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="15" />
-
-        <device name="SND_DEVICE_OUT_SPEAKER_PROTECTED" acdb_id="124"/>
+        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" acdb_id="15" />
     </acdb_ids>
     <bit_width_configs>
-        <device name="SND_DEVICE_OUT_SPEAKER" bit_width="24"/>
+        <device name="SND_DEVICE_OUT_SPEAKER" bit_width="24" />
+        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" bit_width="24" />
     </bit_width_configs>
     <backend_names>
-        <device name="SND_DEVICE_OUT_SPEAKER" backend="speaker" />
-        <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES" backend="speaker-and-headphones" />
-        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" backend="speaker" />
+        <device name="SND_DEVICE_OUT_SPEAKER" backend="speaker" interface="PRI_MI2S_RX" />
+        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" backend="speaker" interface="PRI_MI2S_RX" />
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES" backend="speaker-and-headphones" interface="PRI_MI2S_RX-and-SLIMBUS_0_RX" />
+        <device name="SND_DEVICE_OUT_SPEAKER_AND_LINE" backend="speaker-and-headphones" interface="PRI_MI2S_RX-and-SLIMBUS_0_RX" />
     </backend_names>
+    <device_names>
+        <device name="SND_DEVICE_IN_CAMCORDER_STEREO_DMIC" alias="speaker-stereo-dmic-ef" />
+    </device_names>
 </audio_platform_info>
 
