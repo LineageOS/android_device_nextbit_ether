@@ -72,21 +72,46 @@ typedef struct tfa9887_amplifier {
     int (*switch_para)(int);
     bool on;
     int preset;
+    bool preset_changed;
+	uint32_t device;
 } tfa9887_amplifier_t;
 
-struct pcm_config pcm_config_low_latency = {
+struct pcm_config pcm_config_deep_buffer = {
     .channels = 2,
     .rate = DEFAULT_OUTPUT_SAMPLING_RATE,
-    .period_size = LOW_LATENCY_OUTPUT_PERIOD_SIZE,
-    .period_count = LOW_LATENCY_OUTPUT_PERIOD_COUNT,
+    .period_size = DEEP_BUFFER_OUTPUT_PERIOD_SIZE,
+    .period_count = DEEP_BUFFER_OUTPUT_PERIOD_COUNT,
     .format = PCM_FORMAT_S16_LE,
-    .start_threshold = LOW_LATENCY_OUTPUT_PERIOD_SIZE / 4,
+    .start_threshold = DEEP_BUFFER_OUTPUT_PERIOD_COUNT / 4,
     .stop_threshold = INT_MAX,
-    .avail_min = LOW_LATENCY_OUTPUT_PERIOD_SIZE / 4,
+    .avail_min = DEEP_BUFFER_OUTPUT_PERIOD_SIZE / 4,
 };
 
 #define MI2S_CLK_CTL "PRI_MI2S Clock"
 #define MI2S_MIXER "PRI_MI2S_RX Audio Mixer MultiMedia2"
+
+static int is_speaker(uint32_t snd_device) {
+    int speaker = 0;
+
+    switch (snd_device) {
+        case SND_DEVICE_OUT_SPEAKER:
+        case SND_DEVICE_OUT_SPEAKER_REVERSE:
+        case SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES:
+        case SND_DEVICE_OUT_SPEAKER_AND_LINE:
+        case SND_DEVICE_OUT_VOICE_SPEAKER:
+        case SND_DEVICE_OUT_SPEAKER_AND_HDMI:
+        case SND_DEVICE_OUT_SPEAKER_AND_USB_HEADSET:
+        case SND_DEVICE_OUT_SPEAKER_AND_ANC_HEADSET:
+            speaker = 1;
+            break;
+    }
+
+    return speaker;
+}
+
+static int is_voice_speaker(uint32_t snd_device) {
+    return snd_device == SND_DEVICE_OUT_VOICE_SPEAKER;
+}
 
 static int mi2s_interface_en(bool enable)
 {
@@ -130,7 +155,7 @@ void *write_dummy_data(void *param)
         return NULL;
     }
 
-    pcm = pcm_open(CARD, DEVICE, PCM_OUT | PCM_MONOTONIC, &pcm_config_low_latency);
+    pcm = pcm_open(CARD, DEVICE, PCM_OUT | PCM_MONOTONIC, &pcm_config_deep_buffer);
     if (!pcm || !pcm_is_ready(pcm)) {
         ALOGE("pcm_open failed: %s", pcm_get_error(pcm));
         if (pcm) {
@@ -139,7 +164,7 @@ void *write_dummy_data(void *param)
         goto err_disable_mi2s;
     }
 
-    size = LOW_LATENCY_OUTPUT_PERIOD_SIZE * 2;
+    size = DEEP_BUFFER_OUTPUT_PERIOD_SIZE * 8;
     buffer = calloc(size, 1);
     if (!buffer) {
         ALOGE("failed to allocate buffer");
@@ -199,7 +224,6 @@ static int amp_calibrate(tfa9887_amplifier_t *tfa9887)
     }
     pthread_mutex_unlock(&tfa9887->mutex);
     tfa9887->calibrate();
-    tfa9887->switch_para(PRESET_PLAYBACK);
     tfa9887->calibrating = false;
     pthread_join(write_thread, NULL);
     return 0;
@@ -207,35 +231,37 @@ static int amp_calibrate(tfa9887_amplifier_t *tfa9887)
 
 static int amp_set_mode(struct amplifier_device *device, audio_mode_t mode)
 {
-    pthread_t write_thread;
     int preset = PRESET_BYPASS;
     tfa9887_amplifier_t *tfa9887 = (tfa9887_amplifier_t *) device;
 
-    ALOGV("%s: mode=%d", __func__, mode);
-
     pthread_mutex_lock(&tfa9887->mutex);
+
     if (mode == AUDIO_MODE_NORMAL)
         preset = PRESET_PLAYBACK;
     else if (mode == AUDIO_MODE_RINGTONE)
         preset = PRESET_RINGTONE;
 
-    if (preset == tfa9887->preset) {
-        pthread_mutex_unlock(&tfa9887->mutex);
-        return 0;
-    }
+    ALOGV("%s: mode=%d old preset=%d new preset=%d", __func__, mode, tfa9887->preset, preset);
 
-    ALOGV("%s: mode=%d set preset=%d", __func__, mode, preset);
+    if (preset == tfa9887->preset) {
+        goto out;
+    }
 
     tfa9887->preset = preset;
-    tfa9887->calibrating = true;
-    pthread_create(&write_thread, NULL, write_dummy_data, tfa9887);
-    while(!tfa9887->writing) {
-        pthread_cond_wait(&tfa9887->cond, &tfa9887->mutex);
-    }
+    tfa9887->preset_changed = true;
+
+out:
     pthread_mutex_unlock(&tfa9887->mutex);
-    tfa9887->switch_para(preset);
-    tfa9887->calibrating = false;
-    pthread_join(write_thread, NULL);
+    return 0;
+}
+
+static int amp_enable_output_devices(struct amplifier_device *device,
+		uint32_t devices, bool enable __unused) {
+    tfa9887_amplifier_t *tfa9887 = (tfa9887_amplifier_t *) device;
+
+    pthread_mutex_lock(&tfa9887->mutex);
+	tfa9887->device = devices;
+    pthread_mutex_unlock(&tfa9887->mutex);
     return 0;
 }
 
@@ -256,7 +282,12 @@ static void *amp_watch(void *param)
             if (ev.value.enumerated.item[0]) {
                 tfa9887->speaker_on();
                 tfa9887->on = true;
-            } else {
+
+                if (tfa9887->preset_changed) {
+                    tfa9887->switch_para(tfa9887->preset);
+                    tfa9887->preset_changed = false;
+                }
+            } else if (tfa9887->on) {
                 tfa9887->speaker_off();
                 tfa9887->on = false;
             }
@@ -355,8 +386,12 @@ static int amp_module_open(const hw_module_t *module, const char *name,
     tfa9887->amp.common.version = AMPLIFIER_DEVICE_API_VERSION_2_0;
     tfa9887->amp.common.close = amp_dev_close;
     tfa9887->amp.set_mode = amp_set_mode;
+    tfa9887->amp.enable_output_devices = amp_enable_output_devices;
+
     tfa9887->on = false;
-    tfa9887->preset = PRESET_BYPASS;
+    tfa9887->preset = -1;
+    tfa9887->device = -1;
+    tfa9887->preset_changed = false;
 
     tfa9887->lib_ptr = dlopen("libFIHNxp.so", RTLD_NOW);
     if (!tfa9887->lib_ptr) {
@@ -385,6 +420,7 @@ static int amp_module_open(const hw_module_t *module, const char *name,
 
     amp_calibrate(tfa9887);
     amp_init(tfa9887);
+    amp_set_mode((struct amplifier_device *)tfa9887, AUDIO_MODE_NORMAL);
 
     *device = (hw_device_t *) tfa9887;
 
