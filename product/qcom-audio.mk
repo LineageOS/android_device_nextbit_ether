@@ -32,13 +32,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qc.sdk.audio.ssr=false \
     persist.audio.ssr.3mic=false
 
-# fluence multi-mic solution
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qc.sdk.audio.fluencetype=none \
-    persist.audio.fluence.voicecall=true \
-    persist.audio.fluence.voicerec=false \
-    persist.audio.fluence.speaker=true
-
 # offload settings
 PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.gapless.enabled=true \
