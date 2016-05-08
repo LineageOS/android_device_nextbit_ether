@@ -72,6 +72,8 @@ typedef struct tfa9887_amplifier {
     int (*switch_para)(int);
     bool on;
     int preset;
+    bool preset_changed;
+	uint32_t device;
 } tfa9887_amplifier_t;
 
 struct pcm_config pcm_config_low_latency = {
@@ -199,7 +201,6 @@ static int amp_calibrate(tfa9887_amplifier_t *tfa9887)
     }
     pthread_mutex_unlock(&tfa9887->mutex);
     tfa9887->calibrate();
-    tfa9887->switch_para(PRESET_PLAYBACK);
     tfa9887->calibrating = false;
     pthread_join(write_thread, NULL);
     return 0;
@@ -207,35 +208,27 @@ static int amp_calibrate(tfa9887_amplifier_t *tfa9887)
 
 static int amp_set_mode(struct amplifier_device *device, audio_mode_t mode)
 {
-    pthread_t write_thread;
     int preset = PRESET_BYPASS;
     tfa9887_amplifier_t *tfa9887 = (tfa9887_amplifier_t *) device;
 
-    ALOGV("%s: mode=%d", __func__, mode);
-
     pthread_mutex_lock(&tfa9887->mutex);
+
     if (mode == AUDIO_MODE_NORMAL)
         preset = PRESET_PLAYBACK;
     else if (mode == AUDIO_MODE_RINGTONE)
         preset = PRESET_RINGTONE;
 
-    if (preset == tfa9887->preset) {
-        pthread_mutex_unlock(&tfa9887->mutex);
-        return 0;
-    }
+    ALOGV("%s: mode=%d old preset=%d new preset=%d", __func__, mode, tfa9887->preset, preset);
 
-    ALOGV("%s: mode=%d set preset=%d", __func__, mode, preset);
+    if (preset == tfa9887->preset) {
+        goto out;
+    }
 
     tfa9887->preset = preset;
-    tfa9887->calibrating = true;
-    pthread_create(&write_thread, NULL, write_dummy_data, tfa9887);
-    while(!tfa9887->writing) {
-        pthread_cond_wait(&tfa9887->cond, &tfa9887->mutex);
-    }
+    tfa9887->preset_changed = true;
+
+out:
     pthread_mutex_unlock(&tfa9887->mutex);
-    tfa9887->switch_para(preset);
-    tfa9887->calibrating = false;
-    pthread_join(write_thread, NULL);
     return 0;
 }
 
@@ -254,6 +247,10 @@ static void *amp_watch(void *param)
             ALOGV("%s %s event = %d!", __func__, MI2S_CLK_CTL, ev.value.enumerated.item[0]);
             pthread_mutex_lock(&tfa9887->mutex);
             if (ev.value.enumerated.item[0]) {
+                if (tfa9887->preset_changed) {
+                    tfa9887->switch_para(tfa9887->preset);
+                    tfa9887->preset_changed = false;
+                }
                 tfa9887->speaker_on();
                 tfa9887->on = true;
             } else {
@@ -355,8 +352,10 @@ static int amp_module_open(const hw_module_t *module, const char *name,
     tfa9887->amp.common.version = AMPLIFIER_DEVICE_API_VERSION_2_0;
     tfa9887->amp.common.close = amp_dev_close;
     tfa9887->amp.set_mode = amp_set_mode;
+
     tfa9887->on = false;
-    tfa9887->preset = PRESET_BYPASS;
+    tfa9887->preset = -1;
+    tfa9887->preset_changed = false;
 
     tfa9887->lib_ptr = dlopen("libFIHNxp.so", RTLD_NOW);
     if (!tfa9887->lib_ptr) {
@@ -385,6 +384,7 @@ static int amp_module_open(const hw_module_t *module, const char *name,
 
     amp_calibrate(tfa9887);
     amp_init(tfa9887);
+    amp_set_mode((struct amplifier_device *)tfa9887, AUDIO_MODE_NORMAL);
 
     *device = (hw_device_t *) tfa9887;
 
