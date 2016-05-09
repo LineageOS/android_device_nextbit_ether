@@ -46,3 +46,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.audio.fluence.voicerec=false \
     persist.audio.fluence.speaker=true
 
+# stereo camcorder
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.audio.camcorder.stereo=true
+
