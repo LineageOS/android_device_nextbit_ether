@@ -41,10 +41,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # fluence multi-mic solution
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qc.sdk.audio.fluencetype=broadside \
+    ro.qc.sdk.audio.fluencetype=fluence \
     persist.audio.fluence.voicecall=true \
     persist.audio.fluence.voicerec=false \
-    persist.audio.fluence.speaker=true
+    persist.audio.fluence.speaker=true \
+    persist.audio.fluence.mode=broadside
 
 # stereo camcorder
 PRODUCT_PROPERTY_OVERRIDES += \
