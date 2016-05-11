@@ -90,6 +90,8 @@ on boot
     mkdir /dev/socket/qmux_nfc 0770 nfc nfc
     chmod 2770 /dev/socket/qmux_nfc
 
+    mkdir /persist/bluetooth 0770 bluetooth bluetooth
+
     #Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
 
@@ -409,6 +411,7 @@ service qcom-c_main-sh /system/bin/sh /init.class_main.sh
 
 on property:vold.decrypt=trigger_restart_framework
     start qcom-c_main-sh
+    start config_bt_addr
     start config_bluetooth
 
 on property:persist.env.fastdorm.enabled=true
@@ -436,9 +439,11 @@ service rfs_access /system/bin/rfs_access
    user root
    group system net_raw
 
-service tftp_server /system/bin/tftp_server
-   class core
-   user root
+service config_bt_addr /system/bin/btnvtool -O
+    class core
+    user bluetooth
+    group bluetooth radio
+    oneshot
 
 on property:wc_transport.start_hci=true
     start start_hci_filter
@@ -637,7 +642,7 @@ service iprenew_p2p /system/bin/dhcpcd -n
     disabled
     oneshot
 
-service cnss_diag /system/bin/cnss_diag --q
+service cnss_diag /system/bin/cnss_diag -q -f
     class main
     user root
     group root
@@ -775,7 +780,7 @@ service ril-daemon2 /system/bin/rild -c 2
     socket rild-debug2 stream 660 radio system
     user root
     disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw diag diag log
+    group radio cache inet misc audio sdcard_r sdcard_rw qcom_diag diag log
 
 service ril-daemon3 /system/bin/rild -c 3
     class main
@@ -783,7 +788,7 @@ service ril-daemon3 /system/bin/rild -c 3
     socket rild-debug3 stream 660 radio system
     user root
     disabled
-    group radio cache inet misc audio sdcard_r sdcard_rw diag diag log
+    group radio cache inet misc audio sdcard_r sdcard_rw qcom_diag diag log
 
 service profiler_daemon /system/bin/profiler_daemon
     class late_start
@@ -799,6 +804,7 @@ service hcidump /system/bin/sh /system/etc/hcidump.sh
 
 service charger /charger
     class charger
+    seclabel u:r:healthd:s0
 
 service ssr_diag /system/bin/ssr_diag
     class late_start
