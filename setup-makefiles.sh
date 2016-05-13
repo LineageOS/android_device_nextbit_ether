@@ -128,6 +128,9 @@ PRODUCT_PACKAGES += \\
 PRODUCT_PACKAGES += \\
     libmm-disp-apis
 
+PRODUCT_PACKAGES += \\
+    libthermalclient
+
 \$(call inherit-product, vendor/$VENDOR/$DEVICE/$DEVICE-vendor-blobs.mk)
 EOF
 
