@@ -266,6 +266,7 @@ vendor/lib64/libsmemlog.so
 # Radio
 -app/fastdormancy/fastdormancy.apk
 -app/shutdownlistener/shutdownlistener.apk
+bin/ipacm-diag
 bin/netmgrd
 bin/qmuxd
 bin/radish
