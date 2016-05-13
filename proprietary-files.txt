@@ -132,7 +132,6 @@ vendor/lib/libois_lc898122.so
 vendor/lib/libSonyIMX230PdafLibrary.so
 
 # Fingerprint sensor and firmware
-bin/fingerprintd
 lib/lib_fpc_tac_shared.so
 lib/hw/fingerprint.msm8992.so
 lib64/lib_fpc_tac_shared.so
@@ -221,6 +220,3 @@ etc/thermal-engine-8992.conf
 # TP firmware
 etc/firmware/TP_Firmware_nbq_ebbg.img
 etc/firmware/TP_Firmware_nbq_ebbg_V29.img
-
-# Wifi
-vendor/lib64/libwpa_qmi_eap_proxy.so
