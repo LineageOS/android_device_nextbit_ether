@@ -6,8 +6,27 @@ VENDOR=nextbit
 OUTDIR=vendor/$VENDOR/$DEVICE
 MAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk
 
+function write_bloblist() {
+    local LINEEND=" \\"
+    local COUNT=`cat $1 | sort | uniq | egrep -c -v '(^-|^#|^$)'`
+    for FILE in `egrep -v '(^-|^#|^$)' $1 | sort | uniq`; do
+      COUNT=`expr $COUNT - 1`
+      if [ $COUNT = "0" ]; then
+        LINEEND=""
+      fi
+      # Split the file from the destination (format is "file[:destination]")
+      local OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
+      local FILE=`echo ${PARSING_ARRAY[0]} | sed -e "s/^-//g"`
+      local DEST=${PARSING_ARRAY[1]}
+      if [ -n "$DEST" ]; then
+          FILE=$DEST
+      fi
+      echo "    $OUTDIR/proprietary/$FILE:system/$FILE$LINEEND" >> $MAKEFILE
+    done
+}
+
 (cat << EOF) > $MAKEFILE
-# Copyright (C) 2015 The CyanogenMod Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,55 +44,35 @@ MAKEFILE=../../../$OUTDIR/$DEVICE-vendor-blobs.mk
 PRODUCT_COPY_FILES += \\
 EOF
 
-LINEEND=" \\"
-COUNT=`wc -l proprietary-files.txt | awk {'print $1'}`
-DISM=`egrep -c '(^-|^#|^$)' proprietary-files.txt`
-COUNT=`expr $COUNT - $DISM`
-for FILE in `egrep -v '(^-|^#|^$)' proprietary-files.txt`; do
-  COUNT=`expr $COUNT - 1`
-  if [ $COUNT = "0" ]; then
-    LINEEND=""
-  fi
-  # Split the file from the destination (format is "file[:destination]")
-  OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
-  FILE=`echo ${PARSING_ARRAY[0]} | sed -e "s/^-//g"`
-  DEST=${PARSING_ARRAY[1]}
-  if [ -n "$DEST" ]; then
-      FILE=$DEST
-  fi
-  echo "    $OUTDIR/proprietary/$FILE:system/$FILE$LINEEND" >> $MAKEFILE
-done
+write_bloblist proprietary-files.txt
+
 (cat << EOF) >> $MAKEFILE
 
 ifeq (\$(QCPATH),)
 PRODUCT_COPY_FILES += \\
 EOF
 
-LINEEND=" \\"
-COUNT=`wc -l proprietary-files-qc.txt | awk {'print $1'}`
-DISM=`egrep -c '(^-|^#|^$)' proprietary-files-qc.txt`
-COUNT=`expr $COUNT - $DISM`
-for FILE in `egrep -v '(^-|^#|^$)' proprietary-files-qc.txt`; do
-  COUNT=`expr $COUNT - 1`
-  if [ $COUNT = "0" ]; then
-    LINEEND=""
-  fi
-  # Split the file from the destination (format is "file[:destination]")
-  OLDIFS=$IFS IFS=":" PARSING_ARRAY=($FILE) IFS=$OLDIFS
-  FILE=`echo ${PARSING_ARRAY[0]} | sed -e "s/^-//g"`
-  DEST=${PARSING_ARRAY[1]}
-  if [ -n "$DEST" ]; then
-    FILE=$DEST
-  fi
-  echo "    $OUTDIR/proprietary/$FILE:system/$FILE$LINEEND" >> $MAKEFILE
-done
+write_bloblist proprietary-files-qc.txt
+
+(cat << EOF) >> $MAKEFILE
+endif
+EOF
+
+(cat << EOF) >> $MAKEFILE
+
+ifneq (\$(TARGET_HAVE_QC_PERF),true)
+PRODUCT_COPY_FILES += \\
+EOF
+
+write_bloblist proprietary-files-qc-perf.txt
+
 (cat << EOF) >> $MAKEFILE
 endif
 
 EOF
 
 (cat << EOF) > ../../../$OUTDIR/$DEVICE-vendor.mk
-# Copyright (C) 2015 The CyanogenMod Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -132,7 +131,7 @@ PRODUCT_PACKAGES += \\
 EOF
 
 (cat << EOF) > ../../../$OUTDIR/BoardConfigVendor.mk
-# Copyright (C) 2015 The CyanogenMod Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -150,7 +149,7 @@ EOF
 EOF
 
 (cat << EOF) > ../../../$OUTDIR/Android.mk
-# Copyright (C) 2015 The CyanogenMod Project
+# Copyright (C) 2016 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
