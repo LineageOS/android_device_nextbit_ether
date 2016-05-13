@@ -1,5 +1,4 @@
 PRODUCT_PACKAGES += \
-    init.class_main.sh \
     init.nbq.charger.rc \
     init.nbq.fingerprint.rc \
     init.nbq.led.rc \
