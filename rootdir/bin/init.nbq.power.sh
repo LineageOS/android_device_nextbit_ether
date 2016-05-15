@@ -157,5 +157,9 @@ get-set-forall /sys/class/devfreq/qcom,mincpubw*/governor cpufreq
 # Disable sched_boost
 write /proc/sys/kernel/sched_boost 0
 
+# Enable timer migration to little cluster
+write /proc/sys/kernel/power_aware_timer_migration 1
+
+
 # set GPU default power level to 5 (180MHz) instead of 4 (305MHz)
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
