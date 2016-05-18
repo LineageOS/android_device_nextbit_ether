@@ -8,7 +8,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.mode=concurrent \
     persist.data.netmgrd.qos.enable=true \
     persist.data.tcp_rst_drop=true \
-    persist.env.fastdorm.enabled=true \
     persist.radio.apm_sim_not_pwdn=1 \
     persist.radio.app_hw_mbn_path=/firmware/image/modem_pr/mcfg/configs/mcfg_hw/generic/common/MSM8994/LA \
     persist.radio.custom_ecc=1 \
