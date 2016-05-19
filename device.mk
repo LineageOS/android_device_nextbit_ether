@@ -19,6 +19,11 @@
 #
 # Everything in this directory will become public
 
+# Build the BSP if available
+ifneq ($(QCPATH),)
+$(call inherit-product-if-exists, $(QCPATH)/common/config/device-vendor.mk)
+endif
+
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
@@ -35,3 +40,6 @@ $(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.m
 
 # Call the proprietary setup
 $(call inherit-product-if-exists, vendor/nextbit/ether/ether-vendor.mk)
+ifneq ($(QCPATH),)
+$(call inherit-product-if-exists, $(QCPATH)/prebuilt_HY11/target/product/msm8974/prebuilt.mk)
+endif
