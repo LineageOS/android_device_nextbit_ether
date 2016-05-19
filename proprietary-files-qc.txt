@@ -90,7 +90,6 @@ vendor/lib64/hw/gatekeeper.msm8992.so
 
 # GPS
 bin/loc_launcher
-bin/lowi-server
 etc/permissions/com.qti.location.sdk.xml
 etc/permissions/com.qualcomm.location.xml
 framework/com.qti.location.sdk.jar
@@ -113,6 +112,7 @@ vendor/lib/libquipc_os_api.so
 vendor/lib/libulp2.so
 vendor/lib/libxtadapter.so
 vendor/lib/libxtwifi_ulp_adaptor.so
+vendor/lib/libxt_native.so
 vendor/lib64/hw/flp.default.so
 vendor/lib64/libdataitems.so
 vendor/lib64/libflp.so
@@ -123,7 +123,6 @@ vendor/lib64/liblocationservice.so
 vendor/lib64/liblocationservice_glue.so
 vendor/lib64/liblowi_client.so
 vendor/lib64/liblowi_wifihal.so
-vendor/lib64/liblowi_wifihal_nl.so
 vendor/lib64/libquipc_os_api.so
 vendor/lib64/libulp2.so
 vendor/lib64/libxtadapter.so
@@ -140,6 +139,7 @@ vendor/lib/egl/libq3dtools_esx.so
 vendor/lib/libC2D2.so
 vendor/lib/libCB.so
 vendor/lib/libOpenCL.so
+vendor/lib/libQBLAS-0.11.38.so
 vendor/lib/libRSDriver_adreno.so
 vendor/lib/libadreno_utils.so
 vendor/lib/libc2d30-a4xx.so
@@ -160,6 +160,7 @@ vendor/lib64/egl/libq3dtools_esx.so
 vendor/lib64/libC2D2.so
 vendor/lib64/libCB.so
 vendor/lib64/libOpenCL.so
+vendor/lib64/libQBLAS-0.11.38.so
 vendor/lib64/libRSDriver_adreno.so
 vendor/lib64/libadreno_utils.so
 vendor/lib64/libc2d30-a4xx.so
@@ -310,6 +311,7 @@ vendor/lib64/lib-rtpcommon.so
 vendor/lib64/lib-rtpcore.so
 vendor/lib64/lib-rtpdaemoninterface.so
 vendor/lib64/lib-rtpsl.so
+vendor/lib64/libvoice-svc.so
 -vendor/app/ims/ims.apk
 -vendor/app/imssettings/imssettings.apk
 
