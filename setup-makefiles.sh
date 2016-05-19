@@ -98,7 +98,8 @@ PRODUCT_PACKAGES += \\
     ims \\
     imssettings \\
     shutdownlistener \\
-    TimeService
+    TimeService \\
+    xtra_t_app
 
 PRODUCT_PACKAGES += \\
     qcnvitems \\
@@ -262,7 +263,6 @@ LOCAL_PRIVILEGED_MODULE := true
 LOCAL_CERTIFICATE := platform
 include \$(BUILD_PREBUILT)
 
-
 include \$(CLEAR_VARS)
 LOCAL_MODULE := TimeService
 LOCAL_MODULE_OWNER := $VENDOR
@@ -270,6 +270,17 @@ LOCAL_SRC_FILES := proprietary/app/TimeService/TimeService.apk
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)
 LOCAL_MODULE_CLASS := APPS
+LOCAL_CERTIFICATE := platform
+include \$(BUILD_PREBUILT)
+
+include \$(CLEAR_VARS)
+LOCAL_MODULE := xtra_t_app
+LOCAL_MODULE_OWNER := $VENDOR
+LOCAL_SRC_FILES := proprietary/priv-app/xtra_t_app/xtra_t_app.apk
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)
+LOCAL_MODULE_CLASS := APPS
+LOCAL_PRIVILEGED_MODULE := true
 LOCAL_CERTIFICATE := platform
 include \$(BUILD_PREBUILT)
 
