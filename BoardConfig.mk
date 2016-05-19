@@ -22,3 +22,8 @@ TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 include $(DEVICE_PATH)/board/*.mk
 
 -include vendor/nextbit/ether/BoardConfigVendor.mk
+
+# Inherit from QC proprietary
+ifneq ($(QCPATH),)
+-include $(QCPATH)/common/msm8992/BoardConfigVendor.mk
+endif
