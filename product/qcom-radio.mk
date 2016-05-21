@@ -1,6 +1,5 @@
 PRODUCT_PROPERTY_OVERRIDES += \
     rild.libpath=/vendor/lib64/libril-qc-qmi-1.so \
-    rild.libargs="-d /dev/smd0" \
     ril.subscription.types=NV,RUIM
 
 PRODUCT_PROPERTY_OVERRIDES += \
