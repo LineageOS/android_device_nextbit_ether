@@ -41,8 +41,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     audio.offload.pcm.24bit.enable=true \
     audio.offload.multiple.enabled=false \
     audio.deep_buffer.media=true
-
-# voip
-PRODUCT_PROPERTY_OVERRIDES += \
-    use.voice.path.for.pcm.voip=true
-
