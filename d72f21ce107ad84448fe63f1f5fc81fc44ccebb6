@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_24f1636c",
+        "filename": "product/qcom-radio.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 13513
+      },
+      "writtenOn": "2016-05-22T06:51:14Z",
+      "side": 1,
+      "message": "I dont know what persist.radio.hw_mbn_update and persist.radio.sw_mbn_volte are supposed to do. But based on QC documentation we only need to enable persist.radio.sw_mbn_update if we want the AP to control the MBN selection. I dont think we have any such provisions.",
+      "revId": "d72f21ce107ad84448fe63f1f5fc81fc44ccebb6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
