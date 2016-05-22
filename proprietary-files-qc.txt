@@ -114,6 +114,7 @@ vendor/lib/libxtadapter.so
 vendor/lib/libxtwifi_ulp_adaptor.so
 vendor/lib/libxt_native.so
 vendor/lib64/hw/flp.default.so
+vendor/lib64/libalarmservice_jni.so
 vendor/lib64/libdataitems.so
 vendor/lib64/libflp.so
 vendor/lib64/libgeofence.so
