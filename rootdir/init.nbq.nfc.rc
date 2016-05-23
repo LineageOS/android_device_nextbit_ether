@@ -10,6 +10,3 @@ on boot
     setprop ro.nfc.port "I2C"
     chmod 0660 /dev/pn544
     chown nfc nfc /dev/pn544
-	chmod 0666 /dev/fpc1020
-	chown system system /dev/fpc1020
-
