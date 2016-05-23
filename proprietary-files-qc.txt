@@ -192,8 +192,10 @@ vendor/lib/libmm-color-convertor.so
 vendor/lib/libmmosal.so
 
 # Network
+-priv-app/QtiTetherService/QtiTetherService.apk
 vendor/lib/libconnctrl.so
 vendor/lib64/libconnctrl.so
+vendor/lib64/libQtiTether.so
 
 # Perf
 bin/energy-awareness
