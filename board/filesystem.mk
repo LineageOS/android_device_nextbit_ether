@@ -13,7 +13,3 @@ TARGET_USERIMAGES_USE_F2FS := true
 BOARD_FLASH_BLOCK_SIZE := 131072
 
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/fstab.qcom
-
-#ifneq (,$(filter linux darwin, $(HOST_OS)))
-#TARGET_USERIMAGES_USE_F2FS := true
-#endif
