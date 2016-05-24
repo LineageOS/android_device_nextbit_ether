@@ -50,6 +50,9 @@ $(LOCAL_BUILT_MODULE): WCNSS_BIN_SYMLINK := $(TARGET_OUT)/etc/firmware/wlan/qca_
 $(LOCAL_BUILT_MODULE): ACTUAL_DAT_FILE := /system/etc/wifi/WCNSS_cfg.dat
 $(LOCAL_BUILT_MODULE): WCNSS_DAT_SYMLINK := $(TARGET_OUT)/etc/firmware/wlan/qca_cld/WCNSS_cfg.dat
 
+$(LOCAL_BUILT_MODULE): ACTUAL_MAC_FILE := /persist/wlan_mac.bin
+$(LOCAL_BUILT_MODULE): WCNSS_MAC_SYMLINK := $(TARGET_OUT)/etc/firmware/wlan/qca_cld/wlan_mac.bin
+
 
 $(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/Android.mk
 $(LOCAL_BUILT_MODULE):
@@ -66,6 +69,8 @@ $(LOCAL_BUILT_MODULE):
 	$(hide) ln -sf $(ACTUAL_BIN_FILE) $(WCNSS_BIN_SYMLINK)
 	$(hide) rm -rf $(WCNSS_DAT_SYMLINK)
 	$(hide) ln -sf $(ACTUAL_DAT_FILE) $(WCNSS_DAT_SYMLINK)
+	$(hide) rm -rf $(WCNSS_MAC_SYMLINK)
+	$(hide) ln -sf $(ACTUAL_MAC_FILE) $(WCNSS_MAC_SYMLINK)
 	$(hide) touch $@
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
