@@ -1,3 +1,21 @@
+# Audio
+-app/ArkamysAudio/ArkamysAudio.apk
+etc/arkamys/ArkamysAudioService.xml
+etc/arkamys/config_presets/0_TUNING
+etc/arkamys/config_presets/1_TUNING
+etc/arkamys/config_presets/2_TUNING
+etc/arkamys/config_presets/8_BYPASS
+etc/arkamys/config_presets/9_BYPASS
+etc/arkamys/config_presets/10_TUNING
+etc/arkamys/config_presets/12_TUNING
+etc/arkamys/config_presets/14_TUNING
+etc/arkamys/config_presets/16_TUNING
+etc/arkamys/config_presets/19_BYPASS
+etc/arkamys/volume_table
+etc/permissions/com.arkamys.audiofx.xml
+framework/com.arkamys.audiofx.jar
+lib/soundfx/libarkamys.so
+
 # Camera
 bin/mm-qcamera-daemon
 etc/firmware/cpp_firmware_v1_1_1.fw
