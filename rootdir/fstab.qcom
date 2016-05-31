@@ -18,4 +18,4 @@
 /devices/soc.0/f9a55000.ehci/usb1       /storage/uicc0     vfat    nosuid,nodev                                    voldmanaged=uicc0:auto
 /devices/soc.0/f9a55000.ehci/usb1       /storage/uicc1     vfat    nosuid,nodev                                    voldmanaged=uicc1:auto
 /devices/soc.0/f9200000.ssusb/f9200000.dwc3/xhci-hcd.0.auto/usb*    auto      auto    defaults                     voldmanaged=usb:auto
-/dev/block/zram0                        none               swap    defaults                                        zramsize=536870912,zramstreams=4,notrim
+#/dev/block/zram0                        none               swap    defaults                                        zramsize=536870912,zramstreams=4,notrim
