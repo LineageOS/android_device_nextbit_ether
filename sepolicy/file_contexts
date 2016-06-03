@@ -9,6 +9,7 @@
 
 /dev/i2c-1                                                   u:object_r:smartamp_device:s0
 
+/system/bin/init.nbq.mac.sh                                 u:object_r:init-mac-sh_exec:s0
 /system/bin/init.nbq.power.sh                             u:object_r:init-power-sh_exec:s0
 /sys/module/msm_performance(/.*)?                          u:object_r:sysfs_performance:s0
 /sys/module/lpm_levels(/.*)?                          u:object_r:sysfs_power_management:s0

@@ -1,4 +1,6 @@
-# Copyright (c) 2009-2012, The Linux Foundation. All rights reserved.
+#!/system/bin/sh
+#
+# Copyright (c) 2016, The CyanogenMod Project
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -24,40 +26,15 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-import /init.nbq.charger.rc
-import /init.nbq.fingerprint.rc
-import /init.nbq.led.rc
-import /init.nbq.nfc.rc
-import /init.nbq.poweroff_charging.rc
-import /init.nbq.smartamp.rc
-import /init.nbq.usb.rc
 
-on early-init
-    write /sys/block/zram0/comp_algorithm lz4
+# Retrieve MAC for BT and WiFi from FIH E2P storage
 
-on post-fs
-    # set bt/wifi mac address from e2p
-    exec - root root system -- /system/bin/init.nbq.mac.sh
+if [ -e /proc/wifi_mac ]; then
+	echo -n "Intf0MacAddress=" > /persist/wlan_mac.bin
+	echo `cat /proc/wifi_mac | tr -d ":"` >> /persist/wlan_mac.bin
+fi
 
-on boot
-    # execute script to set initial CPU settings
-    # don't run as a service to avoid race conditions
-    exec - root root system -- /system/bin/init.nbq.power.sh
-
-    # update foreground cpuset now that processors are up
-    write /dev/cpuset/foreground/cpus 0-5
-    write /dev/cpuset/foreground/boost/cpus 4-5
-    write /dev/cpuset/background/cpus 0
-    write /dev/cpuset/system-background/cpus 0-3
-
-    # adaptive LMK
-    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
-    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 81250
-
-    # per-process reclaim
-    write /sys/module/process_reclaim/parameters/enable_process_reclaim 1
-    write /sys/module/process_reclaim/parameters/pressure_max 70
-    write /sys/module/process_reclaim/parameters/swap_opt_eff 30
-    write /sys/module/process_reclaim/parameters/pressure_min 10
-    write /sys/module/process_reclaim/parameters/per_swap_size 1024
+if [ -e /proc/bt_mac ]; then
+    /system/bin/btnvtool -b `cat /proc/bt_mac`
+fi
 
