@@ -285,7 +285,7 @@ on post-fs-data
     #Create PERFD deamon related dirs
     mkdir /data/system/perfd 0770 root system
     chmod 2770 /data/system/perfd
-    rm /data/misc/perfd/default_values
+    rm /data/system/perfd/default_values
 
     # RIDL data
     mkdir /data/misc/SelfHost/ 0710 system shell
