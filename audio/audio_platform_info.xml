@@ -55,6 +55,7 @@
 
     <device_names>
         <device name="SND_DEVICE_IN_CAMCORDER_STEREO_DMIC" alias="handset-stereo-dmic-ef" />
+        <device name="SND_DEVICE_IN_VOICE_REC_DMIC_STEREO" alias="handset-stereo-dmic-ef" />
     </device_names>
 </audio_platform_info>
 

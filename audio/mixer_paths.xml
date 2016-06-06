@@ -1454,14 +1454,6 @@
         <path name="speaker-dmic-endfire" />
     </path>
 
-    <path name="voice-rec-dmic-ef">
-        <path name="dmic-endfire" />
-    </path>
-
-    <path name="voice-rec-dmic-ef-fluence">
-        <path name="dmic-endfire" />
-    </path>
-
     <path name="speaker-dmic-broadside">
         <!-- weihung [NBQ-807]:Modify ACDB path and number -->
         <ctl name="AIF1_CAP Mixer SLIM TX7" value="1" />
