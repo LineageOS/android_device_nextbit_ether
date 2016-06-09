@@ -31,18 +31,9 @@ bin_PROGRAMS  =  ipacm
 requiredlibs =  ${LIBXML_LIB} -lxml2 -lpthread -lnetfilter_conntrack -lnfnetlink\
                ../../ipanat/src/libipanat.la
 
-AM_CPPFLAGS += "-std=c++0x"
-
-if USE_GLIB
-ipacm_CFLAGS  = $(AM_CFLAGS) -DUSE_GLIB @GLIB_CFLAGS@
-ipacm_LDFLAGS = -lpthread @GLIB_LIBS@
-ipacm_CPPFLAGS = -DUSE_GLIB $(AM_CFLAGS) $(AM_CPPFLAGS) @GLIB_CFLAGS@
-else
-ipacm_CFLAGS = $(AM_CFLAGS)
-ipacm_LDFLAGS = -lpthread
-ipacm_CPPFLAGS = $(AM_CPPFLAGS)
-endif
 ipacm_LDADD =  $(requiredlibs)
+
+AM_CPPFLAGS += "-std=c++0x"
 
 LOCAL_MODULE := libipanat
 LOCAL_PRELINK_MODULE := false
