@@ -33,10 +33,10 @@ DEVICE_PACKAGE_OVERLAYS := \
 include $(LOCAL_PATH)/product/*.mk
 
 # setup dalvik vm configs.
-$(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-dalvik-heap.mk)
 
 # setup base hwui configs
-$(call inherit-product, frameworks/native/build/phone-xxxhdpi-3072-hwui-memory.mk)
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
 
 # Call the proprietary setup
 $(call inherit-product-if-exists, vendor/nextbit/ether/ether-vendor.mk)
