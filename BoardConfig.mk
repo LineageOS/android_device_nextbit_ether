@@ -19,6 +19,7 @@ DEVICE_PATH := device/nextbit/ether
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 # A new experiment..
+include $(DEVICE_PATH)/PlatformConfig.mk
 include $(DEVICE_PATH)/board/*.mk
 
 -include vendor/nextbit/ether/BoardConfigVendor.mk
