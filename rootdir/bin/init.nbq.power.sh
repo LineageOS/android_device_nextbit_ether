@@ -50,11 +50,12 @@ write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif 1
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 19000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 99
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 20000
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 960000
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 768000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 1
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "65 460800:75 960000:80"
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 40000
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis 80000
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "65 460800:75 787200:80"
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 19000
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis 79000
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/ignore_hispeed_on_notif 1
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
 
 # online CPU4
@@ -72,19 +73,13 @@ write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 20000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1248000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 1
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "70 960000:80 1248000:85"
-write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 40000
-write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 80000
-write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 384000
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 19000
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 79000
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/ignore_hispeed_on_notif 1
+write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 633600
 
 # restore A57's max
 copy /sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_max_freq /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
-
-# re-enable thermal and BCL hotplug
-write /sys/module/msm_thermal/core_control/enabled 1
-get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode disable
-get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_mask $bcl_hotplug_mask
-get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_soc_mask $bcl_hotplug_soc_mask
-get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode enable
 
 # plugin remaining A57s
 write /sys/devices/system/cpu/cpu5/online 1
@@ -93,33 +88,17 @@ write /sys/devices/system/cpu/cpu5/online 1
 write /sys/module/msm_performance/parameters/cpu_max_freq "4:4294967295 5:4294967295"
 
 # input boost configuration
-write /sys/module/cpu_boost/parameters/input_boost_freq "0:960000"
+write /sys/module/cpu_boost/parameters/input_boost_freq "0:787200"
 write /sys/module/cpu_boost/parameters/input_boost_ms 40
-
-# core-ctl, if available
-if [ -e /system/lib/modules/core_ctl.ko ]; then
-    insmod /system/lib/modules/core_ctl.ko
-    if [ $? -eq 0 ]; then
-        restorecon -R /sys/devices/system/cpu/cpu0/core_ctl/
-        restorecon -R /sys/devices/system/cpu/cpu4/core_ctl/
-        write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 2
-        write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 60
-        write /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres 30
-        write /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms 100
-        write /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster 1
-        write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 2
-    fi
-fi
 
 # Setting B.L scheduler parameters
 write /proc/sys/kernel/sched_migration_fixup 1
-write /proc/sys/kernel/sched_small_task 30
-get-set-forall /sys/devices/system/cpu/cpu*/sched_mostly_idle_load 20
-get-set-forall /sys/devices/system/cpu/cpu*/sched_mostly_idle_nr_run 3
 write /proc/sys/kernel/sched_upmigrate 95
 write /proc/sys/kernel/sched_downmigrate 85
 write /proc/sys/kernel/sched_freq_inc_notify 400000
 write /proc/sys/kernel/sched_freq_dec_notify 400000
+write /proc/sys/kernel/sched_init_task_load 100
+write /proc/sys/kernel/sched_min_runtime 10
 
 #enable rps static configuration
 write /sys/class/net/rmnet_ipa0/queues/rx-0/rps_cpus 8
@@ -130,24 +109,17 @@ write /proc/sys/kernel/sched_upmigrate_min_nice 9
 # devfreq
 get-set-forall /sys/class/devfreq/qcom,cpubw*/governor bw_hwmon
 restorecon -R /sys/class/devfreq/qcom,cpubw*
-get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/sample_ms 4
-get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/io_percent 34
-get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/hist_memory 20
-get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/hyst_length 10
-get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/low_power_ceil_mbps 0
-get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/low_power_io_percent 34
-get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/low_power_delay 20
-get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/guard_band_mbps 0
-get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/up_scale 250
-get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/idle_mbps 1600
 get-set-forall /sys/class/devfreq/qcom,mincpubw*/governor cpufreq
 
 # Disable sched_boost
 write /proc/sys/kernel/sched_boost 0
 
-# Enable timer migration to little cluster
-#write /proc/sys/kernel/power_aware_timer_migration 1
-
+# re-enable thermal and BCL hotplug
+write /sys/module/msm_thermal/core_control/enabled 1
+get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode disable
+get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_mask $bcl_hotplug_mask
+get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_soc_mask $bcl_hotplug_soc_mask
+get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode enable
 
 # set GPU default power level to 5 (180MHz) instead of 4 (305MHz)
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
