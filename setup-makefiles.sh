@@ -91,8 +91,10 @@ EOF
 
 # Pick up overlay for features that depend on non-open-source files
 PRODUCT_PACKAGES += \\
+    a4wpservice \\
     CNEService \\
     com.qualcomm.location \\
+    com.quicinc.wbcserviceapp \\
     dpmserviceapp \\
     fastdormancy \\
     ims \\
@@ -179,6 +181,16 @@ ifeq (\$(TARGET_DEVICE),ether)
 ifeq (\$(QCPATH),)
 
 include \$(CLEAR_VARS)
+LOCAL_MODULE := a4wpservice
+LOCAL_MODULE_OWNER := $VENDOR
+LOCAL_SRC_FILES := proprietary/app/a4wpservice/a4wpservice.apk
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)
+LOCAL_MODULE_CLASS := APPS
+LOCAL_CERTIFICATE := platform
+include \$(BUILD_PREBUILT)
+
+include \$(CLEAR_VARS)
 LOCAL_MODULE := CNEService
 LOCAL_MODULE_OWNER := $VENDOR
 LOCAL_SRC_FILES := proprietary/priv-app/CNEService/CNEService.apk
@@ -197,6 +209,16 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)
 LOCAL_MODULE_CLASS := APPS
 LOCAL_PRIVILEGED_MODULE := true
+LOCAL_CERTIFICATE := platform
+include \$(BUILD_PREBUILT)
+
+include \$(CLEAR_VARS)
+LOCAL_MODULE := com.quicinc.wbcserviceapp
+LOCAL_MODULE_OWNER := $VENDOR
+LOCAL_SRC_FILES := proprietary/app/com.quicinc.wbcserviceapp/com.quicinc.wbcserviceapp.apk
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)
+LOCAL_MODULE_CLASS := APPS
 LOCAL_CERTIFICATE := platform
 include \$(BUILD_PREBUILT)
 
@@ -254,7 +276,6 @@ LOCAL_PRIVILEGED_MODULE := true
 LOCAL_CERTIFICATE := platform
 include \$(BUILD_PREBUILT)
 
-
 include \$(CLEAR_VARS)
 LOCAL_MODULE := shutdownlistener
 LOCAL_MODULE_OWNER := $VENDOR
@@ -274,7 +295,6 @@ LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)
 LOCAL_MODULE_CLASS := APPS
 LOCAL_CERTIFICATE := platform
 include \$(BUILD_PREBUILT)
-
 
 include \$(CLEAR_VARS)
 LOCAL_MODULE := qcrilmsgtunnel
