@@ -199,6 +199,15 @@ etc/nxp/settings/os/playback/4/speaker.speaker
 # NXP NFC firmware
 vendor/firmware/libpn547_fw.so
 
+# Radio (factory version)
+-lib/libril.so
+-lib64/libril.so
+-vendor/lib/libqmiservices.so
+-vendor/lib64/libqmiservices.so
+vendor/lib64/libril-qc-qmi-1.so
+vendor/lib64/libril-qc-radioconfig.so
+vendor/lib64/libril-qcril-hook-oem.so
+
 # Sensors
 etc/sensors/hals.conf
 etc/sensors/sensor_def_qcomdev.conf

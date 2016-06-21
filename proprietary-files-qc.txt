@@ -237,7 +237,6 @@ vendor/lib/libqmi_client_helper.so
 vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_encdec.so
--vendor/lib/libqmiservices.so
 vendor/lib/libsmemlog.so
 -vendor/lib64/libdiag.so
 vendor/lib64/libdsi_netctrl.so
@@ -253,7 +252,6 @@ vendor/lib64/libqmi_client_helper.so
 vendor/lib64/libqmi_common_so.so
 vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_encdec.so
--vendor/lib64/libqmiservices.so
 vendor/lib64/libsmemlog.so
 
 # Radio
@@ -286,9 +284,6 @@ vendor/lib64/liblqe.so
 -vendor/lib64/libmdmdetect.so
 vendor/lib64/libnetmgr.so
 vendor/lib64/libqcmaputils.so
-vendor/lib64/libril-qc-qmi-1.so
-vendor/lib64/libril-qcril-hook-oem.so
-vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libxml.so
 vendor/qcril.db
