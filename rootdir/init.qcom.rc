@@ -635,8 +635,8 @@ service wpa_supplicant /system/bin/wpa_supplicant \
 
 service cnss_diag /system/bin/cnss_diag -q -f
     class main
-    user root
-    group root
+    user system
+    group system wifi inet net_admin sdcard_rw media_rw diag
     disabled
 
 on property:cnss_diag.load=true
