@@ -115,6 +115,7 @@ service thermal-engine /system/vendor/bin/thermal-engine
    socket thermal-recv-client stream 0660 system system
    socket thermal-recv-passive-client stream 0666 system system
    group root
+   writepid /dev/cpuset/system-background/tasks
 
 service msm_irqbalance /system/bin/msm_irqbalance -f /system/etc/msm_irqbalance.conf
    socket msm_irqbalance seqpacket 660 root system

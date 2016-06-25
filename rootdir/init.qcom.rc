@@ -551,6 +551,7 @@ service sensors /system/bin/sensors.qcom
     class late_start
     user root
     group root
+    writepid /dev/cpuset/system-background/tasks
     disabled
 
 on property:ro.use_data_netmgrd=false
