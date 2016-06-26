@@ -42,18 +42,30 @@ write /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq 960000
 # Limit A57 max freq from msm_perf module in case CPU 4 is offline
 write /sys/module/msm_performance/parameters/cpu_max_freq "4:960000 5:960000"
 
+# Disable CPU retention
+write /sys/module/lpm_levels/system/a53/cpu0/retention/idle_enabled 0
+write /sys/module/lpm_levels/system/a53/cpu1/retention/idle_enabled 0
+write /sys/module/lpm_levels/system/a53/cpu2/retention/idle_enabled 0
+write /sys/module/lpm_levels/system/a53/cpu3/retention/idle_enabled 0
+write /sys/module/lpm_levels/system/a57/cpu4/retention/idle_enabled 0
+write /sys/module/lpm_levels/system/a57/cpu5/retention/idle_enabled 0
+
+# Disable L2 retention
+write /sys/module/lpm_levels/system/a53/a53-l2-retention/idle_enabled 0
+write /sys/module/lpm_levels/system/a57/a57-l2-retention/idle_enabled 0
+
 # configure governor settings for little cluster
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
 restorecon -R /sys/devices/system/cpu # must restore after interactive
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load 1
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif 1
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 19000
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 99
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 95
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate 20000
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 768000
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 960000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/io_is_busy 1
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "65 460800:75 787200:80"
-write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 19000
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/target_loads "65 460800:75 960000:80"
+write /sys/devices/system/cpu/cpu0/cpufreq/interactive/min_sample_time 39000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/max_freq_hysteresis 79000
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/ignore_hispeed_on_notif 1
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
@@ -73,7 +85,7 @@ write /sys/devices/system/cpu/cpu4/cpufreq/interactive/timer_rate 20000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/hispeed_freq 1248000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/io_is_busy 1
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/target_loads "70 960000:80 1248000:85"
-write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 19000
+write /sys/devices/system/cpu/cpu4/cpufreq/interactive/min_sample_time 39000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 79000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/ignore_hispeed_on_notif 1
 write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 633600
@@ -93,12 +105,11 @@ write /sys/module/cpu_boost/parameters/input_boost_ms 40
 
 # Setting B.L scheduler parameters
 write /proc/sys/kernel/sched_migration_fixup 1
-write /proc/sys/kernel/sched_upmigrate 95
+write /proc/sys/kernel/sched_small_task 30
+write /proc/sys/kernel/sched_upmigrate 99
 write /proc/sys/kernel/sched_downmigrate 85
 write /proc/sys/kernel/sched_freq_inc_notify 400000
 write /proc/sys/kernel/sched_freq_dec_notify 400000
-write /proc/sys/kernel/sched_init_task_load 100
-write /proc/sys/kernel/sched_min_runtime 10
 
 #enable rps static configuration
 write /sys/class/net/rmnet_ipa0/queues/rx-0/rps_cpus 8
