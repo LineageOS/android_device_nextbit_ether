@@ -13,6 +13,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qualcomm.cabl=2
 
 # MSM8992 HAL settings
+# 196610 is decimal for 0x30002 to report major/minor versions as 3/2
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=c2d \
     debug.egl.hw=1 \
@@ -27,7 +28,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.mdpcomp_perfhint=50 \
     persist.metadata_dynfps.disable=true \
     persist.sys.wfd.virtual=0 \
-    ro.opengles.version=196609
+    ro.opengles.version=196610
 
 # OpenGLES Android Extension
 PRODUCT_COPY_FILES += \
