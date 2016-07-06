@@ -8,7 +8,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/acdbdata/$(ACDB_TARGET)_Handset_cal.acdb:system/etc/acdbdata/$(ACDB_TARGET)/$(ACDB_TARGET)_Handset_cal.acdb \
     $(LOCAL_PATH)/audio/acdbdata/$(ACDB_TARGET)_Hdmi_cal.acdb:system/etc/acdbdata/$(ACDB_TARGET)/$(ACDB_TARGET)_Hdmi_cal.acdb \
     $(LOCAL_PATH)/audio/acdbdata/$(ACDB_TARGET)_Headset_cal.acdb:system/etc/acdbdata/$(ACDB_TARGET)/$(ACDB_TARGET)_Headset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/$(ACDB_TARGET)_Speaker_cal.acdb:system/etc/acdbdata/$(ACDB_TARGET)/$(ACDB_TARGET)_Speaker_cal.acdb 
+    $(LOCAL_PATH)/audio/acdbdata/$(ACDB_TARGET)_Speaker_cal.acdb:system/etc/acdbdata/$(ACDB_TARGET)/$(ACDB_TARGET)_Speaker_cal.acdb
 
 PRODUCT_PACKAGES += \
     audiod \
@@ -45,4 +45,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # voip
 PRODUCT_PROPERTY_OVERRIDES += \
     use.voice.path.for.pcm.voip=true
-

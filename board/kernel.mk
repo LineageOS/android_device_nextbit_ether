@@ -9,7 +9,6 @@ TARGET_KERNEL_CONFIG := cyanogenmod_ether_defconfig
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_ARCH := arm64
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/kernel
 BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5
 #BOARD_KERNEL_CMDLINE += zcache.enabled=1 zcache.compressor=lz4
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb

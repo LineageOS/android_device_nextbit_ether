@@ -17,4 +17,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     media.aac_51_output_enabled=true \
     vidc.debug.level=1 \
     vidc.enc.dcvs.extra-buff-count=2
-

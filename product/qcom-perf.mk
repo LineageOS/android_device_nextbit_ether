@@ -4,4 +4,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.at_library=libqti-at.so \
     ro.vendor.gt_library=libqti-gt.so \
     sys.games.gt.prof=0
-

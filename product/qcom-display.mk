@@ -27,9 +27,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.mdpcomp_perfhint=50 \
     persist.metadata_dynfps.disable=true \
     persist.sys.wfd.virtual=0 \
-    ro.opengles.version=196609 
+    ro.opengles.version=196609
 
 # OpenGLES Android Extension
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.opengles.aep.xml:system/etc/permissions/android.hardware.opengles.aep.xml
-

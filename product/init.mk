@@ -12,4 +12,3 @@ PRODUCT_PACKAGES += \
     init.qcom.rc \
     init.qcom.sh \
     init.target.rc
-

@@ -7,4 +7,3 @@ PRODUCT_PACKAGES += \
     libqsap_sdk \
     librmnetctl \
     libxml2
-
