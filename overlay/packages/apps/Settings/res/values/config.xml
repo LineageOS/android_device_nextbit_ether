@@ -15,9 +15,6 @@
 -->
 
 <resources>
-    <!-- Display ro.product.name above Device model -->
-    <bool name="config_displayDeviceName">true</bool>
-
     <!-- Whether to show a preference item for mobile plan -->
     <bool name="config_show_mobile_plan">false</bool>
 
