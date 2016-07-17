@@ -90,6 +90,21 @@ write /sys/devices/system/cpu/cpu4/cpufreq/interactive/max_freq_hysteresis 79000
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/ignore_hispeed_on_notif 1
 write /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq 633600
 
+# Enable and configure core_ctl (if available)
+if [ -e /system/lib/modules/msm_core_ctl.ko ]; then
+    insmod /system/lib/modules/msm_core_ctl.ko
+    if [ $? -eq 0 ]; then
+        restorecon -R /sys/devices/system/cpu # must restore after insmod
+        write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 2
+        write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 0
+        write /sys/devices/system/cpu/cpu4/core_ctl/busy_up_thres 60
+        write /sys/devices/system/cpu/cpu4/core_ctl/busy_down_thres 30
+        write /sys/devices/system/cpu/cpu4/core_ctl/offline_delay_ms 100
+        write /sys/devices/system/cpu/cpu4/core_ctl/is_big_cluster 1
+        write /sys/devices/system/cpu/cpu4/core_ctl/task_thres 4
+    fi
+fi
+
 # restore A57's max
 copy /sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_max_freq /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
 
