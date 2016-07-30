@@ -15,7 +15,7 @@
 #
 
 # This file includes all definitions that apply to ALL ether devices, and
-# are also specific to clark devices
+# are also specific to ether devices
 #
 # Everything in this directory will become public
 
