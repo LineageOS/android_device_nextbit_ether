@@ -42,6 +42,10 @@ on init
     symlink /sdcard /mnt/sdcard
     symlink /sdcard /storage/sdcard0
 
+    # Vibrator permissions
+    chown system system /sys/devices/virtual/timed_output/vibrator/vtg_level
+    chmod 0644 /sys/devices/virtual/timed_output/vibrator/vtg_level
+
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
