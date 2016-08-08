@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "3fa7e38b_39eafe74",
+        "filename": "proprietary-files-qc.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 3917
+      },
+      "writtenOn": "2016-08-08T16:14:36Z",
+      "side": 1,
+      "message": "make: *** No rule to make target \u0027/work/chris/android/cm/out/target/product/ether/obj/SHARED_LIBRARIES/libqmi_cci_intermediates/export_includes\u0027, needed by \u0027/work/chris/android/cm/out/target/product/ether/obj/EXECUTABLES/wpa_supplicant_intermediates/import_includes\u0027.  Stop.",
+      "revId": "21ac771f0b781df9baef3f0f48c056a6641821ca",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
