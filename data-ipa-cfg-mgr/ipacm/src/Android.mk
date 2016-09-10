@@ -63,6 +63,7 @@ LOCAL_SRC_FILES := IPACM_Main.cpp \
 LOCAL_MODULE := ipacm
 LOCAL_CLANG := false
 LOCAL_MODULE_TAGS := optional
+LOCAL_CLANG := false
 
 LOCAL_SHARED_LIBRARIES := libipanat
 LOCAL_SHARED_LIBRARIES += libxml2
