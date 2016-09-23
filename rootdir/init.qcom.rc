@@ -415,6 +415,9 @@ on property:vold.decrypt=trigger_restart_framework
     start qcom-c_main-sh
     start config_bt_addr
 
+on property:vold.decrypt=trigger_restart_min_framework
+    start time_daemon
+
 on property:persist.env.fastdorm.enabled=true
     setprop persist.radio.data_no_toggle 1
 
