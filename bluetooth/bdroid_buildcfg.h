@@ -22,6 +22,6 @@
 #define BTM_DEF_LOCAL_NAME      "Nextbit Robin"
 #define BLE_VND_INCLUDED        TRUE
 #define BLUETOOTH_QTI_SW        TRUE
-#define MAX_ACL_CONNECTIONS     7
+#define MAX_ACL_CONNECTIONS     16
 
 #endif
