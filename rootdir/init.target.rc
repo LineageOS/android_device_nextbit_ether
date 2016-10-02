@@ -54,23 +54,26 @@ service qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
-    writepid /dev/cpuset/system-background/tasks
+    writepid /dev/cpuset/camera-daemon/tasks
 
 service qseecomd /vendor/bin/qseecomd
     class core
     user root
     group root
+    writepid /dev/cpuset/system-background/tasks
 
 service per_mgr /vendor/bin/pm-service
     class core
     user system
     group system
+    writepid /dev/cpuset/system-background/tasks
 
 service per_proxy /vendor/bin/pm-proxy
     class core
     user system
     group system net_raw
     disabled
+    writepid /dev/cpuset/system-background/tasks
 
 on property:init.svc.per_mgr=running
     start per_proxy
@@ -98,17 +101,20 @@ service time_daemon /vendor/bin/time_daemon
     class late_start
     user root
     group root
+    writepid /dev/cpuset/system-background/tasks
 
 service adsprpcd /vendor/bin/adsprpcd
     class main
     user media
     group media
+    writepid /dev/cpuset/system-background/tasks
 
 service imsqmidaemon /vendor/bin/imsqmidaemon
     class main
     user system
     socket ims_qmid stream 0660 system radio
     group radio log diag
+    writepid /dev/cpuset/system-background/tasks
 
 service imsdatadaemon /vendor/bin/imsdatadaemon
     class main
@@ -116,6 +122,7 @@ service imsdatadaemon /vendor/bin/imsdatadaemon
     socket ims_datad stream 0660 system radio
     group system wifi radio inet log diag
     disabled
+    writepid /dev/cpuset/system-background/tasks
 
 on property:sys.ims.QMI_DAEMON_STATUS=1
     start imsdatadaemon
@@ -126,6 +133,7 @@ service ims_rtp_daemon /vendor/bin/ims_rtp_daemon
     socket ims_rtpd stream 0660 system radio
     group radio diag inet log
     disabled
+    writepid /dev/cpuset/system-background/tasks
 
 on property:sys.ims.DATA_DAEMON_STATUS=1
     start ims_rtp_daemon
@@ -134,9 +142,11 @@ service imscmservice /vendor/bin/imscmservice
     class main
     user system
     group radio diag inet log
+    writepid /dev/cpuset/system-background/tasks
 
 service energy-awareness /vendor/bin/energy-awareness
     class main
     user root
     group system
     oneshot
+    writepid /dev/cpuset/system-background/tasks
