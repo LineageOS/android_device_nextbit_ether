@@ -213,26 +213,31 @@ service cnd /vendor/bin/cnd
     class main
     user system
     group system wifi inet radio wakelock net_admin
+    writepid /dev/cpuset/system-background/tasks
 
 service dpmQmiMgr /vendor/bin/dpmQmiMgr
     class main
     user system
     group radio system
+    writepid /dev/cpuset/system-background/tasks
 
 service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class main
     user root
     oneshot
+    writepid /dev/cpuset/system-background/tasks
 
 service rmt_storage /vendor/bin/rmt_storage
     class core
     user root
     group system wakelock
+    writepid /dev/cpuset/system-background/tasks
 
 service rfs_access /vendor/bin/rfs_access
     class core
     user root
     group system net_raw
+    writepid /dev/cpuset/system-background/tasks
 
 on property:wc_transport.start_hci=true
     start start_hci_filter
@@ -245,6 +250,7 @@ service start_hci_filter /vendor/bin/wcnss_filter
     user bluetooth
     group bluetooth oem_2950
     disabled
+    writepid /dev/cpuset/system-background/tasks
 
 on property:wc_transport.start_root=true
     start hci_filter_root
@@ -257,6 +263,7 @@ service hci_filter_root /vendor/bin/wcnss_filter
     user bluetooth
     group bluetooth oem_2950 system
     disabled
+    writepid /dev/cpuset/system-background/tasks
 
 service hciattach /vendor/bin/hci_qcomm_init -e
     class late_start
@@ -264,6 +271,7 @@ service hciattach /vendor/bin/hci_qcomm_init -e
     group bluetooth net_bt_admin oem_2950 diag radio
     disabled
     oneshot
+    writepid /dev/cpuset/system-background/tasks
 
 on property:bluetooth.hciattach=true
     start hciattach
@@ -276,28 +284,32 @@ service qmuxd /vendor/bin/qmuxd
     class main
     user root
     group radio audio bluetooth gps nfc diag
+    writepid /dev/cpuset/system-background/tasks
 
 service netmgrd /vendor/bin/netmgrd
     class main
     user root
     group root wifi wakelock radio inet
+    writepid /dev/cpuset/system-background/tasks
 
 service ipacm /vendor/bin/ipacm
     class main
     user net_admin
     group net_admin inet
+    writepid /dev/cpuset/system-background/tasks
 
 service qti /system/vendor/bin/qti
     class main
     user radio
     group radio net_raw diag usb net_admin
+    writepid /dev/cpuset/system-background/tasks
 
 service sensors /vendor/bin/sensors.qcom
     class late_start
     user root
     group root system
-    writepid /dev/cpuset/system-background/tasks
     disabled
+    writepid /dev/cpuset/system-background/tasks
 
 # Adjust socket buffer to enlarge TCP receive window for high bandwidth
 # but only if ro.data.large_tcp_window_size property is set.
@@ -318,16 +330,19 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
+    writepid /dev/cpuset/system-background/tasks
 
 service cnss-daemon /vendor/bin/cnss-daemon -n -l
     class late_start
     user system
     group system inet net_admin wifi
+    writepid /dev/cpuset/system-background/tasks
 
 service qcom-sh /vendor/bin/init.qcom.sh
     class late_start
     user root
     oneshot
+    writepid /dev/cpuset/system-background/tasks
 
 on property:dev.bootcomplete=1
     setprop sys.io.scheduler "bfq"
