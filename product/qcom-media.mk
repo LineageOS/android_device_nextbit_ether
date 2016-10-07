@@ -1,3 +1,5 @@
+BOARD_SECCOMP_POLICY := device/nextbit/ether/seccomp
+
 # Media
 PRODUCT_PACKAGES += \
     libstagefrighthw \
