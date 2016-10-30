@@ -6,7 +6,7 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libqdutils \
     libqdMetaData \
-    memtrack.msm8992 \
+    memtrack.msm8992
 
 # QC CABL feature
 PRODUCT_PROPERTY_OVERRIDES += \
