@@ -11,6 +11,7 @@ TARGET_PLATFORM_DEVICE_BASE := /devices/soc.0/
 
 # Power
 TARGET_POWERHAL_VARIANT := qcom
+TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(DEVICE_PATH)/power/power_ext.c
 
 # Added to indicate that protobuf-c is supported in this build
 PROTOBUF_SUPPORTED := true

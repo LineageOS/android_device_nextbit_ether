@@ -307,6 +307,10 @@ on post-fs-data
     mkdir /data/misc/SelfHost/Running/ 2750 system shell
     mkdir /data/misc/SelfHost/socket/ 2770 system system
 
+    # Touchscreen
+    chmod 0660 /sys/class/input/input0/touch_state
+    chown system system /sys/class/input/input0/touch_state
+
 service qfintverify /sbin/qfintverify
     user root
     class core
