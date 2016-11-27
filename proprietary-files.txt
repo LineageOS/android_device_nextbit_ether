@@ -200,6 +200,7 @@ etc/nxp/settings/os/playback/4/speaker.speaker
 vendor/firmware/libpn547_fw.so
 
 # Radio (factory version)
+bin/rild|ffea291cec3fe6a6393f8e6949a1219426547646
 -lib/libril.so
 -lib64/libril.so
 -vendor/lib/libqmiservices.so
