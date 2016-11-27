@@ -50,6 +50,8 @@ printf '\n%s\n' "ifeq (\$(QCPATH),)" >> "$ANDROIDMK"
 
 write_makefiles "$MY_DIR"/proprietary-files-qc.txt
 
+printf '\n%s\n' "\$(call inherit-product, vendor/qcom/binaries/msm8992/graphics/graphics-vendor.mk)" >> "$PRODUCTMK"
+
 # Qualcomm performance blobs - conditional as well
 # in order to support Cyanogen OS builds
 cat << EOF >> "$PRODUCTMK"
