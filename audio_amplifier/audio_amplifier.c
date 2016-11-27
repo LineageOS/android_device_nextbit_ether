@@ -97,7 +97,6 @@ static int is_speaker(uint32_t snd_device) {
         case SND_DEVICE_OUT_SPEAKER:
         case SND_DEVICE_OUT_SPEAKER_REVERSE:
         case SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES:
-        case SND_DEVICE_OUT_SPEAKER_AND_LINE:
         case SND_DEVICE_OUT_VOICE_SPEAKER:
         case SND_DEVICE_OUT_SPEAKER_AND_HDMI:
         case SND_DEVICE_OUT_SPEAKER_AND_USB_HEADSET:
