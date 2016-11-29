@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_78a0c7a6",
+        "filename": "product/qcom-camera.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2016-11-29T22:09:19Z",
+      "side": 1,
+      "message": "board/camera.mk",
+      "revId": "d1eec8919f7818fa7451446e97bcd8c4b1d2b9c0",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
