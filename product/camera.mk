@@ -1,6 +1,8 @@
 PRODUCT_PACKAGES += \
     Snap
 
+TARGET_HAS_LEGACY_CAMERA_HAL1 := true
+
 # Camera2 API
 PRODUCT_PROPERTY_OVERRIDES += \
     media.camera.ts.monotonic=0 \
