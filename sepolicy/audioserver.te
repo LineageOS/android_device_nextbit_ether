@@ -1,0 +1,5 @@
+allow audioserver smartamp_device:chr_file { read write open ioctl };
+allow audioserver property_socket:sock_file { write };
+allow audioserver init:unix_stream_socket { connectto };
+
+set_prop(audioserver, audio_smartamp_init_prop)
