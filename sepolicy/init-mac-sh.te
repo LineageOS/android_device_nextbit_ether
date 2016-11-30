@@ -10,3 +10,5 @@ allow init-mac-sh btnvtool_exec:file rx_file_perms;
 allow init-mac-sh toolbox_exec:file rx_file_perms;
 allow init-mac-sh persist_bluetooth_file:file create_file_perms;
 allow init-mac-sh persist_bluetooth_file:dir create_dir_perms;
+allow init-mac-sh proc:file { getattr read open};
+allow init-mac-sh sysfs:file { read open};
