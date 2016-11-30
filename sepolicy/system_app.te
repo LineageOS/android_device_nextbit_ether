@@ -1,0 +1,10 @@
+# violates never allow
+# allow system_app self:capability { net_admin };
+
+allow system_app ipa_dev:chr_file { read write open ioctl };
+allow system_app qmuxd_socket:dir { write add_name };
+allow system_app qmuxd_socket:sock_file { setattr create write };
+allow system_app qmuxd:unix_stream_socket { connectto };
+allow system_app dpmd_socket:sock_file { write };
+allow system_app dpmd_data_file:dir { getattr read open };
+allow system_app dpmd_data_file:file { getattr setattr read write open lock };
