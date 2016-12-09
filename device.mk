@@ -34,7 +34,6 @@ PRODUCT_PACKAGES += \
     audio_policy.msm8992 \
     audio.r_submix.default \
     audio.usb.default \
-    audiod \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessingdescriptors \
@@ -228,6 +227,7 @@ PRODUCT_COPY_FILES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
+    android.hardware.wifi@1.0-service \
     dhcpcd.conf \
     hostapd \
     libwpa_client \
