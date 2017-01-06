@@ -1,1 +1,1 @@
-allow wcnss_service self:capability { setgid setuid };
+allow wcnss_service self:capability { dac_override setgid setuid };
