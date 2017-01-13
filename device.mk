@@ -58,6 +58,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/acdbdata/NBQ_Headset_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Headset_cal.acdb \
     $(LOCAL_PATH)/audio/acdbdata/NBQ_Speaker_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Speaker_cal.acdb
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl
+
 # Camera
 PRODUCT_PACKAGES += \
     camera.msm8992 \
