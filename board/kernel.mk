@@ -5,7 +5,7 @@ BOARD_RAMDISK_OFFSET     := 0x01000000
 
 BOARD_KERNEL_SEPARATED_DT := true
 TARGET_KERNEL_SOURCE := kernel/nextbit/msm8992
-TARGET_KERNEL_CONFIG := cyanogenmod_ether_defconfig
+TARGET_KERNEL_CONFIG := lineageos_ether_defconfig
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
 TARGET_KERNEL_ARCH := arm64
