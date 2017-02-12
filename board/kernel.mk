@@ -10,5 +10,6 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 
 ENABLE_CPUSETS := true
+ENABLE_SCHED_BOOST := true
 
 TARGET_USES_64_BIT_BINDER := true
