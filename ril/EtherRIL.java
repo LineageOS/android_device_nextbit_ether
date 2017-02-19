@@ -49,17 +49,17 @@ public class EtherRIL extends RIL {
     }
 
     public EtherRIL(Context context, int preferredNetworkType,
-		    int cdmaSubscription, Integer instanceId) {
+                    int cdmaSubscription, Integer instanceId) {
         super(context, preferredNetworkType, cdmaSubscription, instanceId);
     }
 
     protected RILRequest processSolicited (Parcel p, int type) {
-	boolean found = false;
+        boolean found = false;
         RILRequest rr = null;
-	int newRequest = 0;
+        int newRequest = 0;
 
         int dataPosition = p.dataPosition(); // save off position within the Parcel
-	int serial = p.readInt();
+        int serial = p.readInt();
         int error = p.readInt();
 
         // Pre-process the reply before popping it
@@ -68,16 +68,16 @@ public class EtherRIL extends RIL {
             if (tr != null && tr.mSerial == serial) {
                 if (error == 0 || p.dataAvail() > 0) {
                     try {
-			switch (tr.mRequest) {
-                        // Get those we're interested in
+                        switch (tr.mRequest) {
+                            // Get those we're interested in
                         case RIL_REQUEST_SIM_GET_ATR_LEGACY:
-			case RIL_REQUEST_CAF_SIM_OPEN_CHANNEL_WITH_P2_LEGACY:
-			case RIL_REQUEST_GET_ADN_RECORD_LEGACY:
-			case RIL_REQUEST_UPDATE_ADN_RECORD_LEGACY:
+                        case RIL_REQUEST_CAF_SIM_OPEN_CHANNEL_WITH_P2_LEGACY:
+                        case RIL_REQUEST_GET_ADN_RECORD_LEGACY:
+                        case RIL_REQUEST_UPDATE_ADN_RECORD_LEGACY:
                             rr = tr;
                             break;
-			}
-		    } catch (Throwable thr) {
+                        }
+                    } catch (Throwable thr) {
                         // Exceptions here usually mean invalid RIL responses
                         if (tr.mResult != null) {
                             AsyncResult.forMessage(tr.mResult, null, thr);
@@ -95,7 +95,7 @@ public class EtherRIL extends RIL {
             return super.processSolicited(p, type);
         }
 
-	rr = findAndRemoveRequestFromList(serial);
+        rr = findAndRemoveRequestFromList(serial);
         if (rr == null) {
             return rr;
         }
@@ -103,25 +103,25 @@ public class EtherRIL extends RIL {
         Object ret = null;
         if (error == 0 || p.dataAvail() > 0) {
             switch (rr.mRequest) {
-	    case RIL_REQUEST_SIM_GET_ATR_LEGACY:
-		ret = responseString(p);
+            case RIL_REQUEST_SIM_GET_ATR_LEGACY:
+                ret = responseString(p);
                 newRequest = RIL_REQUEST_SIM_GET_ATR;
                 break;
-	    case RIL_REQUEST_CAF_SIM_OPEN_CHANNEL_WITH_P2_LEGACY:
-		newRequest = RIL_REQUEST_CAF_SIM_OPEN_CHANNEL_WITH_P2;
-		ret = responseInts(p);
-		break;
-	    case RIL_REQUEST_GET_ADN_RECORD_LEGACY:
-		newRequest = RIL_REQUEST_GET_ADN_RECORD;
-		ret = responseInts(p);
-		break;
-	    case RIL_REQUEST_UPDATE_ADN_RECORD_LEGACY:
-		ret = responseInts(p);
-		newRequest = RIL_REQUEST_UPDATE_ADN_RECORD;
-		break;
+            case RIL_REQUEST_CAF_SIM_OPEN_CHANNEL_WITH_P2_LEGACY:
+                newRequest = RIL_REQUEST_CAF_SIM_OPEN_CHANNEL_WITH_P2;
+                ret = responseInts(p);
+                break;
+            case RIL_REQUEST_GET_ADN_RECORD_LEGACY:
+                newRequest = RIL_REQUEST_GET_ADN_RECORD;
+                ret = responseInts(p);
+                break;
+            case RIL_REQUEST_UPDATE_ADN_RECORD_LEGACY:
+                ret = responseInts(p);
+                newRequest = RIL_REQUEST_UPDATE_ADN_RECORD;
+                break;
 
-	    default:
-		throw new RuntimeException("Unrecognized solicited response: " + rr.mRequest);
+            default:
+                throw new RuntimeException("Unrecognized solicited response: " + rr.mRequest);
             }
         }
         if (RILJ_LOGD) riljLog(rr.serialString() + "< " + requestToString(rr.mRequest)
@@ -140,19 +140,19 @@ public class EtherRIL extends RIL {
         int response = p.readInt();
 
         switch(response) {
-	case RIL_UNSOL_RESPONSE_ADN_INIT_DONE_LEGACY:
-	    ret = responseVoid(p);
-	    break;
-	case RIL_UNSOL_RESPONSE_ADN_RECORDS_LEGACY:
-	    ret = responseAdnRecords(p);
-	    break;
-	default:
-	    // Rewind the Parcel
-	    p.setDataPosition(dataPosition);
+        case RIL_UNSOL_RESPONSE_ADN_INIT_DONE_LEGACY:
+            ret = responseVoid(p);
+            break;
+        case RIL_UNSOL_RESPONSE_ADN_RECORDS_LEGACY:
+            ret = responseAdnRecords(p);
+            break;
+        default:
+            // Rewind the Parcel
+            p.setDataPosition(dataPosition);
 
-	    // Forward responses that we are not overriding to the super class
-	    super.processUnsolicited(p, type);
-	    return;
+            // Forward responses that we are not overriding to the super class
+            super.processUnsolicited(p, type);
+            return;
         }
     }
 
@@ -167,7 +167,7 @@ public class EtherRIL extends RIL {
             AdnRecordsInfoGroup[i].mRecordIndex = p.readInt();
             AdnRecordsInfoGroup[i].mAlphaTag = p.readString();
             AdnRecordsInfoGroup[i].mNumber =
-                    SimPhoneBookAdnRecord.ConvertToPhoneNumber(p.readString());
+                SimPhoneBookAdnRecord.ConvertToPhoneNumber(p.readString());
 
             int numEmails = p.readInt();
             if(numEmails > 0) {
@@ -192,18 +192,18 @@ public class EtherRIL extends RIL {
 
         return AdnRecordsInfoGroup;
     }
-    
+
     public void getAtr(Message response) {
         RILRequest rr = RILRequest.obtain(RIL_REQUEST_SIM_GET_ATR_LEGACY, response);
         int slotId = 0;
         rr.mParcel.writeInt(1);
         rr.mParcel.writeInt(slotId);
         if (RILJ_LOGD) riljLog(rr.serialString() + "> iccGetAtr: "
-                + requestToString(rr.mRequest) + " " + slotId);
-	
+                               + requestToString(rr.mRequest) + " " + slotId);
+
         send(rr);
     }
-    
+
     public void iccOpenLogicalChannel(String AID, byte p2, Message response) {
         RILRequest rr = RILRequest.obtain(RIL_REQUEST_CAF_SIM_OPEN_CHANNEL_WITH_P2_LEGACY, response);
         rr.mParcel.writeByte(p2);
@@ -214,7 +214,7 @@ public class EtherRIL extends RIL {
 
         send(rr);
     }
-    
+
     public void getAdnRecord(Message result) {
         RILRequest rr = RILRequest.obtain(RIL_REQUEST_GET_ADN_RECORD_LEGACY, result);
 
@@ -228,7 +228,7 @@ public class EtherRIL extends RIL {
         rr.mParcel.writeInt(adnRecordInfo.getRecordIndex());
         rr.mParcel.writeString(adnRecordInfo.getAlphaTag());
         rr.mParcel.writeString(
-                SimPhoneBookAdnRecord.ConvertToRecordNumber(adnRecordInfo.getNumber()));
+                               SimPhoneBookAdnRecord.ConvertToRecordNumber(adnRecordInfo.getNumber()));
 
         int numEmails = adnRecordInfo.getNumEmails();
         rr.mParcel.writeInt(numEmails);
@@ -240,11 +240,11 @@ public class EtherRIL extends RIL {
         rr.mParcel.writeInt(numAdNumbers);
         for (int j = 0 ; j < numAdNumbers; j++) {
             rr.mParcel.writeString(
-                SimPhoneBookAdnRecord.ConvertToRecordNumber(adnRecordInfo.getAdNumbers()[j]));
+                                   SimPhoneBookAdnRecord.ConvertToRecordNumber(adnRecordInfo.getAdNumbers()[j]));
         }
 
         if (RILJ_LOGD) riljLog(rr.serialString() + "> " + requestToString(rr.mRequest)
-            + " with " + adnRecordInfo.toString());
+                               + " with " + adnRecordInfo.toString());
 
         send(rr);
     }
@@ -253,8 +253,7 @@ public class EtherRIL extends RIL {
     public void setAllowedCarriers(List<CarrierIdentifier> carriers, Message response) {
         riljLog("setAllowedCarriers: not supported");
         if (response != null) {
-            CommandException ex = new CommandException(
-                CommandException.Error.REQUEST_NOT_SUPPORTED);
+            CommandException ex = new CommandException(CommandException.Error.REQUEST_NOT_SUPPORTED);
             AsyncResult.forMessage(response, null, ex);
             response.sendToTarget();
         }
@@ -263,8 +262,7 @@ public class EtherRIL extends RIL {
     public void getAllowedCarriers(Message response) {
         riljLog("getAllowedCarriers: not supported");
         if (response != null) {
-            CommandException ex = new CommandException(
-                CommandException.Error.REQUEST_NOT_SUPPORTED);
+            CommandException ex = new CommandException(CommandException.Error.REQUEST_NOT_SUPPORTED);
             AsyncResult.forMessage(response, null, ex);
             response.sendToTarget();
         }
