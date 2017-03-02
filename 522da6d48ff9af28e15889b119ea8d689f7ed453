@@ -22,6 +22,30 @@
       "revId": "522da6d48ff9af28e15889b119ea8d689f7ed453",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fa5d592f_c1b09ddf",
+        "filename": "proprietary-files-qc.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-03-02T13:55:33Z",
+      "side": 0,
+      "message": "Oh well. Not worried about that tbh, since come nougat update, we\u0027ll be using our own blobs anyways",
+      "parentUuid": "fa5d592f_61a0d190",
+      "range": {
+        "startLine": 192,
+        "startChar": 47,
+        "endLine": 192,
+        "endChar": 48
+      },
+      "revId": "522da6d48ff9af28e15889b119ea8d689f7ed453",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
