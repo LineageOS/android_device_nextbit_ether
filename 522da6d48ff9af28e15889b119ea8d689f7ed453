@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa5d592f_61a0d190",
+        "filename": "proprietary-files-qc.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 192,
+      "author": {
+        "id": 11883
+      },
+      "writtenOn": "2017-03-02T13:52:34Z",
+      "side": 0,
+      "message": "It fails because the : should be a |",
+      "range": {
+        "startLine": 192,
+        "startChar": 47,
+        "endLine": 192,
+        "endChar": 48
+      },
+      "revId": "522da6d48ff9af28e15889b119ea8d689f7ed453",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
