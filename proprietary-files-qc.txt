@@ -37,18 +37,14 @@ etc/permissions/com.quicinc.cne.xml
 framework/cneapiclient.jar
 framework/com.quicinc.cne.jar
 framework/ConnectivityExt.jar
-vendor/lib/libNimsWrap.so
 vendor/lib/libcne.so
 vendor/lib/libcneapiclient.so
-vendor/lib/libcneconn.so
 vendor/lib/libcneqmiutils.so
 vendor/lib/libvendorconn.so
 vendor/lib/libwqe.so
 vendor/lib/libxml.so
-vendor/lib64/libNimsWrap.so
 vendor/lib64/libcne.so
 vendor/lib64/libcneapiclient.so
-vendor/lib64/libcneconn.so
 vendor/lib64/libcneqmiutils.so
 vendor/lib64/libvendorconn.so
 vendor/lib64/libwqe.so
@@ -130,7 +126,6 @@ vendor/lib64/libxtadapter.so
 vendor/lib64/libxtwifi_ulp_adaptor.so
 
 # Graphics
-vendor/lib/hw/vulkan.msm8992.so
 vendor/lib/egl/eglSubDriverAndroid.so
 vendor/lib/egl/libEGL_adreno.so
 vendor/lib/egl/libGLESv1_CM_adreno.so
@@ -145,11 +140,9 @@ vendor/lib/libc2d30-a4xx.so
 vendor/lib/libgsl.so
 vendor/lib/libllvm-glnext.so
 vendor/lib/libllvm-qcom.so
-vendor/lib/libllvm-qgl.so
 vendor/lib/librs_adreno.so
 vendor/lib/librs_adreno_sha1.so
 vendor/lib/libscale.so
-vendor/lib64/hw/vulkan.msm8992.so
 vendor/lib64/egl/eglSubDriverAndroid.so
 vendor/lib64/egl/libEGL_adreno.so
 vendor/lib64/egl/libGLESv1_CM_adreno.so
@@ -164,11 +157,10 @@ vendor/lib64/libc2d30-a4xx.so
 vendor/lib64/libgsl.so
 vendor/lib64/libllvm-glnext.so
 vendor/lib64/libllvm-qcom.so
-vendor/lib64/libllvm-qgl.so
 vendor/lib64/librs_adreno.so
 vendor/lib64/librs_adreno_sha1.so
 vendor/lib64/libscale.so
-vendor/lib64/libuiblur.so
+vendor/lib64/libuiblur.so|8d0275c4071423cad99862f50b79075db0807ad2
 
 # Graphics firmware
 etc/firmware/a420_pfp.fw
@@ -179,12 +171,10 @@ vendor/lib/hw/keystore.msm8992.so
 vendor/lib64/hw/keystore.msm8992.so
 
 # Media
-vendor/lib/libDivxDrm.so
 vendor/lib/libI420colorconvert.so
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxQcelp13Dec.so
-vendor/lib/libSHIMDivxDrm.so
 vendor/lib/libmm-color-convertor.so
 vendor/lib/libmmosal.so
 
@@ -249,7 +239,6 @@ vendor/lib64/libsmemlog.so
 # Radio
 -app/datastatusnotification/datastatusnotification.apk
 -app/fastdormancy/fastdormancy.apk
--app/QtiTelephonyService/QtiTelephonyService.apk
 -app/shutdownlistener/shutdownlistener.apk
 bin/ipacm-diag
 bin/netmgrd
@@ -345,16 +334,4 @@ vendor/lib/mediadrm/libwvdrmengine.so
 # Wifi
 bin/cnss-daemon
 bin/cnss_diag
--lib64/libwpa_qmi_eap_proxy.so
-
-# Wipower
--app/a4wpservice/a4wpservice.apk
--app/com.quicinc.wbcserviceapp/com.quicinc.wbcserviceapp.apk
-etc/permissions/com.quicinc.wbc.xml
-etc/permissions/com.quicinc.wbcservice.xml
-framework/com.quicinc.wbc.jar
-framework/com.quicinc.wbcservice.jar
-lib/hw/wbc_hal.default.so
-lib/libwbc_jni.so
-lib64/hw/wbc_hal.default.so
-lib64/libwbc_jni.so
+-lib64/libwpa_qmi_eap_proxy.so|ee0b6cccde3a66d474a30bc988f9c126ebeec2db

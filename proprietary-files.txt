@@ -200,7 +200,7 @@ etc/nxp/settings/os/playback/4/speaker.speaker
 vendor/firmware/libpn547_fw.so
 
 # Radio (factory version)
-bin/rild|ffea291cec3fe6a6393f8e6949a1219426547646
+bin/rild
 -lib/libril.so
 -lib64/libril.so
 -vendor/lib/libqmiservices.so
@@ -208,6 +208,9 @@ bin/rild|ffea291cec3fe6a6393f8e6949a1219426547646
 vendor/lib64/libril-qc-qmi-1.so
 vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/libril-qcril-hook-oem.so
+vendor/lib64/libril-qc-ltedirectdisc.so
+vendor/lib64/librilqmiservices.so
+vendor/lib64/libsettings.so
 
 # Sensors
 etc/sensors/hals.conf
@@ -230,3 +233,4 @@ etc/thermal-engine-8992.conf
 # TP firmware
 etc/firmware/TP_Firmware_nbq_ebbg.img
 etc/firmware/TP_Firmware_nbq_ebbg_V29.img
+etc/firmware/TP_Firmware_nbq_ebbg_V35.img
