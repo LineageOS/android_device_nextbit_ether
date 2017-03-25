@@ -1,1 +1,0 @@
-BOARD_USES_WIPOWER := true
