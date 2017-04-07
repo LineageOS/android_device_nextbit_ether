@@ -38,7 +38,7 @@
         <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES" acdb_id="10"/>
         <device name="SND_DEVICE_OUT_SPEAKER_AND_LINE" acdb_id="10"/>
         <device name="SND_DEVICE_OUT_VOICE_HANDSET" acdb_id="7"/>
-        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" acdb_id="14"/>
+        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" acdb_id="15"/>
         <device name="SND_DEVICE_OUT_VOICE_HEADPHONES" acdb_id="10"/>
     </acdb_ids>
 
@@ -48,12 +48,13 @@
 
     <backend_names>
         <device name="SND_DEVICE_OUT_SPEAKER" backend="speaker" interface="PRI_MI2S_RX" />
-        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" backend="speaker" interface="PRI_MI2S_RX" />
+        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" backend="voice-speaker" interface="PRI_MI2S_RX" />
         <device name="SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES" backend="speaker-and-headphones" interface="PRI_MI2S_RX-and-SLIMBUS_0_RX" />
         <device name="SND_DEVICE_OUT_SPEAKER_AND_LINE" backend="speaker-and-headphones" interface="PRI_MI2S_RX-and-SLIMBUS_0_RX" />
     </backend_names>
 
     <device_names>
+        <device name="SND_DEVICE_IN_VOICE_DMIC" alias="voice-rec-dmic-ef-fluence" />
         <device name="SND_DEVICE_IN_CAMCORDER_STEREO_DMIC" alias="handset-stereo-dmic-ef" />
         <device name="SND_DEVICE_IN_VOICE_REC_DMIC_STEREO" alias="handset-stereo-dmic-ef" />
     </device_names>
