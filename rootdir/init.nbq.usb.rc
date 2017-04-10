@@ -32,6 +32,19 @@ on post-fs-data
     write /sys/class/android_usb/android0/f_rndis_qc/rndis_transports BAM2BAM_IPA
     write /sys/class/android_usb/android0/f_rndis_qc/max_pkt_per_xfer 1
 
+# ADB
+on property:sys.usb.config=adb
+    write /sys/class/android_usb/android0/enable 0
+    write /sys/class/android_usb/android0/idVendor 2C3F
+    write /sys/class/android_usb/android0/idProduct 0002
+    write /sys/class/android_usb/android0/bDeviceClass 0
+    write /sys/class/android_usb/android0/bDeviceSubClass 0
+    write /sys/class/android_usb/android0/bDeviceProtocol 0
+    write /sys/class/android_usb/android0/functions adb
+    write /sys/class/android_usb/android0/enable 1
+    start adbd
+    setprop sys.usb.state ${sys.usb.config}
+
 # MTP
 on property:sys.usb.config=mtp
     stop adbd
