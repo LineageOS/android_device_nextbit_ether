@@ -49,6 +49,7 @@ on boot
     write /dev/cpuset/foreground/boost/cpus 4-5
     write /dev/cpuset/background/cpus 0-3
     write /dev/cpuset/system-background/cpus 0-3
+    write /dev/cpuset/top-app/cpus 0-5
 
     # adaptive LMK
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
