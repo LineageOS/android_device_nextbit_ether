@@ -22,6 +22,30 @@
       "revId": "f90297cf3a9b358c14f2f64f0faeda157d245e0b",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a51691d_5235c144",
+        "filename": "libshims/MediaBuffer.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 6351
+      },
+      "writtenOn": "2017-04-13T15:33:39Z",
+      "side": 1,
+      "message": "Err, not so nice either because I think this returns an int.\n\nUnfortunately, I\u0027m not sure we can actually provide an implementation (iirc the refcount is private scoped).",
+      "parentUuid": "7a51691d_b2ee35b3",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 64
+      },
+      "revId": "f90297cf3a9b358c14f2f64f0faeda157d245e0b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
