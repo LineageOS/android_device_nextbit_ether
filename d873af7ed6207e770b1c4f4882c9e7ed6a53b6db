@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a51691d_9204597f",
+        "filename": "proprietary-files-qc-perf.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-04-13T15:19:08Z",
+      "side": 0,
+      "message": "Might as well remove the sepolicy and service definitions? Or we should consider bringing this back at some point?",
+      "revId": "d873af7ed6207e770b1c4f4882c9e7ed6a53b6db",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7a51691d_7209dd94",
+        "filename": "proprietary-files-qc.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-04-13T15:19:08Z",
+      "side": 0,
+      "message": "If we remove this, we might as well remove the framework parts/dependencies of it. Is there any benefit using QC telephony extensions?",
+      "revId": "d873af7ed6207e770b1c4f4882c9e7ed6a53b6db",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
