@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a51691d_12d189fb",
+        "filename": "overlay/packages/apps/Snap/res/values/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-04-13T15:17:16Z",
+      "side": 0,
+      "message": "We don\u0027t need these for sure?",
+      "revId": "8012f752ca199889419a26b51b052c85b7c7079d",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
