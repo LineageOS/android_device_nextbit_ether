@@ -29,4 +29,4 @@ $(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-dalvik-heap.mk
 $(call inherit-product, frameworks/native/build/phone-xxhdpi-3072-hwui-memory.mk)
 
 # Call the proprietary setup
-$(call inherit-product-if-exists, vendor/nextbit/ether/ether-vendor.mk)
+$(call inherit-product, vendor/nextbit/ether/ether-vendor.mk)
