@@ -32,6 +32,7 @@
 if [ -e /proc/wifi_mac ]; then
 	echo -n "Intf0MacAddress=" > /persist/wlan_mac.bin
 	echo `cat /proc/wifi_mac | tr -d ":"` >> /persist/wlan_mac.bin
+	echo "END" >> /persist/wlan_mac.bin
 fi
 
 if [ -e /proc/bt_mac ]; then
