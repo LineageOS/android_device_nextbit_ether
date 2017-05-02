@@ -16,6 +16,24 @@
       "revId": "c6d4192c76ae3efdc245f3599c8f52a2dce66255",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a486d77_74e2df04",
+        "filename": "configs/media_codecs_performance.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 6351
+      },
+      "writtenOn": "2017-05-02T16:13:55Z",
+      "side": 0,
+      "message": "Probably, but the values in here are probably wrong (stock seems to be slower than what caf thinks it should be).  To get reasonable values I think we\u0027d need to update cts to performance test the codec.",
+      "parentUuid": "1a486d77_e13733af",
+      "revId": "c6d4192c76ae3efdc245f3599c8f52a2dce66255",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
