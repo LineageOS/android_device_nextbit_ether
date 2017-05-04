@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a486d77_2d09ba31",
+        "filename": "configs/media_codecs_performance.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 6351
+      },
+      "writtenOn": "2017-05-04T00:40:01Z",
+      "side": 1,
+      "message": "CTS failed on this one with:\n\n\t\njunit.framework.AssertionFailedError: Expected achievable frame rates for OMX.google.h264.encoder video/avc 1920x1080: [42.0, 42.0].\n\nwhich is a little odd (to be off by so much and close to 1280x720).\n\nRandom thought... Maybe the thermal throttling is fairly reproducibly jacking with the cts test which is making all of these values bogus?  All other performance tests passed except for this one with the new config.",
+      "revId": "a741c57bbf3d098edcc857da6adce7ff56bb7d18",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
