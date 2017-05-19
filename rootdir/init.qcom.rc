@@ -25,9 +25,9 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import init.nbq.target.rc
-import init.qcom.fs.rc
-import init.target.rc
+import /vendor/etc/init/hw/init.nbq.target.rc
+import /vendor/etc/init/hw/init.qcom.fs.rc
+import /vendor/etc/init/hw/init.target.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
