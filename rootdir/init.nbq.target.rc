@@ -25,10 +25,10 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-import /init.nbq.fingerprint.rc
-import /init.nbq.led.rc
-import /init.nbq.poweroff_charging.rc
-import /init.nbq.usb.rc
+import /vendor/etc/init/hw/init.nbq.fingerprint.rc
+import /vendor/etc/init/hw/init.nbq.led.rc
+import /vendor/etc/init/hw/init.nbq.poweroff_charging.rc
+import /vendor/etc/init/hw/init.nbq.usb.rc
 
 on boot
     # execute script to set initial CPU settings
