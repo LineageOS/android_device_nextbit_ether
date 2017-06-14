@@ -9,6 +9,7 @@
 /data/fpc_images(/.*)?                                         u:object_r:fpc_data_file:s0
 
 /dev/i2c-1                                                   u:object_r:smartamp_device:s0
+/dev/pn547                                                   u:object_r:nfc_device:s0
 
 /system/bin/init.nbq.mac.sh                                 u:object_r:init-mac-sh_exec:s0
 /system/bin/init.nbq.power.sh                             u:object_r:init-power-sh_exec:s0
