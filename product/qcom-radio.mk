@@ -9,6 +9,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.apm_sim_not_pwdn=1 \
     persist.radio.custom_ecc=1 \
     persist.radio.sib16_support=1 \
+    persist.radio.VT_CAM_INTERFACE=1 \
     ro.data.large_tcp_window_size=true \
     ro.use_data_netmgrd=true \
     ro.telephony.default_network=9
