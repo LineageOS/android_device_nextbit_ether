@@ -10,7 +10,7 @@ PRODUCT_PACKAGES += \
 
 # QC CABL feature
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.qualcomm.cabl=2
+    ro.qualcomm.cabl=0
 
 # MSM8992 HAL settings
 # 196610 is decimal for 0x30002 to report major/minor versions as 3/2
