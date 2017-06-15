@@ -38,16 +38,15 @@
 
          Must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLevels">
-        <item>1</item>        <!-- pitch black -->
-        <item>5</item>        <!-- dark indoor -->
-        <item>10</item>       <!-- twilight -->
-        <item>50</item>       <!-- dim indoor -->
-        <item>100</item>      <!-- home -->
-        <item>300</item>      <!-- office -->
-        <item>500</item>      <!-- sunrise -->
-        <item>1000</item>     <!-- overcast -->
-        <item>3000</item>     <!-- indirect sun -->
-        <item>10000</item>    <!-- daylight -->
+        <item>15</item>
+        <item>40</item>
+        <item>190</item>
+        <item>350</item>
+        <item>600</item>
+        <item>1000</item>
+        <item>1600</item>
+        <item>3000</item>
+        <item>10000</item>
     </integer-array>
 
     <!-- Array of output values for LCD backlight corresponding to the LUX values
@@ -55,16 +54,15 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>16</item>
-        <item>20</item>
-        <item>24</item>
-        <item>31</item>
-        <item>48</item>
-        <item>74</item>
-        <item>107</item>
-        <item>152</item>
-        <item>194</item>
-        <item>254</item>
+        <item>8</item>
+        <item>18</item>
+        <item>38</item>
+        <item>53</item>
+        <item>86</item>
+        <item>131</item>
+        <item>178</item>
+        <item>215</item>
+        <item>240</item>
         <item>255</item>
     </integer-array>
 
@@ -73,7 +71,6 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessButtonBacklightValues">
-        <item>0</item>
         <item>0</item>
         <item>0</item>
         <item>0</item>
