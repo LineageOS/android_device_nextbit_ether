@@ -34,6 +34,24 @@
       "revId": "1bb5b2f170bb794e7ea37e94a3649c05222bf4ef",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_a9dd7c44",
+        "filename": "gps/gps.conf",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-06-18T12:06:59Z",
+      "side": 1,
+      "message": "I don\u0027t think that\u0027s necessary tbh. iirc it only really mattered for CDMA, and we don\u0027t support CDMA. GSM carriers should all be fairly inline.",
+      "parentUuid": "da87b5cf_6920d449",
+      "revId": "1bb5b2f170bb794e7ea37e94a3649c05222bf4ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
