@@ -22,6 +22,30 @@
       "revId": "a9133d45e38ad21a903350f540d09487567476ec",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_89a0b891",
+        "filename": "gps/gps.conf",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-06-18T12:38:00Z",
+      "side": 1,
+      "message": "https://android.googlesource.com/device/lge/bullhead/+/9f6cc5e1600e127ef70d43ae795a2cc6922a03d0\nUpdated server paths too",
+      "parentUuid": "da87b5cf_09c0284f",
+      "range": {
+        "startLine": 10,
+        "startChar": 14,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "a9133d45e38ad21a903350f540d09487567476ec",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
