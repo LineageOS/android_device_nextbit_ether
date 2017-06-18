@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "da87b5cf_09c0284f",
+        "filename": "gps/gps.conf",
+        "patchSetId": 6
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 7148
+      },
+      "writtenOn": "2017-06-18T12:24:18Z",
+      "side": 1,
+      "message": "use https.. see https://review.lineageos.org/#/c/176458/",
+      "range": {
+        "startLine": 10,
+        "startChar": 14,
+        "endLine": 10,
+        "endChar": 19
+      },
+      "revId": "a9133d45e38ad21a903350f540d09487567476ec",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
