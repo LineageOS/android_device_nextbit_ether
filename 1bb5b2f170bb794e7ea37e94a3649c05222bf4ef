@@ -16,6 +16,24 @@
       "revId": "1bb5b2f170bb794e7ea37e94a3649c05222bf4ef",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "da87b5cf_6920d449",
+        "filename": "gps/gps.conf",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-06-18T11:59:56Z",
+      "side": 1,
+      "message": "Should we also switch to mcc-mnc overlays?",
+      "parentUuid": "da87b5cf_093268a7",
+      "revId": "1bb5b2f170bb794e7ea37e94a3649c05222bf4ef",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
