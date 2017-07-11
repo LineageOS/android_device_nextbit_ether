@@ -227,9 +227,6 @@ etc/firmware/venus.b04
 etc/firmware/venus.mbn
 etc/firmware/venus.mdt
 
-# Thermal
-etc/thermal-engine-8992.conf
-
 # TP firmware
 etc/firmware/TP_Firmware_nbq_ebbg.img
 etc/firmware/TP_Firmware_nbq_ebbg_V29.img
