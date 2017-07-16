@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7a0597d5_b6690218",
+        "filename": "product/qcom-perf.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2017-07-16T15:12:45Z",
+      "side": 1,
+      "message": "This should match the init config, which means it should be 0",
+      "range": {
+        "startLine": 4,
+        "startChar": 24,
+        "endLine": 4,
+        "endChar": 25
+      },
+      "revId": "cff94dac9122dc5133e41d139b21d8473356a170",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
