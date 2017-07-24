@@ -1,4 +1,3 @@
-/dev/block/platform/soc.0/f9824900.sdhci/by-name/box        u:object_r:box_block_device:s0
 /dev/block/platform/soc.0/f9824900.sdhci/by-name/config     u:object_r:frp_block_device:s0
 
 /data/EP_Valid.bin                                          u:object_r:camera_data_file:s0
