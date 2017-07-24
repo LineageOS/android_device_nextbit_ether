@@ -23,8 +23,3 @@ include $(DEVICE_PATH)/PlatformConfig.mk
 include $(DEVICE_PATH)/board/*.mk
 
 -include vendor/nextbit/ether/BoardConfigVendor.mk
-
-# Inherit from QC proprietary
-ifneq ($(QCPATH),)
--include $(QCPATH)/common/msm8992/BoardConfigVendor.mk
-endif
