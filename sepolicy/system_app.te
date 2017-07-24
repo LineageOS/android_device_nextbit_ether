@@ -1,6 +1,3 @@
-# violates never allow
-# allow system_app self:capability { net_admin };
-
 allow system_app ipa_dev:chr_file { read write open ioctl };
 allow system_app qmuxd_socket:dir { write add_name search };
 allow system_app qmuxd_socket:sock_file { setattr create write };
