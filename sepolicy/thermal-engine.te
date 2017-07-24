@@ -1,2 +1,1 @@
 allow thermal-engine thermal_socket:sock_file { relabelfrom relabelto };
-
