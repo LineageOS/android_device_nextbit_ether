@@ -15,7 +15,7 @@
 /dev/block/bootdevice/by-name/boot      /boot              emmc    defaults                                        defaults
 /dev/block/bootdevice/by-name/recovery  /recovery          emmc    defaults                                        defaults
 /dev/block/bootdevice/by-name/misc      /misc              emmc    defaults                                        defaults
-/dev/block/bootdevice/by-name/frp       /frp               emmc    defaults                                        defaults
+/dev/block/bootdevice/by-name/config    /frp               emmc    defaults                                        defaults
 
 /devices/soc.0/f9a55000.ehci/usb1       /storage/uicc0     vfat    nosuid,nodev                                    voldmanaged=uicc0:auto
 /devices/soc.0/f9a55000.ehci/usb1       /storage/uicc1     vfat    nosuid,nodev                                    voldmanaged=uicc1:auto
