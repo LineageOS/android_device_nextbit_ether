@@ -230,6 +230,7 @@ service rmt_storage /vendor/bin/rmt_storage
     class core
     user root
     group system wakelock
+    shutdown critical
     writepid /dev/cpuset/system-background/tasks
 
 service rfs_access /vendor/bin/rfs_access
