@@ -258,6 +258,7 @@ set_speaker_light_locked(struct light_device_t* dev,
     }
 
     if (state == NULL) {
+        write_int(WHITE_DUTY_PCTS_FILE, 0);
         write_int(WHITE_BLINK_FILE, 0);
         write_int(WHITE_LED_FILE, 0);
         return 0;
