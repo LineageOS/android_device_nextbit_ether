@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "98a1542a_10666b61",
+        "filename": "liblight/lights.c",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2017-08-18T13:16:18Z",
+      "side": 1,
+      "message": "Why not use write_int() here? If there\u0027s no functional reason, I\u0027d prefer it to have write_int() to match the rest of the code here",
+      "revId": "e4d6e2316d14fe42e4bbdfbecfaaf3ac5a1800b3",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
