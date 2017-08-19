@@ -106,6 +106,9 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 # GPS
 USE_DEVICE_SPECIFIC_GPS := true
+TARGET_LD_SHIM_LIBS := \
+    /system/vendor/lib/libizat_core.so|libshims_izat.so \
+    /system/vendor/lib64/libizat_core.so|libshims_izat.so
 
 # Hardware
 BOARD_USES_CYANOGEN_HARDWARE := true
