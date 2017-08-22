@@ -242,7 +242,6 @@ PRODUCT_PACKAGES += \
     libbson \
     libcnefeatureconfig \
     libnl_2 \
-    libqsap_sdk \
     librmnetctl \
     libxml2
 
