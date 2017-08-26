@@ -261,7 +261,7 @@ on property:wc_transport.start_root=false
 service hci_filter_root /system/bin/wcnss_filter
     class late_start
     user bluetooth
-    group bluetooth qcom_diag net_bt_stack system
+    group bluetooth qcom_diag system
     disabled
 
 service hciattach /system/bin/sh /system/etc/init.qcom.bt.sh
