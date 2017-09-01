@@ -35,6 +35,8 @@
 
 using namespace android;
 
+static const char KEY_ZSL[] = "zsl";
+
 static Mutex gCameraWrapperLock;
 static camera_module_t *gVendorModule = 0;
 
@@ -132,7 +134,7 @@ static char *camera_fixup_setparams(int id, const char *settings)
     params.dump();
 #endif
 
-    // Stub
+    params.set(KEY_ZSL, "on");
 
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __func__);
