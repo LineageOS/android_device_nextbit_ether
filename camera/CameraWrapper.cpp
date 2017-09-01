@@ -35,6 +35,9 @@
 
 using namespace android;
 
+static const char CameraParameters::KEY_ZSL[] = "zsl";
+static const char CameraParameters::KEY_QC_ZSL_HDR_SUPPORTED[] = "zsl-hdr-supported";
+
 static Mutex gCameraWrapperLock;
 static camera_module_t *gVendorModule = 0;
 
@@ -109,7 +112,7 @@ static char *camera_fixup_getparams(int id __unused, const char *settings)
     params.dump();
 #endif
 
-    // Stub
+    params.set(CameraParameters::KEY_QC_ZSL_HDR_SUPPORTED, "false");
 
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);
@@ -132,7 +135,11 @@ static char *camera_fixup_setparams(int id, const char *settings)
     params.dump();
 #endif
 
-    // Stub
+    if (params.get(CameraParameters::KEY_SCENE_MODE) &&
+        !strcmp(params.get(CameraParameters::KEY_SCENE_MODE), "hdr"))
+        params.set(CameraParameters::KEY_ZSL, "off");
+    else
+        params.set(CameraParameters::KEY_ZSL, "on");
 
 #if !LOG_NDEBUG
     ALOGV("%s: fixed parameters:", __FUNCTION__);
