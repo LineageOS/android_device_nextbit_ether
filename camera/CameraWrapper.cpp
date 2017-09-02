@@ -35,6 +35,7 @@
 
 using namespace android;
 
+static const char KEY_QC_AE_BRACKET_HDR[] = "ae-bracket-hdr";
 static const char KEY_ZSL[] = "zsl";
 
 static Mutex gCameraWrapperLock;
@@ -133,6 +134,10 @@ static char *camera_fixup_setparams(int id, const char *settings)
     ALOGV("%s: original parameters:", __func__);
     params.dump();
 #endif
+
+    if (params.get(CameraParameters::KEY_SCENE_MODE) &&
+            strcmp(params.get(CameraParameters::KEY_SCENE_MODE), "hdr"))
+        params.set(KEY_QC_AE_BRACKET_HDR, "Off");
 
     params.set(KEY_ZSL, "on");
 
