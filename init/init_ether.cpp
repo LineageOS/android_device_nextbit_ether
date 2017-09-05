@@ -52,11 +52,14 @@ static int read_file2(const char *fname, char *data)
 
 static void init_alarm_boot_properties()
 {
-    char const *alarm_file = "/proc/sys/kernel/boot_reason";
-    char buf[1];
+    char const *boot_reason_file = "/proc/sys/kernel/boot_reason";
+    char const *power_off_alarm_file = "/persist/alarm/powerOffAlarmSet";
+    char boot_reason[1];
+    char power_off_alarm[1];
     std::string tmp = property_get("ro.boot.alarmboot");
 
-    if (read_file2(alarm_file, buf)) {
+    if (read_file2(boot_reason_file, boot_reason)
+            && read_file2(power_off_alarm_file, power_off_alarm)) {
         /*
          * Setup ro.alarm_boot value to true when it is RTC triggered boot up
          * For existing PMIC chips, the following mapping applies
@@ -72,7 +75,8 @@ static void init_alarm_boot_properties()
          * 7 -> CBLPWR_N pin toggled (for external power supply)
          * 8 -> KPDPWR_N pin toggled (power key pressed)
          */
-        if (buf[0] == '3' || tmp == "true")
+        if ((boot_reason[0] == '3' || tmp == "true")
+                && power_off_alarm[0] == '1')
             property_set("ro.alarm_boot", "true");
         else
             property_set("ro.alarm_boot", "false");
