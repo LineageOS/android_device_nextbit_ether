@@ -90,6 +90,7 @@ on boot
     chmod 2770 /dev/socket/qmux_nfc
 
     mkdir /persist/bluetooth 0770 bluetooth bluetooth
+    mkdir /persist/alarm 0770 system system
 
     #Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
