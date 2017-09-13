@@ -1,4 +1,5 @@
 PRODUCT_PACKAGES += \
+    camera.msm8992 \
     Snap
 
 # Camera2 API
