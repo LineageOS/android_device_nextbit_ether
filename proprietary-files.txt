@@ -80,13 +80,6 @@ vendor/lib64/libbtnv.so
 
 # Camera
 bin/mm-qcamera-daemon
-lib/hw/camera.msm8992.so
-lib/libmm-qcamera.so
-lib/libmmcamera_interface.so
-lib/libmmjpeg_interface.so
-lib/libmorpho_movie_stab4.so
-lib/libmorpho_image_stab4.so
-lib/libqomx_core.so
 vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libflash_pmic.so
 vendor/lib/libjpegdhw.so
@@ -160,11 +153,9 @@ vendor/lib/libmmjpeg.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/libmmqjpegdma.so
 vendor/lib/liboemcamera.so
-vendor/lib/libois_lc898122.so
 vendor/lib/libqomx_jpegdec.so
 vendor/lib/libqomx_jpegenc.so
 vendor/lib/libqomx_jpegenc_pipe.so
-vendor/lib/libSonyIMX230PdafLibrary.so
 
 # Camera actuator
 vendor/lib/libactuator_dw9761b.so
