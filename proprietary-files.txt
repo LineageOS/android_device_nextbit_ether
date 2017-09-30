@@ -361,12 +361,9 @@ vendor/lib/hw/keystore.msm8992.so
 vendor/lib64/hw/keystore.msm8992.so
 
 # Media
-vendor/lib/libI420colorconvert.so
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxQcelp13Dec.so
-vendor/lib/libmm-color-convertor.so
-vendor/lib/libmmosal.so
 
 # Network
 -priv-app/QtiTetherService/QtiTetherService.apk
