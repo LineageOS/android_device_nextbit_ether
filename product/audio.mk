@@ -10,13 +10,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     audio_amplifier.msm8992
 
-# some extra tools
-PRODUCT_PACKAGES += \
-    tinycap \
-    tinymix \
-    tinypcminfo \
-    tinyplay
-
 # routes, paths, effects, policy
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
