@@ -24,10 +24,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.midi.xml:system/etc/permissions/android.software.midi.xml  \
     frameworks/native/data/etc/android.software.sip.xml:system/etc/permissions/android.software.sip.xml
 
-# custom acdb path
-PRODUCT_PROPERTY_OVERRIDES += \
-    audio.acdb.name=NBQ
-
 # fast track settings
 PRODUCT_PROPERTY_OVERRIDES += \
     af.fast_track_multiplier=1 \
