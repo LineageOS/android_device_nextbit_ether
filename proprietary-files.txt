@@ -439,7 +439,6 @@ vendor/lib64/libsmemlog.so
 -app/datastatusnotification/datastatusnotification.apk
 -app/fastdormancy/fastdormancy.apk
 -app/shutdownlistener/shutdownlistener.apk
-bin/ipacm-diag
 bin/netmgrd
 bin/qmuxd
 bin/radish
@@ -561,5 +560,4 @@ vendor/lib/mediadrm/libwvdrmengine.so
 
 # Wifi
 bin/cnss-daemon
-bin/cnss_diag
 -lib64/libwpa_qmi_eap_proxy.so|ee0b6cccde3a66d474a30bc988f9c126ebeec2db
