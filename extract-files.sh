@@ -41,9 +41,6 @@ while [ "$1" != "" ]; do
     case $1 in
         -n | --no-cleanup )     CLEAN_VENDOR=false
                                 ;;
-        -p | --path )           shift
-                                SRC=$1
-                                ;;
         -s | --section )        shift
                                 SECTION=$1
                                 CLEAN_VENDOR=false
