@@ -29,14 +29,15 @@
 
 #include <cstdio>
 
-#include <android-base/strings.h>
 #include <android-base/properties.h>
+#include <android-base/strings.h>
 
 #include "property_service.h"
 #include "vendor_init.h"
 
 using android::base::GetProperty;
 using android::base::Trim;
+using android::init::property_set;
 
 static void init_alarm_boot_properties()
 {
