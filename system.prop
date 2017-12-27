@@ -64,7 +64,7 @@ persist.metadata_dynfps.disable=true
 ro.opengles.version=196610
 
 # FRP
-ro.frp.pst=/dev/block/bootdevice/by-name/config
+ro.frp.pst=/dev/block/platform/soc.0/f9824900.sdhci/by-name/config
 
 # GPS
 persist.gps.qc_nlp_in_use=0
