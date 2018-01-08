@@ -3,6 +3,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ril.subscription.types=NV,RUIM
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    net.tcp.2g_init_rwnd=10 \
     persist.data.mode=concurrent \
     persist.data.netmgrd.qos.enable=true \
     persist.data.tcp_rst_drop=true \
@@ -12,6 +13,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.VT_CAM_INTERFACE=1 \
     ro.data.large_tcp_window_size=true \
     ro.use_data_netmgrd=true \
+    ro.telephony.call_ring.multiple=false \
     ro.telephony.default_network=9
 
 PRODUCT_PROPERTY_OVERRIDES += \
