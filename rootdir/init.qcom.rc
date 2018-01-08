@@ -31,11 +31,8 @@ import init.target.rc
 
 on early-init
     mount debugfs debugfs /sys/kernel/debug
-    insmod /sbin/qcrypto_module.ko
-    insmod /sbin/qdrbg_module.ko
 
 on init
-    start qfintverify
     # Set permissions for persist partition
     mkdir /persist 0771 system system
 
@@ -44,40 +41,21 @@ on init
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
-    # Allow subsystem (modem etc) debugging
-    #write /sys/module/subsystem_restart/parameters/enable_debug ${persist.sys.ssr.enable_debug}
-    #write /sys/module/pil_msa/parameters/pbl_mba_boot_timeout_ms ${persist.sys.mba_boot_timeout}
-    #write /sys/module/pil_msa/parameters/modem_auth_timeout_ms ${persist.sys.modem_auth_timeout}
-    #write /sys/module/peripheral_loader/parameters/proxy_timeout_ms ${persist.sys.pil_proxy_timeout}
+
     write /sys/kernel/boot_adsp/boot 1
 
 on boot
-    chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/type
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/state
-    chown bluetooth bluetooth /proc/bluetooth/sleep/proto
-    chown bluetooth bluetooth /sys/module/hci_uart/parameters/ath_lpm
-    chown bluetooth bluetooth /sys/module/hci_uart/parameters/ath_btwrite
-    chown system system /sys/module/sco/parameters/disable_esco
-    chown bluetooth bluetooth /sys/module/hci_smd/parameters/hcismd_set
-    chmod 0660 /sys/module/bluetooth_power/parameters/power
-    chmod 0660 /sys/module/hci_smd/parameters/hcismd_set
     chmod 0660 /sys/class/rfkill/rfkill0/state
-    chmod 0660 /proc/bluetooth/sleep/proto
-    chown bluetooth net_bt /dev/ttyHS0
-    chmod 0660 /sys/module/hci_uart/parameters/ath_lpm
-    chmod 0660 /sys/module/hci_uart/parameters/ath_btwrite
-    chmod 0660 /dev/ttyHS0
-    chown bluetooth bluetooth /sys/devices/platform/msm_serial_hs.0/clock
-    chmod 0660 /sys/devices/platform/msm_serial_hs.0/clock
 
-    chmod 0660 /dev/ttyHS2
-    chown bluetooth bluetooth /dev/ttyHS2
+    chown bluetooth net_bt /dev/ttyHS0
+    chmod 0660 /dev/ttyHS0
 
     chown bluetooth net_bt /sys/class/rfkill/rfkill0/device/extldo
     chmod 0660 /sys/class/rfkill/rfkill0/device/extldo
 
-    #Create QMUX deamon socket area
+    # Create QMUX deamon socket area
     mkdir /dev/socket/qmux_radio 0770 radio radio
     chmod 2770 /dev/socket/qmux_radio
     mkdir /dev/socket/qmux_audio 0770 media audio
@@ -92,66 +70,13 @@ on boot
     mkdir /persist/bluetooth 0770 bluetooth bluetooth
     mkdir /persist/alarm 0770 system system
 
-    #Create NETMGR daemon socket area
+    # Create NETMGR daemon socket area
     mkdir /dev/socket/netmgr 0750 radio radio
 
-    setprop wifi.interface wlan0
-
-#   Define TCP buffer sizes for various networks
-#   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
-    setprop net.tcp.buffersize.wifi    524288,2097152,4194304,262144,524288,1048576
-
-
-    setprop ro.telephony.call_ring.multiple false
-
-    #Remove SUID bit for iproute2 ip tool
-    chmod 0755 /system/bin/ip
-
-
-    chmod 0444 /sys/devices/platform/msm_hsusb/gadget/usb_state
-
-
-#   Define TCP buffer sizes for various networks
-#   ReadMin, ReadInitial, ReadMax, WriteMin, WriteInitial, WriteMax,
-    setprop net.tcp.buffersize.default 4096,87380,524288,4096,16384,110208
-    setprop net.tcp.buffersize.lte     2097152,4194304,8388608,262144,524288,1048576
-    setprop net.tcp.buffersize.umts    4094,87380,110208,4096,16384,110208
-    setprop net.tcp.buffersize.hspa    4094,87380,1220608,4096,16384,1220608
-    setprop net.tcp.buffersize.hsupa   4094,87380,1220608,4096,16384,1220608
-    setprop net.tcp.buffersize.hsdpa   4094,87380,1220608,4096,16384,1220608
-    setprop net.tcp.buffersize.hspap   4094,87380,1220608,4096,16384,1220608
-    setprop net.tcp.buffersize.edge    4093,26280,35040,4096,16384,35040
-    setprop net.tcp.buffersize.gprs    4092,8760,11680,4096,8760,11680
-    setprop net.tcp.buffersize.evdo    4094,87380,524288,4096,16384,262144
-
-    setprop net.tcp.2g_init_rwnd 10
-
-#   Assign TCP buffer thresholds to be ceiling value of technology maximums
-#   Increased technology maximums should be reflected here.
+    # Assign TCP buffer thresholds to be ceiling value of technology maximums
+    # Increased technology maximums should be reflected here.
     write /proc/sys/net/core/rmem_max  8388608
     write /proc/sys/net/core/wmem_max  8388608
-
-    #To allow interfaces to get v6 address when tethering is enabled
-    write /proc/sys/net/ipv6/conf/rmnet0/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet1/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet2/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet3/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet4/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet5/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet6/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet7/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_sdio0/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_sdio1/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_sdio2/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_sdio3/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_sdio4/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_sdio5/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_sdio6/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_sdio7/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_usb0/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_usb1/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_usb2/accept_ra 2
-    write /proc/sys/net/ipv6/conf/rmnet_usb3/accept_ra 2
 
     # To prevent out of order acknowledgements from making
     # connection tracking to treat them as not belonging to
@@ -164,10 +89,6 @@ on boot
     # NFC local data and nfcee xml storage
     mkdir /data/nfc 0770 nfc nfc
     mkdir /data/nfc/param 0770 nfc nfc
-
-    # Set the console loglevel to < KERN_INFO
-    # Set the default message loglevel to KERN_INFO
-    write /proc/sys/kernel/printk "6 6 1 7"
 
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
@@ -194,7 +115,7 @@ on post-fs-data
     # Create directory for TZ Apps
     mkdir /data/misc/qsee 0770 system system
 
-    #Create folder for mm-qcamera-daemon
+    # Create folder for mm-qcamera-daemon
     mkdir /data/misc/camera 0770 camera camera
 
     mkdir /data/media 0770 media_rw media_rw
@@ -230,9 +151,6 @@ on post-fs-data
     mkdir /data/misc/audio/acdbdata 0770 media audio
     mkdir /data/misc/audio/acdbdata/delta 0770 media audio
 
-    # Create directory used by the DASH client
-    mkdir /data/misc/dash 0770 media audio
-
     # Create directory used by display clients
     mkdir /data/misc/display 0770 system graphics
     mkdir /persist/display 0770 system graphics
@@ -241,22 +159,8 @@ on post-fs-data
     # We chown/chmod /persist again so because mount is run as root + defaults
     chown system system /persist
     chmod 0771 /persist
-    chmod 0664 /sys/devices/platform/msm_sdcc.1/polling
-    chmod 0664 /sys/devices/platform/msm_sdcc.2/polling
-    chmod 0664 /sys/devices/platform/msm_sdcc.3/polling
-    chmod 0664 /sys/devices/platform/msm_sdcc.4/polling
 
-    # Chown polling nodes as needed from UI running on system server
-    chown system system /sys/devices/platform/msm_sdcc.1/polling
-    chown system system /sys/devices/platform/msm_sdcc.2/polling
-    chown system system /sys/devices/platform/msm_sdcc.3/polling
-    chown system system /sys/devices/platform/msm_sdcc.4/polling
-
-    #Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
-    mkdir /data/system 0775 system system
-    #symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
-
-    #Create directories for Location services
+    # Create directories for Location services
     mkdir /data/misc/location 0770 gps gps
     mkdir /data/misc/location/mq 0770 gps gps
     mkdir /data/misc/location/xtwifi 0770 gps gps
@@ -264,15 +168,15 @@ on post-fs-data
     mkdir /data/misc/location/quipc 0770 gps system
     mkdir /data/misc/location/gsiff 0770 gps gps
 
-    #Create directory from IMS services
+    # Create directory from IMS services
     mkdir /data/shared 0755
     chown system system /data/shared
 
-    #Create directory for FOTA
+    # Create directory for FOTA
     mkdir /data/fota 0771
     chown system system /data/fota
 
-    #Create directory for hostapd
+    # Create directory for hostapd
     mkdir /data/hostapd 0770 system wifi
 
     # Create /data/time folder for time-services
@@ -286,123 +190,22 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
-    #Create a folder for SRS to be able to create a usercfg file
+    # Create a folder for SRS to be able to create a usercfg file
     mkdir /data/data/media 0770 media media
 
-    #Create PERFD deamon related dirs
+    # Create PERFD deamon related dirs
     mkdir /data/system/perfd 0770 root system
     chmod 2770 /data/system/perfd
     rm /data/system/perfd/default_values
 
-    # RIDL data
-    mkdir /data/misc/SelfHost/ 0710 system shell
-    mkdir /data/misc/SelfHost/QCLogs/ 2750 system shell
-    mkdir /data/misc/SelfHost/QCLogs/temp/ 0700 system shell
-    mkdir /data/misc/SelfHost/storage/ 0700 system shell
-    mkdir /data/misc/SelfHost/Running/ 2750 system shell
-    mkdir /data/misc/SelfHost/socket/ 2770 system system
-
-service qfintverify /sbin/qfintverify
-    user root
-    class core
-    seclabel u:r:qfips:s0
-    oneshot
-
-service ssr_setup /system/bin/ssr_setup
-    oneshot
-    disabled
-
-service ss_ramdump /system/bin/subsystem_ramdump
-    class main
-    user system
-    group system
-    disabled
-
 service perfd /system/vendor/bin/perfd
-   class main
-   user root
-   group system
-   socket perfd seqpacket 0666 root system
-   writepid /dev/cpuset/system-background/tasks
-
-on property:persist.sys.ssr.restart_level=*
-    start ssr_setup
-
-on property:persist.sys.ssr.enable_ramdumps=1
-    write /sys/module/subsystem_restart/parameters/enable_ramdumps 1
-    mkdir /data/ramdump 770 system system
-    start ss_ramdump
-
-on property:persist.sys.ssr.enable_ramdumps=0
-    write /sys/module/subsystem_restart/parameters/enable_ramdumps 0
-
-on property:sys.boot_completed=1
-    write /dev/kmsg "Boot completed "
-
-on property:persist.radio.atfwd.start=false
-    stop atfwd
-
-on property:radio.atfwd.start=false
-    stop atfwd
-
-service qcom-debug /system/bin/sh /system/etc/init.qcom.debug.sh
-    class core
+    class main
     user root
-    oneshot
-
-# corefile limit and ETB enabling
-on property:persist.debug.trace=1
-    mkdir /data/core 0777 root root
-    write /proc/sys/kernel/core_pattern "/data/core/%E.%p.%e"
-    write /sys/devices/system/cpu/cpu1/online 1
-    write /sys/devices/system/cpu/cpu2/online 1
-    write /sys/devices/system/cpu/cpu3/online 1
-    write /sys/bus/coresight/devices/coresight-etm0/enable 0
-    write /sys/bus/coresight/devices/coresight-etm1/enable 0
-    write /sys/bus/coresight/devices/coresight-etm2/enable 0
-    write /sys/bus/coresight/devices/coresight-etm3/enable 0
-    write /sys/bus/coresight/devices/coresight-etm0/reset 1
-    write /sys/bus/coresight/devices/coresight-etm1/reset 1
-    write /sys/bus/coresight/devices/coresight-etm2/reset 1
-    write /sys/bus/coresight/devices/coresight-etm3/reset 1
-    write /sys/bus/coresight/devices/coresight-etm0/enable 1
-    write /sys/bus/coresight/devices/coresight-etm1/enable 1
-    write /sys/bus/coresight/devices/coresight-etm2/enable 1
-    write /sys/bus/coresight/devices/coresight-etm3/enable 1
-    write /sys/module/coresight_event/parameters/event_abort_enable 1
-
-on property:bluetooth.isEnabled=true
-    start btwlancoex
-    write /sys/class/bluetooth/hci0/idle_timeout 7000
-
-on property:bluetooth.sap.status=running
-    start bt-sap
-
-on property:bluetooth.sap.status=stopped
-    stop bt-sap
-
-on property:bluetooth.dun.status=running
-    start bt-dun
-
-on property:bluetooth.dun.status=stopped
-    stop bt-dun
-
-on property:ro.bluetooth.ftm_enabled=true
-    start ftmd
-
-on property:bluetooth.startbtsnoop=true
-    start btsnoop
-
-on property:bluetooth.startbtsnoop=false
-    stop btsnoop
-
-service qcom-c_core-sh /system/bin/sh /init.qcom.class_core.sh
-    class core
-    user root
-    oneshot
+    group system
+    socket perfd seqpacket 0666 root system
+    writepid /dev/cpuset/system-background/tasks
 
 on property:vold.decrypt=trigger_restart_framework
-    start qcom-c_main-sh
     start config_bt_addr
 
 on property:persist.env.fastdorm.enabled=true
@@ -427,9 +230,9 @@ service rmt_storage /system/bin/rmt_storage
     group system wakelock
 
 service rfs_access /system/bin/rfs_access
-   class core
-   user root
-   group system net_raw
+    class core
+    user root
+    group system net_raw
 
 service config_bt_addr /system/bin/btnvtool -O
     class core
@@ -474,47 +277,6 @@ on property:bluetooth.hciattach=true
 on property:bluetooth.hciattach=false
     setprop bluetooth.status off
 
-service hciattach_ath3k /system/bin/sh /system/etc/init.ath3k.bt.sh
-     class late_start
-     user bluetooth
-     group system bluetooth net_bt_admin misc
-     disabled
-     oneshot
-
-service bt-dun /system/bin/dun-server /dev/smd7 /dev/rfcomm0
-    class late_start
-    user bluetooth
-    group bluetooth net_bt_admin inet
-    disabled
-    oneshot
-
-service bt-sap /system/bin/sapd 15
-    user bluetooth
-    group bluetooth net_bt_admin
-    class late_start
-    disabled
-    oneshot
-
-service btsnoop /system/bin/btsnoop
-   user bluetooth
-   group bluetooth net_bt_admin sdcard_rw sdcard_r media_rw
-   class late_start
-   disabled
-   oneshot
-
-service ftmd /system/bin/logwrapper /system/bin/ftmdaemon
-    class late_start
-    user root
-    group bluetooth net_bt_admin misc net_bt_stack diag net_bt
-    disabled
-    oneshot
-
-service port-bridge /system/bin/port-bridge /dev/mhi_pipe_32 /dev/ttyGS0
-    class main
-    user radio system
-    group radio system inet
-    disabled
-
 # QMUX must be in multiple groups to support external process connections
 service qmuxd /system/bin/qmuxd
     class main
@@ -543,10 +305,6 @@ service sensors /system/bin/sensors.qcom
     writepid /dev/cpuset/system-background/tasks
     disabled
 
-on property:ro.use_data_netmgrd=false
-    # netmgr not supported on specific target
-    stop netmgrd
-
 # Adjust socket buffer to enlarge TCP receive window for high bandwidth
 # but only if ro.data.large_tcp_window_size property is set.
 on property:ro.data.large_tcp_window_size=true
@@ -555,33 +313,6 @@ on property:ro.data.large_tcp_window_size=true
 on property:sys.sysctl.tcp_adv_win_scale=*
     write /proc/sys/net/ipv4/tcp_adv_win_scale ${sys.sysctl.tcp_adv_win_scale}
 
-service btwlancoex /system/bin/sh /system/etc/init.qcom.coex.sh
-    class late_start
-    user bluetooth
-    group bluetooth net_bt_admin inet net_admin net_raw
-    disabled
-    oneshot
-
-service amp_init /system/bin/amploader -i
-    class late_start
-    user root
-    disabled
-    oneshot
-
-service amp_load /system/bin/amploader -l 7000
-    class late_start
-    user root
-    disabled
-    oneshot
-
-service amp_unload /system/bin/amploader -u
-    class late_start
-    user root
-    disabled
-    oneshot
-
-#Reduce wifi log amount, remove -dd
-#-O/data/misc/wifi/sockets -puse_p2p_group_interface=1 -dd
 service p2p_supplicant /system/bin/wpa_supplicant \
     -ip2p0 -Dnl80211 -c/data/misc/wifi/p2p_supplicant.conf \
     -I/system/etc/wifi/p2p_supplicant_overlay.conf -N \
@@ -589,26 +320,16 @@ service p2p_supplicant /system/bin/wpa_supplicant \
     -I/system/etc/wifi/wpa_supplicant_overlay.conf \
     -O/data/misc/wifi/sockets -puse_p2p_group_interface=1 \
     -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
-#   we will start as root and wpa_supplicant will switch to user wifi
-#   after setting up the capabilities required for WEXT
-#   user wifi
-#   group wifi inet keystore
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
 
-#Reduce wifi log amount, remove -dd
-#-O/data/misc/wifi/sockets -dd
 service wpa_supplicant /system/bin/wpa_supplicant \
     -iwlan0 -Dnl80211 -c/data/misc/wifi/wpa_supplicant.conf \
     -I/system/etc/wifi/wpa_supplicant_overlay.conf \
     -O/data/misc/wifi/sockets \
     -e/data/misc/wifi/entropy.bin -g@android:wpa_wlan0
-    #   we will start as root and wpa_supplicant will switch to user wifi
-    #   after setting up the capabilities required for WEXT
-    #   user wifi
-    #   group wifi inet keystore
     class main
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
@@ -624,92 +345,16 @@ service loc_launcher /system/bin/loc_launcher
     class late_start
     group gps inet net_raw diag net_admin wifi
 
-service fm_dl /system/bin/sh /system/etc/init.qcom.fm.sh
-    class late_start
-    user root
-    group system
-    disabled
-    oneshot
-
-on property:crypto.driver.load=1
-     insmod /system/lib/modules/qce.ko
-     insmod /system/lib/modules/qcedev.ko
-
-service drmdiag /system/bin/drmdiagapp
-    class late_start
-     user root
-     disabled
-     oneshot
-
-on property:drmdiag.load=1
-    start drmdiag
-
-on property:drmdiag.load=0
-    stop drmdiag
-
 service qcom-sh /system/bin/sh /init.qcom.sh
     class late_start
     user root
     oneshot
 
-service qcom-post-boot /system/bin/sh /system/etc/init.qcom.post_boot.sh
-    class late_start
-    user root
-    disabled
-    oneshot
-
-service qti-testscripts /system/bin/sh /system/etc/init.qcom.testscripts.sh
-    class late_start
-    user root
-    disabled
-    oneshot
-    seclabel u:r:qti-testscripts:s0
-
-service wifi-sdio-on /system/bin/sh /system/etc/init.qcom.sdio.sh
-    class late_start
-    group wifi inet
-    disabled
-    oneshot
-
-service wifi-crda /system/bin/sh /system/etc/init.crda.sh
-   class late_start
-   user root
-   disabled
-   oneshot
-
-on property:sys.boot_completed=1
-    start qcom-post-boot
-    start qti-testscripts
-
-service atfwd /system/bin/ATFWD-daemon
-    class late_start
-    user system
-    group system radio
-
-#Reduce wifi log amount, remove -dd
-#service hostapd /system/bin/hostapd -dd /data/hostapd/hostapd.conf
 service hostapd /system/bin/hostapd /data/hostapd/hostapd.conf
     class late_start
     user root
     group root
     oneshot
-    disabled
-
-service ims_regmanager /system/bin/exe-ims-regmanagerprocessnative
-    class late_start
-    group net_bt_admin inet radio wifi
-    disabled
-
-on property:persist.ims.regmanager.mode=1
-    start ims_regmanager
-
-on property:ro.data.large_tcp_window_size=true
-    # Adjust socket buffer to enlarge TCP receive window for high bandwidth (e.g. DO-RevB)
-    write /proc/sys/net/ipv4/tcp_adv_win_scale  2
-
-service battery_monitor /system/bin/battery_monitor
-    user system
-    group system
     disabled
 
 service ril-daemon /system/bin/rild
@@ -719,101 +364,6 @@ service ril-daemon /system/bin/rild
     socket rild-debug stream 660 radio system
     user root
     group radio cache inet misc audio log readproc wakelock qcom_diag
-
-service profiler_daemon /system/bin/profiler_daemon
-    class late_start
-    user root
-    group root
-    disabled
-
-service hcidump /system/bin/sh /system/etc/hcidump.sh
-    user bluetooth
-    group bluetooth system net_bt_admin net_admin
-    disabled
-    oneshot
-
-service ssr_diag /system/bin/ssr_diag
-    class late_start
-    user system
-    group system
-    disabled
-
-# Define fastmmi
-service fastmmi /system/bin/mmi
-    user root
-    group root
-    disabled
-
-service fastmmisrv /system/bin/sh /init.qcom.factory.sh
-    user root
-    disabled
-    oneshot
-
-on mmi
-    start fastmmisrv
-
-on ffbm
-    trigger early-fs
-    trigger fs
-    trigger post-fs
-    trigger post-fs-data
-
-    # Load properties from /system/ + /factory after fs mount. Place
-    # this in another action so that the load will be scheduled after the prior
-    # issued fs triggers have completed.
-    trigger load_all_props_action
-
-    trigger early-boot
-    trigger mmi
-
-service hvdcp /system/bin/hvdcp
-    class core
-    user root
-    disabled
-
-on property:persist.usb.hvdcp.detect=true
-    start hvdcp
-
-on property:persist.usb.hvdcp.detect=false
-    stop hvdcp
-
-service charger_monitor /system/bin/charger_monitor
-    user root
-    group root
-    disabled
-
-service qbcharger /charger -m 1
-    disabled
-    oneshot
-
-on property:sys.qbcharger.enable=true
-    start qbcharger
-
-on property:sys.qbcharger.enable=false
-    stop qbcharger
-
-service diag_mdlog_start /system/bin/diag_mdlog
-    class late_start
-    user shell
-    group system diag sdcard_rw sdcard_r media_rw
-    disabled
-    oneshot
-
-service diag_mdlog_stop /system/bin/diag_mdlog -k
-    class late_start
-    user shell
-    group system diag sdcard_rw sdcard_r media_rw
-    disabled
-    oneshot
-
-service qlogd /system/xbin/qlogd
-    socket qlogd stream 0662 system system
-    class main
-    disabled
-on property:persist.sys.qlogd=1
-    start qlogd
-on property:persist.sys.qlogd=0
-    stop qlogd
 
 on property:dev.bootcomplete=1
     setprop sys.io.scheduler "bfq"

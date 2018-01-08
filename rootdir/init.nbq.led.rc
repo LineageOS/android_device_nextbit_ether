@@ -11,7 +11,6 @@ on post-fs-data
     chmod 660 /sys/class/leds/lp5523:channel0/device/leds_on_off
     chown system system /sys/class/leds/lp5523:channel0/device/leds_on_off
 
-
 # happy dance during boot
 on property:init.svc.bootanim=running
     write /sys/class/leds/lp5523:channel0/device/led_pattern 4

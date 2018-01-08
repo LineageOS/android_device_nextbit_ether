@@ -24,12 +24,10 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
-import /init.nbq.charger.rc
+
 import /init.nbq.fingerprint.rc
 import /init.nbq.led.rc
-import /init.nbq.nfc.rc
 import /init.nbq.poweroff_charging.rc
-import /init.nbq.smartamp.rc
 import /init.nbq.usb.rc
 
 on early-init
@@ -63,4 +61,3 @@ on boot
     write /sys/module/process_reclaim/parameters/swap_opt_eff 30
     write /sys/module/process_reclaim/parameters/pressure_min 10
     write /sys/module/process_reclaim/parameters/per_swap_size 1024
-
