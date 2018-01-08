@@ -202,9 +202,6 @@ on post-fs-data
 
     mkdir /data/misc/ipa 0700 net_admin net_admin
 
-    # Create IOP daemon dir
-    mkdir /data/misc/iop 0770 root system
-
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
 
     # Create the directories used by the Wireless subsystem
@@ -327,12 +324,6 @@ service perfd /system/vendor/bin/perfd
    group system
    socket perfd seqpacket 0666 root system
    writepid /dev/cpuset/system-background/tasks
-
-service iop /system/bin/iop
-    class main
-    user root
-    group root
-    writepid /dev/cpuset/system-background/tasks
 
 on property:persist.sys.ssr.restart_level=*
     start ssr_setup
