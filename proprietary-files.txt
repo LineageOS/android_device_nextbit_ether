@@ -80,6 +80,8 @@ vendor/lib64/libbtnv.so
 
 # Camera
 bin/mm-qcamera-daemon
+-lib/libmorpho_image_stab4.so
+-lib/libmorpho_movie_stab4.so
 vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libflash_pmic.so
 vendor/lib/libjpegdhw.so
