@@ -1,1 +1,0 @@
-USE_DEVICE_SPECIFIC_GPS := true
