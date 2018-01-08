@@ -12,4 +12,3 @@ on fs
     wait /dev/block/bootdevice/by-name/securefs
     mount ext4 /dev/block/bootdevice/by-name/securefs /securefs nosuid nodev barrier=1
     restorecon_recursive /securefs
-

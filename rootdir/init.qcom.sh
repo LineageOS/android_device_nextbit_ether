@@ -51,12 +51,6 @@ start_copying_prebuilt_qcril_db()
     fi
 }
 
-case "$baseband" in
-        "svlte2a")
-        start bridgemgrd
-        ;;
-esac
-
 start_sensors
 start_copying_prebuilt_qcril_db
 

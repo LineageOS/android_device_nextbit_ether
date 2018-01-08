@@ -165,6 +165,7 @@
 /dev/i2c-5                0660   media       media
 /dev/voice_svc            0660   system     audio
 /dev/avtimer              0660   system     audio
+/dev/i2c-1                0660   root       audio
 
 # DVB devices
 /dev/dvb/adapter0/demux*  0440   media       media
@@ -210,6 +211,7 @@
 #nfc permissions
 /dev/nfc-nci              0660    nfc         nfc
 /dev/assd                 0660    nfc         nfc
+/dev/pn547                0660    nfc         nfc
 
 # UIO devices
 /dev/uio0                 0660   system     system
