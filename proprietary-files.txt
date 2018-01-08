@@ -515,8 +515,6 @@ etc/sensors/hals.conf
 etc/sensors/sensor_def_qcomdev.conf
 etc/sensors/sensor_fih_def_nbq_EVT1C_qcomdev.conf
 etc/sensors/sensor_fih_def_nbq_qcomdev.conf
-lib/hw/sensors.msm8992.so
-lib64/hw/sensors.msm8992.so
 vendor/lib/hw/activity_recognition.msm8992.so
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
