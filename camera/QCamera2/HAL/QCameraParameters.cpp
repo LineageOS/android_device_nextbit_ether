@@ -802,6 +802,8 @@ QCameraParameters::QCameraParameters()
       m_bHDREnabled(false),
       m_bAVTimerEnabled(false),
       m_bDISEnabled(false),
+      m_bMorphoMovieSolidEnabled(false),
+      m_bMorphoMovieSolidPreviewEnabled(false),
       m_MobiMask(0),
       m_AdjustFPS(NULL),
       m_bHDR1xFrameEnabled(true),
@@ -11141,6 +11143,36 @@ bool QCameraParameters::isAVTimerEnabled()
 bool QCameraParameters::isDISEnabled()
 {
     return m_bDISEnabled;
+}
+
+/*===========================================================================
+* FUNCTION   : isMorphoMovieSolidEnabled
+*
+* DESCRIPTION: if MorphoMovieSolid is enabled
+*
+* PARAMETERS : none
+*
+* RETURN    : true: enabled
+*               false: not enabled
+*==========================================================================*/
+bool QCameraParameters::isMorphoMovieSolidEnabled()
+{
+    return m_bMorphoMovieSolidEnabled;
+}
+
+/*===========================================================================
+* FUNCTION   : isMorphoMovieSolidPreviewEnabled
+*
+* DESCRIPTION: if MorphoMovieSolidPreview is enabled
+*
+* PARAMETERS : none
+*
+* RETURN    : true: enabled
+*               false: not enabled
+*==========================================================================*/
+bool QCameraParameters::isMorphoMovieSolidPreviewEnabled()
+{
+    return m_bMorphoMovieSolidPreviewEnabled;
 }
 
 /*===========================================================================

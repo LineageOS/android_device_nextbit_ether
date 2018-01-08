@@ -665,6 +665,8 @@ public:
     int32_t updateRAW(cam_dimension_t max_dim);
     bool isAVTimerEnabled();
     bool isDISEnabled();
+    bool isMorphoMovieSolidEnabled();
+    bool isMorphoMovieSolidPreviewEnabled();
     cam_is_type_t getISType();
     uint8_t getMobicatMask();
 
@@ -1015,6 +1017,8 @@ private:
     bool m_bAVTimerEnabled;    //if AVTimer is enabled
     bool m_bDISEnabled;
     bool m_bOISEnabled;
+    bool m_bMorphoMovieSolidEnabled;
+    bool m_bMorphoMovieSolidPreviewEnabled;
     cam_still_more_t m_stillmore_config;
 
     uint8_t m_MobiMask;
