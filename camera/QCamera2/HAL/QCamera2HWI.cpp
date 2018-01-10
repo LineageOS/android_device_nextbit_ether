@@ -7362,27 +7362,17 @@ QCameraExif *QCamera2HardwareInterface::getExifData()
         ALOGE("%s: getExifGpsDataTimeStamp failed", __func__);
     }
 
-    char value[PROPERTY_VALUE_MAX];
-    if (property_get("ro.product.manufacturer", value, "QCOM-AA") > 0) {
-        exif->addEntry(EXIFTAGID_MAKE, EXIF_ASCII,
-                (uint32_t)(strlen(value) + 1), (void *)value);
-    } else {
-        ALOGE("%s: getExifMaker failed", __func__);
-    }
+    const char *value = "Nextbit";
+    exif->addEntry(EXIFTAGID_MAKE, EXIF_ASCII,
+            (uint32_t)(strlen(value) + 1), (void *)value);
 
-    if (property_get("ro.product.model", value, "QCAM-AA") > 0) {
-        exif->addEntry(EXIFTAGID_MODEL, EXIF_ASCII,
-                (uint32_t)(strlen(value) + 1), (void *)value);
-    } else {
-        ALOGE("%s: getExifModel failed", __func__);
-    }
+    value = "Robin";
+    exif->addEntry(EXIFTAGID_MODEL, EXIF_ASCII,
+            (uint32_t)(strlen(value) + 1), (void *)value);
 
-    if (property_get("ro.build.description", value, "QCAM-AA") > 0) {
-        exif->addEntry(EXIFTAGID_SOFTWARE, EXIF_ASCII,
-                (uint32_t)(strlen(value) + 1), (void *)value);
-    } else {
-        ALOGE("%s: getExifSoftware failed", __func__);
-    }
+    value = "ether-user 7.1.1 Robin_Nougat_108 00WW_Jenkins_108 release-keys";
+    exif->addEntry(EXIFTAGID_SOFTWARE, EXIF_ASCII,
+            (uint32_t)(strlen(value) + 1), (void *)value);
 
     if (mParameters.useJpegExifRotation()) {
         int16_t orientation;
