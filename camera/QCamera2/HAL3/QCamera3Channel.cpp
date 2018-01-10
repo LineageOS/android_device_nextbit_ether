@@ -2649,21 +2649,21 @@ QCamera3Exif *QCamera3PicChannel::getExifData(metadata_buffer_t *metadata,
     }
 
     char value[PROPERTY_VALUE_MAX];
-    if (property_get("ro.product.manufacturer", value, "QCOM-AA") > 0) {
+    if (property_get("ro.product.manufacturer", value, "Nextbit") > 0) {
         exif->addEntry(EXIFTAGID_MAKE, EXIF_ASCII,
                 (uint32_t)(strlen(value) + 1), (void *)value);
     } else {
         ALOGE("%s: getExifMaker failed", __func__);
     }
 
-    if (property_get("ro.product.model", value, "QCAM-AA") > 0) {
+    if (property_get("ro.product.model", value, "Robin") > 0) {
         exif->addEntry(EXIFTAGID_MODEL, EXIF_ASCII,
                 (uint32_t)(strlen(value) + 1), (void *)value);
     } else {
         ALOGE("%s: getExifModel failed", __func__);
     }
 
-    if (property_get("ro.build.description", value, "QCAM-AA") > 0) {
+    if (property_get("ro.build.description", value, "ether-user 7.1.1 Robin_Nougat_108 00WW_Jenkins_108 release-keys") > 0) {
         exif->addEntry(EXIFTAGID_SOFTWARE, EXIF_ASCII,
                 (uint32_t)(strlen(value) + 1), (void *)value);
     } else {
