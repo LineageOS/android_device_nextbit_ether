@@ -72,6 +72,7 @@ LOCAL_C_INCLUDES += \
 LOCAL_SHARED_LIBRARIES := libcamera_client liblog libhardware libutils libcutils libdl
 LOCAL_SHARED_LIBRARIES += libmmcamera_interface libmmjpeg_interface libui libcamera_metadata
 LOCAL_SHARED_LIBRARIES += libqdMetaData
+LOCAL_SHARED_LIBRARIES += libmorpho_image_stab4
 
 LOCAL_CLANG := false
 LOCAL_MODULE_RELATIVE_PATH := hw
