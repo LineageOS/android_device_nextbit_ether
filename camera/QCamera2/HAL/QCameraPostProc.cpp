@@ -738,6 +738,12 @@ bool QCameraPostProcessor::validatePostProcess(mm_camera_super_buf_t *frame)
     return status;
 }
 
+int32_t doNoiseReduction(mm_camera_super_buf_t *frame)
+{
+    // Stub
+    return 0;
+}
+
 /*===========================================================================
  * FUNCTION   : processData
  *
