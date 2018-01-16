@@ -738,6 +738,41 @@ bool QCameraPostProcessor::validatePostProcess(mm_camera_super_buf_t *frame)
     return status;
 }
 
+int32_t QCameraPostProcessor::doNoiseReduction(mm_camera_super_buf_t *frame)
+{
+    if (frame == NULL) {
+        return NO_INIT;
+    }
+
+    char *morphoDevice;
+    int x, y;
+    size_t buf_size;
+    void *buffer;
+
+    m_parent->mParameters.getPictureSize(&x, &y);
+    buf_size = morpho_ImageStabilizer4_getBufferSize(x, y, mTotalNumReproc, "YVU420_SEMIPLANAR");
+    buffer = malloc(buf_size);
+
+    morpho_ImageStabilizer4_initialize(morphoDevice, buffer, buf_size, x, y);
+    morpho_ImageStabilizer4_setCoreSetting(morphoDevice, 6, 63);
+    morpho_ImageStabilizer4_setImageFormat(morphoDevice, "YVU420_SEMIPLANAR");
+    morpho_ImageStabilizer4_setNumberOfMergeImages(morphoDevice, /*unknown*/ 0);
+    morpho_ImageStabilizer4_setInputISO(morphoDevice, /*unknown*/ 0);
+    morpho_ImageStabilizer4_setLumaNoiseReductionLevel(morphoDevice, /*unknown*/ 0);
+    morpho_ImageStabilizer4_setChromaNoiseReductionLevel(morphoDevice, /*unknown*/ 0);
+    morpho_ImageStabilizer4_setSharpnessEnhanceLevel(morphoDevice, /*unknown*/ 0);
+    morpho_ImageStabilizer4_startEx(morphoDeice, /*unknown*/0, mTotalNumReproc);
+    for (int i = 0; i < mTotalNumReproc; i++) {
+        morpho_ImageStabilizer4_addImageEx(morphoDevice, /*unknown*/ 0);
+    }
+    morpho_ImageStabilizer4_getResult(morphoDevice);
+    morpho_ImageStabilizer4_finalize(morphoDevice);
+
+    free(buffer);
+
+    return 0;
+}
+
 /*===========================================================================
  * FUNCTION   : processData
  *
@@ -784,6 +819,8 @@ int32_t QCameraPostProcessor::processData(mm_camera_super_buf_t *frame)
             //play shutter sound
             m_parent->playShutter();
         }
+
+        doNoiseReduction(frame);
 
         ATRACE_INT("Camera:Reprocess", 1);
         CDBG_HIGH("%s: need reprocess", __func__);

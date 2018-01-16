@@ -33,6 +33,7 @@
 extern "C" {
 #include <mm_camera_interface.h>
 #include <mm_jpeg_interface.h>
+#include <morpho.h>
 }
 #include "QCamera2HWI.h"
 
@@ -158,6 +159,7 @@ private:
             mm_camera_super_buf_t *reproc_frame);
     int32_t syncStreamParams(mm_camera_super_buf_t *frame,
             mm_camera_super_buf_t *reproc_frame);
+    int32_t doNoiseReduction(mm_camera_super_buf_t *frame);
     void releaseSuperBuf(mm_camera_super_buf_t *super_buf);
     static void releaseNotifyData(void *user_data,
                                   void *cookie,
