@@ -433,7 +433,6 @@ vendor/lib64/libsmemlog.so
 bin/netmgrd
 bin/qmuxd
 bin/radish
-bin/rild
 bin/rfs_access
 bin/rmt_storage
 etc/data/dsi_config.xml
@@ -447,8 +446,6 @@ etc/permissions/qti_telephony_common.xml
 -framework/qcrilhook.jar
 framework/qti-telephony-common.jar
 framework/QtiTelephonyServicelibrary.jar
--lib/libril.so
--lib64/libril.so
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/qti
 vendor/lib/liblqe.so
