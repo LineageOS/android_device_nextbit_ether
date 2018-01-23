@@ -103,6 +103,57 @@ static void set_power_profile(int profile) {
 
 extern void interaction(int duration, int num_args, int opt_list[]);
 
+static int process_video_decode_hint(void *metadata)
+{
+    char governor[80];
+    struct video_decode_metadata_t video_decode_metadata;
+
+    if (get_scaling_governor(governor, sizeof(governor)) == -1) {
+        ALOGE("Can't obtain scaling governor.");
+
+        return HINT_NONE;
+    }
+
+    /* Initialize decode metadata struct fields */
+    memset(&video_decode_metadata, 0, sizeof(struct video_decode_metadata_t));
+    video_decode_metadata.state = -1;
+    video_decode_metadata.hint_id = DEFAULT_VIDEO_DECODE_HINT_ID;
+
+    if (metadata) {
+        if (parse_video_decode_metadata((char *)metadata, &video_decode_metadata) ==
+            -1) {
+            ALOGE("Error occurred while parsing metadata.");
+            return HINT_NONE;
+        }
+    } else {
+        return HINT_NONE;
+    }
+
+    if (video_decode_metadata.state == 1) {
+        if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
+                (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
+            /* sched and cpufreq params
+             * hispeed freq - 768 MHz
+             * target load - 90
+             * above_hispeed_delay - 40ms
+             * sched_small_tsk - 50
+             */
+            int resource_values[] = {0x2C07, 0x2F5A, 0x2704, 0x4032};
+
+            perform_hint_action(video_decode_metadata.hint_id,
+                    resource_values, ARRAY_SIZE(resource_values));
+            return HINT_HANDLED;
+        }
+    } else if (video_decode_metadata.state == 0) {
+        if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
+                (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
+            undo_hint_action(video_decode_metadata.hint_id);
+            return HINT_HANDLED;
+        }
+    }
+    return HINT_NONE;
+}
+
 static int process_video_encode_hint(void *metadata)
 {
     char governor[80];
@@ -229,6 +280,10 @@ int power_hint_override(__attribute__((unused)) struct power_module *module,
 
     if (hint == POWER_HINT_VIDEO_ENCODE) {
         return process_video_encode_hint(data);
+    }
+
+    if (hint == POWER_HINT_VIDEO_DECODE) {
+        return process_video_decode_hint(data);
     }
 
     return HINT_NONE;
