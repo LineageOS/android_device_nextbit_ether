@@ -1021,6 +1021,10 @@ typedef struct
   int              pin1_replaced;   /* applicable to USIM, CSIM & ISIM */
   RIL_PinState     pin1;
   RIL_PinState     pin2;
+  int              fih1;
+  int              fih2;
+  int              fih3;
+  int              fih4;
 } RIL_AppStatus;
 
 /* Deprecated, use RIL_CardStatus_v6 */
@@ -1043,6 +1047,7 @@ typedef struct
   int           ims_subscription_app_index;      /* value < RIL_CARD_MAX_APPS, -1 if none */
   int           num_applications;                /* value <= RIL_CARD_MAX_APPS */
   RIL_AppStatus applications[RIL_CARD_MAX_APPS];
+  int           fih;
 } RIL_CardStatus_v6;
 
 /** The result of a SIM refresh, returned in data[0] of RIL_UNSOL_SIM_REFRESH
