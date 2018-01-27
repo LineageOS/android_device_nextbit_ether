@@ -241,7 +241,6 @@ etc/permissions/dpmapi.xml
 framework/com.qti.dpmframework.jar
 framework/dpmapi.jar
 framework/tcmclient.jar
--priv-app/dpmserviceapp/dpmserviceapp.apk
 vendor/lib/libdpmctmgr.so
 vendor/lib/libdpmfdmgr.so
 vendor/lib/libdpmframework.so
@@ -278,33 +277,24 @@ vendor/lib/hw/gatekeeper.msm8992.so
 vendor/lib64/hw/gatekeeper.msm8992.so
 
 # GPS
-bin/loc_launcher
-etc/permissions/com.qti.location.sdk.xml
-etc/permissions/com.qualcomm.location.xml
-framework/com.qti.location.sdk.jar
-lib64/hw/gps.default.so
-lib64/libgps.utils.so
--lib64/libloc_api_v02.so
--lib64/libloc_ds_api.so
-lib64/libloc_core.so
-lib64/libloc_eng.so
--priv-app/com.qualcomm.location/com.qualcomm.location.apk
-vendor/bin/slim_daemon
-vendor/lib64/hw/flp.default.so
-vendor/lib64/libalarmservice_jni.so
-vendor/lib64/libdataitems.so
-vendor/lib64/libflp.so
-vendor/lib64/libgeofence.so
-vendor/lib64/libizat_core.so
-vendor/lib64/liblbs_core.so
-vendor/lib64/liblocationservice.so
-vendor/lib64/liblocationservice_glue.so
-vendor/lib64/liblowi_client.so
-vendor/lib64/liblowi_wifihal.so
-vendor/lib64/libquipc_os_api.so
-vendor/lib64/libulp2.so
-vendor/lib64/libxtadapter.so
-vendor/lib64/libxtwifi_ulp_adaptor.so
+-lib/libloc_api_v02.so|f1b0fca05ab26b2408dad2c56ac13e7e4c7c8571
+-lib/libloc_ds_api.so|e00edf46d7fd808402c7a4392e4bc39999197bd4
+-lib64/libloc_api_v02.so|d52c885698111044923d3d128942a7126c552380
+-lib64/libloc_ds_api.so|375785257c6dc8e8451eb25babfea9128e1d5749
+vendor/lib/hw/flp.default.so|a29928c6d7d95af1f621aca07246950d4af8c82a
+vendor/lib/libflp.so|af06b5da26f1a6944abbcc6b9098f2242133202f
+vendor/lib/libgeofence.so|aebe235ea40372ea35157a472fdeb48dd7ce91e8
+vendor/lib/libizat_core.so|eee665c38dc3797085ddb5d36e2e2284a6bc1f24
+vendor/lib/liblbs_core.so|f952586699ca85dd31b3dc517b496db778b20d62
+vendor/lib/libquipc_os_api.so|d54ba9ebdd25a3e2afddb25eea516afad6d8adee
+vendor/lib/libxtadapter.so|045423a78f12ae26aa770ebfc9aa56d7f74a871d
+vendor/lib64/hw/flp.default.so|8b151d16862a78df4d75f9158468cfb10fea86fe
+vendor/lib64/libflp.so|b29bcc5ba9e9bb81b61c5f8c1db8216d15b718c3
+vendor/lib64/libgeofence.so|96bf6e10ab1128607bc21f3064c53e978a785dfa
+vendor/lib64/libizat_core.so|6810eccd7a7b4b49e56431fe8caa30e904154c3c
+vendor/lib64/liblbs_core.so|e172863f3fd72293a3a1c94c505bea75110071c0
+vendor/lib64/libquipc_os_api.so|41b615e2e87e8535294e76d2bfae26d9286f3763
+vendor/lib64/libxtadapter.so|aaedb4dbd86ec2869709f421e293e41eb490dd85
 
 # Graphics
 vendor/lib/egl/eglSubDriverAndroid.so
