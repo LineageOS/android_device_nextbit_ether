@@ -499,17 +499,17 @@ etc/firmware/venus.mdt
 
 # Thermal
 vendor/bin/thermal-engine
--vendor/lib/libthermalclient.so
--vendor/lib64/libthermalclient.so
+vendor/lib/libthermalclient.so
+vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
 
 # Time services
 -app/TimeService/TimeService.apk
 bin/time_daemon
 vendor/lib/libTimeService.so
--vendor/lib/libtime_genoff.so
+vendor/lib/libtime_genoff.so
 vendor/lib64/libTimeService.so
--vendor/lib64/libtime_genoff.so
+vendor/lib64/libtime_genoff.so
 
 # TP firmware
 etc/firmware/TP_Firmware_nbq_ebbg.img
