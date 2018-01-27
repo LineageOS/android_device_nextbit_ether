@@ -19,11 +19,9 @@
 
 <!-- These resources are around just to allow their values to be customized -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-
     <!-- Should we listen for fingerprints when the screen is off?  Devices
          with a rear-mounted sensor want this, but certain devices have
          the sensor embedded in the power key and listening all the time
          causes a poor experience. -->
     <bool name="config_fingerprintWakeAndUnlock">false</bool>
-
 </resources>
