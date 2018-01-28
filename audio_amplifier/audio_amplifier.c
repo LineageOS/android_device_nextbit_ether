@@ -214,10 +214,16 @@ static int amp_set_mode(struct amplifier_device *device, audio_mode_t mode)
 
     pthread_mutex_lock(&tfa9887->mutex);
 
-    if (mode == AUDIO_MODE_NORMAL)
-        preset = PRESET_PLAYBACK;
-    else if (mode == AUDIO_MODE_RINGTONE)
-        preset = PRESET_RINGTONE;
+    switch (mode) {
+        case AUDIO_MODE_RINGTONE:
+            preset = PRESET_RINGTONE;
+            break;
+        case AUDIO_MODE_IN_CALL:
+        case AUDIO_MODE_IN_COMMUNICATION:
+        case AUDIO_MODE_NORMAL:
+            preset = PRESET_PLAYBACK;
+            break;
+    }
 
     ALOGV("%s: mode=%d old preset=%d new preset=%d", __func__, mode, tfa9887->preset, preset);
 
