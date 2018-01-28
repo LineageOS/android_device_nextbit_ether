@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2016 The CyanogenMod Project
+ * Copyright (C) 2018 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -73,7 +74,6 @@ typedef struct tfa9887_amplifier {
     bool on;
     int preset;
     bool preset_changed;
-	uint32_t device;
 } tfa9887_amplifier_t;
 
 struct pcm_config pcm_config_deep_buffer = {
@@ -89,28 +89,6 @@ struct pcm_config pcm_config_deep_buffer = {
 
 #define MI2S_CLK_CTL "PRI_MI2S Clock"
 #define MI2S_MIXER "PRI_MI2S_RX Audio Mixer MultiMedia2"
-
-static int is_speaker(uint32_t snd_device) {
-    int speaker = 0;
-
-    switch (snd_device) {
-        case SND_DEVICE_OUT_SPEAKER:
-        case SND_DEVICE_OUT_SPEAKER_REVERSE:
-        case SND_DEVICE_OUT_SPEAKER_AND_HEADPHONES:
-        case SND_DEVICE_OUT_VOICE_SPEAKER:
-        case SND_DEVICE_OUT_SPEAKER_AND_HDMI:
-        case SND_DEVICE_OUT_SPEAKER_AND_USB_HEADSET:
-        case SND_DEVICE_OUT_SPEAKER_AND_ANC_HEADSET:
-            speaker = 1;
-            break;
-    }
-
-    return speaker;
-}
-
-static int is_voice_speaker(uint32_t snd_device) {
-    return snd_device == SND_DEVICE_OUT_VOICE_SPEAKER;
-}
 
 static int mi2s_interface_en(bool enable)
 {
@@ -197,8 +175,9 @@ static int amp_dev_close(hw_device_t *device)
     ALOGV("%s", __func__);
 
     if (tfa9887) {
-        if (tfa9887->mixer_fd >= 0)
+        if (tfa9887->mixer_fd >= 0) {
             close(tfa9887->mixer_fd);
+        }
         pthread_join(tfa9887->watch_thread, NULL);
         pthread_cond_destroy(&tfa9887->cond);
         pthread_mutex_destroy(&tfa9887->mutex);
@@ -250,16 +229,6 @@ static int amp_set_mode(struct amplifier_device *device, audio_mode_t mode)
     tfa9887->preset_changed = true;
 
 out:
-    pthread_mutex_unlock(&tfa9887->mutex);
-    return 0;
-}
-
-static int amp_enable_output_devices(struct amplifier_device *device,
-		uint32_t devices, bool enable __unused) {
-    tfa9887_amplifier_t *tfa9887 = (tfa9887_amplifier_t *) device;
-
-    pthread_mutex_lock(&tfa9887->mutex);
-	tfa9887->device = devices;
     pthread_mutex_unlock(&tfa9887->mutex);
     return 0;
 }
@@ -385,11 +354,9 @@ static int amp_module_open(const hw_module_t *module, const char *name,
     tfa9887->amp.common.version = AMPLIFIER_DEVICE_API_VERSION_2_0;
     tfa9887->amp.common.close = amp_dev_close;
     tfa9887->amp.set_mode = amp_set_mode;
-    tfa9887->amp.enable_output_devices = amp_enable_output_devices;
 
     tfa9887->on = false;
     tfa9887->preset = -1;
-    tfa9887->device = -1;
     tfa9887->preset_changed = false;
 
     tfa9887->lib_ptr = dlopen("libFIHNxp.so", RTLD_NOW);
@@ -437,7 +404,7 @@ amplifier_module_t HAL_MODULE_INFO_SYM = {
         .hal_api_version = HARDWARE_HAL_API_VERSION,
         .id = AMPLIFIER_HARDWARE_MODULE_ID,
         .name = "Ether Amplifier HAL",
-        .author = "The CyanogenMod Project",
+        .author = "The LineageOS Project",
         .methods = &hal_module_methods,
     },
 };
