@@ -219,62 +219,14 @@ int power_hint_override(__attribute__((unused)) struct power_module *module,
     }
 
     if (hint == POWER_HINT_INTERACTION) {
-        int duration = 500, duration_hint = 0;
-        static struct timespec s_previous_boost_timespec;
-        struct timespec cur_boost_timespec;
-        long long elapsed_time;
-
-        if (data) {
-            duration_hint = *((int *)data);
-        }
-
-        duration = duration_hint > 0 ? duration_hint : 500;
-
-        clock_gettime(CLOCK_MONOTONIC, &cur_boost_timespec);
-        elapsed_time = calc_timespan_us(s_previous_boost_timespec, cur_boost_timespec);
-        if (elapsed_time > 750000)
-            elapsed_time = 750000;
-        // don't hint if it's been less than 250ms since last boost
-        // also detect if we're doing anything resembling a fling
-        // support additional boosting in case of flings
-        else if (elapsed_time < 250000 && duration <= 750)
-            return HINT_HANDLED;
-
-        s_previous_boost_timespec = cur_boost_timespec;
-
-        if (duration >= 1500) {
-            int resources[] = {
-                ALL_CPUS_PWR_CLPS_DIS,
-                SCHED_BOOST_ON,
-                SCHED_PREFER_IDLE_DIS
-            };
-            interaction(duration, ARRAY_SIZE(resources), resources);
-        } else {
-            int resources[] = {
-                ALL_CPUS_PWR_CLPS_DIS,
-                SCHED_PREFER_IDLE_DIS
-            };
-            interaction(duration, ARRAY_SIZE(resources), resources);
-        }
         return HINT_HANDLED;
     }
 
     if (hint == POWER_HINT_LAUNCH) {
-        int duration = 2000;
-        int resources[] = { SCHED_BOOST_ON, 0x20C };
-
-        interaction(duration, ARRAY_SIZE(resources), resources);
-
         return HINT_HANDLED;
     }
 
     if (hint == POWER_HINT_CPU_BOOST) {
-        int duration = *(int32_t *)data / 1000;
-        int resources[] = { SCHED_BOOST_ON };
-
-        if (duration > 0)
-            interaction(duration, ARRAY_SIZE(resources), resources);
-
         return HINT_HANDLED;
     }
 
