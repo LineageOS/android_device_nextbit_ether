@@ -101,8 +101,6 @@ static void set_power_profile(int profile) {
     current_power_profile = profile;
 }
 
-extern void interaction(int duration, int num_args, int opt_list[]);
-
 static int process_video_decode_hint(void *metadata)
 {
     char governor[80];
@@ -218,75 +216,18 @@ int power_hint_override(__attribute__((unused)) struct power_module *module,
         return HINT_HANDLED;
     }
 
-    if (hint == POWER_HINT_INTERACTION) {
-        int duration = 500, duration_hint = 0;
-        static struct timespec s_previous_boost_timespec;
-        struct timespec cur_boost_timespec;
-        long long elapsed_time;
-
-        if (data) {
-            duration_hint = *((int *)data);
-        }
-
-        duration = duration_hint > 0 ? duration_hint : 500;
-
-        clock_gettime(CLOCK_MONOTONIC, &cur_boost_timespec);
-        elapsed_time = calc_timespan_us(s_previous_boost_timespec, cur_boost_timespec);
-        if (elapsed_time > 750000)
-            elapsed_time = 750000;
-        // don't hint if it's been less than 250ms since last boost
-        // also detect if we're doing anything resembling a fling
-        // support additional boosting in case of flings
-        else if (elapsed_time < 250000 && duration <= 750)
+    switch (hint) {
+        case POWER_HINT_INTERACTION:
+        case POWER_HINT_LAUNCH:
+        case POWER_HINT_CPU_BOOST:
             return HINT_HANDLED;
-
-        s_previous_boost_timespec = cur_boost_timespec;
-
-        if (duration >= 1500) {
-            int resources[] = {
-                ALL_CPUS_PWR_CLPS_DIS,
-                SCHED_BOOST_ON,
-                SCHED_PREFER_IDLE_DIS
-            };
-            interaction(duration, ARRAY_SIZE(resources), resources);
-        } else {
-            int resources[] = {
-                ALL_CPUS_PWR_CLPS_DIS,
-                SCHED_PREFER_IDLE_DIS
-            };
-            interaction(duration, ARRAY_SIZE(resources), resources);
-        }
-        return HINT_HANDLED;
+        case POWER_HINT_VIDEO_DECODE:
+            return process_video_decode_hint(data);
+        case POWER_HINT_VIDEO_ENCODE:
+            return process_video_encode_hint(data);
+        default:
+            return HINT_NONE;
     }
-
-    if (hint == POWER_HINT_LAUNCH) {
-        int duration = 2000;
-        int resources[] = { SCHED_BOOST_ON, 0x20C };
-
-        interaction(duration, ARRAY_SIZE(resources), resources);
-
-        return HINT_HANDLED;
-    }
-
-    if (hint == POWER_HINT_CPU_BOOST) {
-        int duration = *(int32_t *)data / 1000;
-        int resources[] = { SCHED_BOOST_ON };
-
-        if (duration > 0)
-            interaction(duration, ARRAY_SIZE(resources), resources);
-
-        return HINT_HANDLED;
-    }
-
-    if (hint == POWER_HINT_VIDEO_ENCODE) {
-        return process_video_encode_hint(data);
-    }
-
-    if (hint == POWER_HINT_VIDEO_DECODE) {
-        return process_video_decode_hint(data);
-    }
-
-    return HINT_NONE;
 }
 
 int set_interactive_override(__attribute__((unused)) struct power_module *module, int on)
