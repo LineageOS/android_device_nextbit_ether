@@ -275,3 +275,6 @@ on property:dev.bootcomplete=1
     setprop sys.io.scheduler "bfq"
     rm /data/system/perfd/default_values
     start perfd
+
+on property:vold.decrypt=trigger_restart_framework
+    restart vendor.camera-provider-2-4
