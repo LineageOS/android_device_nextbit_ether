@@ -30,4 +30,3 @@ allow init-power-sh self:capability sys_module;
 
 allow init-power-sh proc:file { getattr read open };
 allow init-power-sh rootfs:file { getattr read open };
-allow init-power-sh security_file:dir { search };
