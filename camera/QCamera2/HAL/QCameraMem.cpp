@@ -990,7 +990,7 @@ QCameraStreamMemory::QCameraStreamMemory(camera_request_memory memory,
 	void* cbCookie,
         bool cached,
         QCameraMemoryPool *pool,
-        cam_stream_type_t streamType, cam_stream_buf_type bufType)
+        cam_stream_type_t streamType, cam_stream_buf_type bufType __unused)
     :QCameraMemory(cached, pool, streamType),
      mGetMemory(memory),
      mCallbackCookie(cbCookie)

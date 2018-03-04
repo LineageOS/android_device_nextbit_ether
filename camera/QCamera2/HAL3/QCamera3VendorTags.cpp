@@ -42,8 +42,7 @@ namespace qcamera {
 
 const int QCAMERA3_SECTION_COUNT = QCAMERA3_SECTIONS_END - VENDOR_SECTION;
 
-enum qcamera3_ext_tags qcamera3_ext3_section_bounds[QCAMERA3_SECTIONS_END -
-    VENDOR_SECTION] = {
+enum qcamera3_ext_tags qcamera3_ext3_section_bounds[QCAMERA3_SECTION_COUNT] = {
         QCAMERA3_PRIVATEDATA_END,
         QCAMERA3_CDS_END,
         QCAMERA3_OPAQUE_RAW_END,
