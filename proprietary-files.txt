@@ -331,7 +331,6 @@ vendor/lib64/libllvm-qcom.so
 vendor/lib64/librs_adreno.so
 vendor/lib64/librs_adreno_sha1.so
 vendor/lib64/libscale.so
-vendor/lib64/libuiblur.so|8d0275c4071423cad99862f50b79075db0807ad2
 
 # Graphics firmware
 etc/firmware/a420_pfp.fw
