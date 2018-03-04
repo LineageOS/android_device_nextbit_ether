@@ -189,9 +189,5 @@ WIFI_DRIVER_FW_PATH_STA          := "sta"
 WIFI_DRIVER_FW_PATH_AP           := "ap"
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 
-CONFIG_EAP_PROXY := qmi
-CONFIG_EAP_PROXY_AKA_PRIME := true
-CONFIG_EAP_PROXY_MSM8994_TARGET := true
-
 # Inherit from the proprietary version
 include vendor/nextbit/ether/BoardConfigVendor.mk
