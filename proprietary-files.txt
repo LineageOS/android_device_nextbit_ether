@@ -523,8 +523,8 @@ etc/firmware/TP_Firmware_nbq_ebbg_V29.img
 etc/firmware/TP_Firmware_nbq_ebbg_V35.img
 
 # Widevine DRM
-vendor/lib/libwvdrm_L1.so
-vendor/lib/mediadrm/libwvdrmengine.so
+vendor/lib/mediadrm/libwvdrmengine.so|e3a79580033962d8396d52617d849d44af5257f7
+vendor/lib64/mediadrm/libwvdrmengine.so|6750d614e77a1c0e08926f3fe78e427fa890ac06
 
 # Wifi
 bin/cnss-daemon
