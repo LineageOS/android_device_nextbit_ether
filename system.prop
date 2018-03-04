@@ -51,6 +51,10 @@ dalvik.vm.boot-dex2oat-threads=4
 dalvik.vm.dex2oat-threads=2
 dalvik.vm.image-dex2oat-threads=4
 
+# DPM
+persist.dpm.feature=7
+persist.sys.dpmd.nsrm=3
+
 # Display
 ro.qualcomm.cabl=0
 
@@ -77,6 +81,8 @@ ro.frp.pst=/dev/block/bootdevice/by-name/config
 # GPS
 persist.gps.qc_nlp_in_use=0
 ro.gps.agps_provider=1
+ro.qc.sdk.izat.premium.enabled=0
+ro.qc.sdk.izat.service_mask=0x0
 
 # Media
 mm.enable.smoothstreaming=true
