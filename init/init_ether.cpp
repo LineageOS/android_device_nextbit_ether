@@ -29,6 +29,7 @@
 
 #include <cstdio>
 
+#include <android-base/file.h>
 #include <android-base/properties.h>
 #include <android-base/strings.h>
 
@@ -36,6 +37,7 @@
 #include "vendor_init.h"
 
 using android::base::GetProperty;
+using android::base::ReadFileToString;
 using android::base::Trim;
 using android::init::property_set;
 
@@ -47,8 +49,8 @@ static void init_alarm_boot_properties()
     std::string power_off_alarm;
     std::string tmp = GetProperty("ro.boot.alarmboot", "");
 
-    if (read_file(boot_reason_file, &boot_reason)
-            && read_file(power_off_alarm_file, &power_off_alarm)) {
+    if (ReadFileToString(boot_reason_file, &boot_reason)
+            && ReadFileToString(power_off_alarm_file, &power_off_alarm)) {
         /*
          * Setup ro.alarm_boot value to true when it is RTC triggered boot up
          * For existing PMIC chips, the following mapping applies
