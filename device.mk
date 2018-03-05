@@ -239,9 +239,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
-    libbson \
-    libcnefeatureconfig \
-    libnl_2 \
+    libcneapiclient \
     librmnetctl \
     libxml2
 
