@@ -109,9 +109,6 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 
 # GPS
 USE_DEVICE_SPECIFIC_GPS := true
-TARGET_LD_SHIM_LIBS := \
-    /system/vendor/lib/libizat_core.so|libshims_izat.so \
-    /system/vendor/lib64/libizat_core.so|libshims_izat.so
 
 # HIDL
 DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/manifest.xml
