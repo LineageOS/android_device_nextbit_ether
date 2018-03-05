@@ -72,7 +72,6 @@ vendor/lib64/libadiertac.so
 vendor/lib64/libaudcal.so
 
 # Bluetooth
-bin/btnvtool
 bin/hci_qcomm_init
 bin/wcnss_filter
 vendor/lib/libbtnv.so

@@ -34,6 +34,7 @@ qcom.bluetooth.soc=rome
 ro.bluetooth.hfp.ver=1.7
 ro.bluetooth.dun=true
 ro.bluetooth.sap=true
+ro.bt.bdaddr_path=/proc/bt_mac
 
 # Camera
 persist.camera.HAL3.enabled=1
