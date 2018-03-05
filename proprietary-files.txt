@@ -208,50 +208,6 @@ vendor/lib/libmmcamera_s5k3m2xm.so
 vendor/lib/libmmcamera_s5k5e2evt1.so
 vendor/lib/libmmcamera_s5k5e2.so
 
-# CNE
--priv-app/CNEService/CNEService.apk
-bin/cnd
-etc/cne/SwimConfig.xml
-etc/cne/andsfCne.xml
-etc/permissions/ConnectivityExt.xml
-etc/permissions/cneapiclient.xml
-etc/permissions/com.quicinc.cne.xml
-framework/cneapiclient.jar
-framework/com.quicinc.cne.jar
-framework/ConnectivityExt.jar
-vendor/lib/libcne.so
-vendor/lib/libcneapiclient.so
-vendor/lib/libcneqmiutils.so
-vendor/lib/libvendorconn.so
-vendor/lib/libwqe.so
-vendor/lib/libxml.so
-vendor/lib64/libcne.so
-vendor/lib64/libcneapiclient.so
-vendor/lib64/libcneqmiutils.so
-vendor/lib64/libvendorconn.so
-vendor/lib64/libwqe.so
-vendor/lib64/libxml.so
-
-# DPM
-bin/dpmd
-etc/dpm/dpm.conf
-etc/dpm/nsrm/NsrmConfiguration.xml
-etc/permissions/com.qti.dpmframework.xml
-etc/permissions/dpmapi.xml
-framework/com.qti.dpmframework.jar
-framework/dpmapi.jar
-framework/tcmclient.jar
-vendor/lib/libdpmctmgr.so
-vendor/lib/libdpmfdmgr.so
-vendor/lib/libdpmframework.so
-vendor/lib/libdpmnsrm.so
-vendor/lib/libdpmtcm.so
-vendor/lib64/libdpmctmgr.so
-vendor/lib64/libdpmfdmgr.so
-vendor/lib64/libdpmframework.so
-vendor/lib64/libdpmnsrm.so
-vendor/lib64/libdpmtcm.so
-
 # DRM
 bin/qseecomd
 vendor/lib/libQSEEComAPI.so
@@ -286,14 +242,12 @@ vendor/lib/libflp.so|af06b5da26f1a6944abbcc6b9098f2242133202f
 vendor/lib/libgeofence.so|aebe235ea40372ea35157a472fdeb48dd7ce91e8
 vendor/lib/libizat_core.so|eee665c38dc3797085ddb5d36e2e2284a6bc1f24
 vendor/lib/liblbs_core.so|05ce9cec0bf7848f98e4b69dabff4e141e18e4cd
-vendor/lib/libquipc_os_api.so|d54ba9ebdd25a3e2afddb25eea516afad6d8adee
 vendor/lib/libxtadapter.so|045423a78f12ae26aa770ebfc9aa56d7f74a871d
 vendor/lib64/hw/flp.default.so|8b151d16862a78df4d75f9158468cfb10fea86fe
 vendor/lib64/libflp.so|b29bcc5ba9e9bb81b61c5f8c1db8216d15b718c3
 vendor/lib64/libgeofence.so|96bf6e10ab1128607bc21f3064c53e978a785dfa
 vendor/lib64/libizat_core.so|6810eccd7a7b4b49e56431fe8caa30e904154c3c
 vendor/lib64/liblbs_core.so|f193bdf82b36ff9fde2df1d4b8e12e0e84483b59
-vendor/lib64/libquipc_os_api.so|41b615e2e87e8535294e76d2bfae26d9286f3763
 vendor/lib64/libxtadapter.so|aaedb4dbd86ec2869709f421e293e41eb490dd85
 
 # Graphics
@@ -344,12 +298,6 @@ vendor/lib64/hw/keystore.msm8992.so
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxQcelp13Dec.so
-
-# Network
--priv-app/QtiTetherService/QtiTetherService.apk
-vendor/lib/libconnctrl.so
-vendor/lib64/libconnctrl.so
-vendor/lib64/libQtiTether.so
 
 # NFC
 vendor/firmware/libpn547_fw.so
@@ -408,36 +356,23 @@ vendor/lib64/libqmi_encdec.so
 vendor/lib64/libsmemlog.so
 
 # Radio
--app/datastatusnotification/datastatusnotification.apk
--app/fastdormancy/fastdormancy.apk
--app/shutdownlistener/shutdownlistener.apk
 bin/netmgrd
 bin/qmuxd
-bin/radish
 bin/rfs_access
 bin/rmt_storage
 etc/data/dsi_config.xml
 etc/data/netmgr_config.xml
 etc/data/qmi_config.xml
-etc/permissions/qcnvitems.xml
-etc/permissions/qcrilhook.xml
-etc/permissions/telephonyservice.xml
-etc/permissions/qti_telephony_common.xml
--framework/qcnvitems.jar
--framework/qcrilhook.jar
-framework/qti-telephony-common.jar
-framework/QtiTelephonyServicelibrary.jar
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/bin/qti
 vendor/lib/liblqe.so
 vendor/lib/libmdmdetect.so
--vendor/lib/libqmiservices.so
+vendor/lib/libqmiservices.so
 vendor/lib64/libconfigdb.so
 vendor/lib64/liblqe.so
 vendor/lib64/libmdmdetect.so
 vendor/lib64/libnetmgr.so
 vendor/lib64/libqcmaputils.so
--vendor/lib64/libqmiservices.so
+vendor/lib64/libqmiservices.so
 vendor/lib64/libril-qc-qmi-1.so
 vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/libril-qcril-hook-oem.so
@@ -447,36 +382,6 @@ vendor/lib64/libsettings.so
 vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libxml.so
 vendor/qcril.db
-
-# Radio - IMS
-bin/imscmservice
-bin/imsdatadaemon
-bin/imsqmidaemon
-bin/ims_rtp_daemon
-vendor/lib64/lib-dplmedia.so
-vendor/lib64/libimscamera_jni.so
-vendor/lib64/libimsmedia_jni.so
-vendor/lib64/lib-imscamera.so
-vendor/lib64/lib-imsdpl.so
-vendor/lib64/lib-imsqimf.so
-vendor/lib64/lib-imsrcscmclient.so
-vendor/lib64/lib-ims-rcscmjni.so
-vendor/lib64/lib-imsrcscmservice.so
-vendor/lib64/lib-imsrcscm.so
-vendor/lib64/lib-imsrcs.so
-vendor/lib64/lib-imsSDP.so
-vendor/lib64/lib-imss.so
-vendor/lib64/lib-imsvt.so
-vendor/lib64/lib-imsxml.so
-vendor/lib64/lib-rcsimssjni.so
-vendor/lib64/lib-rtpcommon.so
-vendor/lib64/lib-rtpcore.so
-vendor/lib64/lib-rtpdaemoninterface.so
-vendor/lib64/lib-rtpsl.so
-vendor/lib64/librcc.so
-vendor/lib64/libvoice-svc.so
--vendor/app/ims/ims.apk
--vendor/app/imssettings/imssettings.apk
 
 # Sensors
 bin/sensors.qcom
