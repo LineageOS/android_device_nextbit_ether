@@ -72,8 +72,4 @@ LIBMMJPEG="$BLOB_ROOT"/vendor/lib/libmmjpeg.so
 sed -i "s|QCOM-AA|Nextbit|g" "$LIBMMJPEG"
 sed -i "s|QCAM-AA|Robin\x0\x0|g" "$LIBMMJPEG"
 
-LIBSETTINGS="$BLOB_ROOT"/vendor/lib64/libsettings.so
-
-sed -i "s|\(libprotobuf-cpp-...\).|\1N|g" "$LIBSETTINGS"
-
 "$MY_DIR"/setup-makefiles.sh
