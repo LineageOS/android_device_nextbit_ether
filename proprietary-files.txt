@@ -311,12 +311,6 @@ bin/pm-service
 vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 
-# Protobuf from N
-lib/libprotobuf-cpp-fulN.so|c88ccb720f4301cb6df4a2c3dafb159b8e2a4edf
-lib/libprotobuf-cpp-litN.so|41d97e27b4b436b98e67db10beee05054c7b73dc
-lib64/libprotobuf-cpp-fulN.so|d07804a14e6cc61b12c2982a49708fc0130aac86
-lib64/libprotobuf-cpp-litN.so|208ed20aab46fb36ddfbc7683c6bb146e2790e1c
-
 # Qualcomm framework
 bin/irsc_util
 vendor/lib/libdiag.so
@@ -371,7 +365,7 @@ vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/libril-qcril-hook-oem.so
 vendor/lib64/libril-qc-ltedirectdisc.so
 vendor/lib64/librilqmiservices.so
-vendor/lib64/libsettings.so
+vendor/lib64/libsettings.so|5020a3c72c9e5c9a9f3c48c67c740961bb05000b
 vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libxml.so
 vendor/qcril.db
