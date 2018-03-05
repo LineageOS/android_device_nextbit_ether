@@ -27,13 +27,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
-# Retrieve MAC for BT and WiFi from FIH E2P storage
-
-if [ -e /proc/wifi_mac ]; then
-	echo -n "Intf0MacAddress=" > /persist/wlan_mac.bin
-	echo `cat /proc/wifi_mac | tr -d ":"` >> /persist/wlan_mac.bin
-	echo "END" >> /persist/wlan_mac.bin
-fi
+# Retrieve MAC for BT from FIH E2P storage
 
 if [ -e /proc/bt_mac ]; then
     /system/bin/btnvtool -b `cat /proc/bt_mac`
