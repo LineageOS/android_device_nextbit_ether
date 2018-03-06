@@ -113,9 +113,6 @@ ro.telephony.default_network=9
 
 log.tag.RILQ=WARN
 
-# Sdcardfs
-ro.sys.sdcardfs=true
-
 # Sensors
 ro.qc.sdk.sensors.gestures=true
 
