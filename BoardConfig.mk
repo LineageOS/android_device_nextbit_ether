@@ -162,9 +162,6 @@ include device/qcom/sepolicy/legacy-sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     $(DEVICE_PATH)/sepolicy
 
-# Sensors
-USE_SENSOR_MULTI_HAL := true
-
 # TWRP
 ifeq ($(WITH_TWRP),true)
 include $(DEVICE_PATH)/twrp.mk
