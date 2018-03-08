@@ -273,7 +273,7 @@ service qti /system/vendor/bin/qti
 service sensors /system/bin/sensors.qcom
     class late_start
     user root
-    group root
+    group root system
     writepid /dev/cpuset/system-background/tasks
     disabled
 
