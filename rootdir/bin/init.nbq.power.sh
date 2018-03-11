@@ -29,7 +29,6 @@ write /sys/module/msm_thermal/core_control/enabled 0
 get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode disable
 bcl_hotplug_mask=`get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_mask 0`
 bcl_hotplug_soc_mask=`get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_soc_mask 0`
-get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode enable
 
 # some files in /sys/devices/system/cpu are created after the restorecon of
 # /sys/. These files receive the default label "sysfs".
@@ -134,7 +133,10 @@ write /proc/sys/kernel/sched_boost 0
 
 # re-enable thermal and BCL hotplug
 write /sys/module/msm_thermal/core_control/enabled 1
-get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode disable
+get-set-forall /sys/devices/soc.0/qcom,bcl.*/low_threshold_ua 50000
+get-set-forall /sys/devices/soc.0/qcom,bcl.*/high_threshold_ua 4200000
+get-set-forall /sys/devices/soc.0/qcom,bcl.*/vph_low_thresh_uv 3300000
+get-set-forall /sys/devices/soc.0/qcom,bcl.*/vph_high_thresh_uv 4300000
 get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_mask $bcl_hotplug_mask
 get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_soc_mask $bcl_hotplug_soc_mask
 get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode enable
