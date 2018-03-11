@@ -295,6 +295,13 @@ vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxQcelp13Dec.so
 
+# Network
+-priv-app/QtiTetherService/QtiTetherService.apk
+vendor/lib/libQtiTether.so
+vendor/lib/libconnctrl.so
+vendor/lib64/libQtiTether.so
+vendor/lib64/libconnctrl.so
+
 # NFC
 vendor/firmware/libpn547_fw.so
 
