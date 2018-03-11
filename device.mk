@@ -223,9 +223,8 @@ PRODUCT_COPY_FILES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.0-impl \
-    init.nbq.power.sh \
-    power.msm8992
+    android.hardware.power@1.0-service-qti \
+    init.nbq.power.sh
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/perf-profiles/perf-profile1.conf:system/vendor/etc/perf-profile0.conf \
