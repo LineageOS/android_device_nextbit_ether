@@ -18,5 +18,5 @@
     <!-- Fingerprint sensor location -->
     <dimen name="fingerprint_dot_radius">4dp</dimen>
     <dimen name="fingerprint_pulse_radius">25dp</dimen>
-    <item name="fingerprint_sensor_location_fraction_y" type="fraction">40.4%</item>
+    <item name="fingerprint_sensor_location_fraction_y" type="fraction">38.4%</item>
 </resources>
