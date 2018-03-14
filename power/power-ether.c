@@ -246,7 +246,7 @@ int set_interactive_override(__attribute__((unused)) struct power_module *module
             (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
             // sched upmigrate = 99, sched downmigrate = 95
             // keep the big cores around, but make them very hard to use
-            int resource_values[] = { 0x4E63, 0x4F5F, TR_MS_50, THREAD_MIGRATION_SYNC_OFF };
+            int resource_values[] = { 0x4E63, 0x4F5F };
             perform_hint_action(DISPLAY_STATE_HINT_ID,
                     resource_values, ARRAY_SIZE(resource_values));
             return HINT_HANDLED;
