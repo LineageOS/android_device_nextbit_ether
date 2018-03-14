@@ -300,7 +300,6 @@ vendor/firmware/libpn547_fw.so
 
 # Perf
 bin/energy-awareness
-bin/msm_irqbalance
 vendor/bin/perfd
 vendor/lib/libqti-perfd-client.so
 vendor/lib64/libqti-perfd-client.so
