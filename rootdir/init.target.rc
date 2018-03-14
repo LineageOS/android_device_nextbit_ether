@@ -87,13 +87,6 @@ service thermal-engine /system/vendor/bin/thermal-engine
     group root
     writepid /dev/cpuset/system-background/tasks
 
-service msm_irqbalance /system/bin/msm_irqbalance -f /system/etc/msm_irqbalance.conf
-    socket msm_irqbalance seqpacket 660 root system
-    class core
-    user root
-    group root
-    writepid /dev/cpuset/system-background/tasks
-
 service time_daemon /system/bin/time_daemon
     class late_start
     user root
