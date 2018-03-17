@@ -80,6 +80,8 @@ vidc.enc.dcvs.extra-buff-count=2
 
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
+ro.core_ctl_min_cpu=0
+ro.core_ctl_max_cpu=2
 
 # RIL
 rild.libpath=/vendor/lib64/libril-qc-qmi-1.so
