@@ -47,60 +47,6 @@
 #include "performance.h"
 #include "power-common.h"
 
-int get_number_of_profiles() {
-    return 5;
-}
-
-static int current_power_profile = PROFILE_BALANCED;
-
-static void set_power_profile(int profile) {
-
-    if (profile == current_power_profile)
-        return;
-
-    ALOGV("%s: profile=%d", __func__, profile);
-
-    if (current_power_profile != PROFILE_BALANCED) {
-        undo_hint_action(DEFAULT_PROFILE_HINT_ID);
-        ALOGV("%s: hint undone", __func__);
-    }
-
-    if (profile == PROFILE_POWER_SAVE) {
-        int resource_values[] = { CPUS_ONLINE_MPD_OVERRIDE, 0x0A03,
-            CPU0_MAX_FREQ_NONTURBO_MAX - 2, CPU1_MAX_FREQ_NONTURBO_MAX - 2,
-            CPU2_MAX_FREQ_NONTURBO_MAX - 2, CPU3_MAX_FREQ_NONTURBO_MAX - 2,
-            CPU4_MAX_FREQ_NONTURBO_MAX - 2, CPU5_MAX_FREQ_NONTURBO_MAX - 2 };
-        perform_hint_action(DEFAULT_PROFILE_HINT_ID,
-            resource_values, ARRAY_SIZE(resource_values));
-        ALOGD("%s: set powersave", __func__);
-    } else if (profile == PROFILE_HIGH_PERFORMANCE) {
-        int resource_values[] = { SCHED_BOOST_ON, CPUS_ONLINE_MAX,
-            ALL_CPUS_PWR_CLPS_DIS, 0x0901,
-            CPU0_MIN_FREQ_TURBO_MAX, CPU1_MIN_FREQ_TURBO_MAX,
-            CPU2_MIN_FREQ_TURBO_MAX, CPU3_MIN_FREQ_TURBO_MAX,
-            CPU4_MIN_FREQ_TURBO_MAX, CPU5_MIN_FREQ_TURBO_MAX };
-        perform_hint_action(DEFAULT_PROFILE_HINT_ID,
-            resource_values, ARRAY_SIZE(resource_values));
-        ALOGD("%s: set performance mode", __func__);
-    } else if (profile == PROFILE_BIAS_POWER) {
-        int resource_values[] = { 0x0A03, 0x0902,
-            CPU0_MAX_FREQ_NONTURBO_MAX - 2, CPU1_MAX_FREQ_NONTURBO_MAX - 2,
-            CPU1_MAX_FREQ_NONTURBO_MAX - 2, CPU2_MAX_FREQ_NONTURBO_MAX - 2,
-            CPU4_MAX_FREQ_NONTURBO_MAX, CPU5_MAX_FREQ_NONTURBO_MAX };
-        perform_hint_action(DEFAULT_PROFILE_HINT_ID,
-            resource_values, ARRAY_SIZE(resource_values));
-        ALOGD("%s: set bias power mode", __func__);
-    } else if (profile == PROFILE_BIAS_PERFORMANCE) {
-        int resource_values[] = { CPUS_ONLINE_MAX_LIMIT_MAX,
-            CPU4_MIN_FREQ_NONTURBO_MAX + 1, CPU5_MIN_FREQ_NONTURBO_MAX + 1 };
-        perform_hint_action(DEFAULT_PROFILE_HINT_ID,
-            resource_values, ARRAY_SIZE(resource_values));
-        ALOGD("%s: set bias perf mode", __func__);
-    }
-
-    current_power_profile = profile;
-}
-
 static int process_video_decode_hint(void *metadata)
 {
     char governor[80];
@@ -206,16 +152,6 @@ static int process_video_encode_hint(void *metadata)
 int power_hint_override(__attribute__((unused)) struct power_module *module,
         power_hint_t hint, void *data)
 {
-    if (hint == POWER_HINT_SET_PROFILE) {
-        set_power_profile(*(int32_t *)data);
-        return HINT_HANDLED;
-    }
-
-    // Skip other hints in custom power modes
-    if (current_power_profile == PROFILE_POWER_SAVE) {
-        return HINT_HANDLED;
-    }
-
     switch (hint) {
         case POWER_HINT_INTERACTION:
         case POWER_HINT_LAUNCH:
