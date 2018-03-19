@@ -390,9 +390,6 @@ typedef struct mm_jpeg_obj_t {
   /* Max pic dimension for work buf calc*/
   uint32_t max_pic_w;
   uint32_t max_pic_h;
-#ifdef LOAD_ADSP_RPC_LIB
-  void *adsprpc_lib_handle;
-#endif
 
   uint32_t work_buf_cnt;
 
