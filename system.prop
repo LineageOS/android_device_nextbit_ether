@@ -72,6 +72,9 @@ ro.gps.agps_provider=1
 ro.qc.sdk.izat.premium.enabled=0
 ro.qc.sdk.izat.service_mask=0x0
 
+# OEM Unlocking
+ro.oem_unlock_supported=1
+
 # Media
 mm.enable.smoothstreaming=true
 media.aac_51_output_enabled=true
