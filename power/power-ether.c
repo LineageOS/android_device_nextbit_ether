@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2015, The Linux Foundation. All rights reserved.
+ * Copyright (C) 2018 The LineageOS Project
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -37,7 +38,7 @@
 #include <stdlib.h>
 
 #define LOG_TAG "QCOM PowerHAL"
-#include <utils/Log.h>
+#include <log/log.h>
 #include <hardware/hardware.h>
 #include <hardware/power.h>
 
@@ -47,55 +48,77 @@
 #include "performance.h"
 #include "power-common.h"
 
+static int current_power_profile = PROFILE_BALANCED;
+
+static int profile_high_performance[] = {
+    SCHED_BOOST_ON, CPUS_ONLINE_MAX,
+    ALL_CPUS_PWR_CLPS_DIS, 0x0901,
+    CPU0_MIN_FREQ_TURBO_MAX,
+    CPU1_MIN_FREQ_TURBO_MAX,
+    CPU2_MIN_FREQ_TURBO_MAX,
+    CPU3_MIN_FREQ_TURBO_MAX,
+    CPU4_MIN_FREQ_TURBO_MAX,
+    CPU5_MIN_FREQ_TURBO_MAX
+};
+
+static int profile_power_save[] = {
+    CPUS_ONLINE_MPD_OVERRIDE, 0x0A03,
+    CPU0_MAX_FREQ_NONTURBO_MAX - 2,
+    CPU1_MAX_FREQ_NONTURBO_MAX - 2,
+    CPU2_MAX_FREQ_NONTURBO_MAX - 2,
+    CPU3_MAX_FREQ_NONTURBO_MAX - 2,
+    CPU4_MAX_FREQ_NONTURBO_MAX - 2,
+    CPU5_MAX_FREQ_NONTURBO_MAX - 2
+};
+
+static int profile_bias_power[] = {
+    0x0A03, 0x0902,
+    CPU0_MAX_FREQ_NONTURBO_MAX - 2,
+    CPU1_MAX_FREQ_NONTURBO_MAX - 2,
+    CPU1_MAX_FREQ_NONTURBO_MAX - 2,
+    CPU2_MAX_FREQ_NONTURBO_MAX - 2,
+    CPU4_MAX_FREQ_NONTURBO_MAX,
+    CPU5_MAX_FREQ_NONTURBO_MAX
+};
+
+static int profile_bias_performance[] = {
+    CPUS_ONLINE_MAX_LIMIT_MAX,
+    CPU4_MIN_FREQ_NONTURBO_MAX + 1,
+    CPU5_MIN_FREQ_NONTURBO_MAX + 1
+};
+
 int get_number_of_profiles() {
     return 5;
 }
-
-static int current_power_profile = PROFILE_BALANCED;
 
 static void set_power_profile(int profile) {
 
     if (profile == current_power_profile)
         return;
 
-    ALOGV("%s: profile=%d", __func__, profile);
+    ALOGV("%s: Profile=%d", __func__, profile);
 
     if (current_power_profile != PROFILE_BALANCED) {
         undo_hint_action(DEFAULT_PROFILE_HINT_ID);
-        ALOGV("%s: hint undone", __func__);
+        ALOGV("%s: Hint undone", __func__);
     }
 
     if (profile == PROFILE_POWER_SAVE) {
-        int resource_values[] = { CPUS_ONLINE_MPD_OVERRIDE, 0x0A03,
-            CPU0_MAX_FREQ_NONTURBO_MAX - 2, CPU1_MAX_FREQ_NONTURBO_MAX - 2,
-            CPU2_MAX_FREQ_NONTURBO_MAX - 2, CPU3_MAX_FREQ_NONTURBO_MAX - 2,
-            CPU4_MAX_FREQ_NONTURBO_MAX - 2, CPU5_MAX_FREQ_NONTURBO_MAX - 2 };
-        perform_hint_action(DEFAULT_PROFILE_HINT_ID,
-            resource_values, ARRAY_SIZE(resource_values));
-        ALOGD("%s: set powersave", __func__);
+        perform_hint_action(DEFAULT_PROFILE_HINT_ID, profile_power_save,
+                ARRAY_SIZE(profile_power_save));
+        ALOGD("%s: Set powersave mode", __func__);
     } else if (profile == PROFILE_HIGH_PERFORMANCE) {
-        int resource_values[] = { SCHED_BOOST_ON, CPUS_ONLINE_MAX,
-            ALL_CPUS_PWR_CLPS_DIS, 0x0901,
-            CPU0_MIN_FREQ_TURBO_MAX, CPU1_MIN_FREQ_TURBO_MAX,
-            CPU2_MIN_FREQ_TURBO_MAX, CPU3_MIN_FREQ_TURBO_MAX,
-            CPU4_MIN_FREQ_TURBO_MAX, CPU5_MIN_FREQ_TURBO_MAX };
-        perform_hint_action(DEFAULT_PROFILE_HINT_ID,
-            resource_values, ARRAY_SIZE(resource_values));
-        ALOGD("%s: set performance mode", __func__);
+        perform_hint_action(DEFAULT_PROFILE_HINT_ID, profile_high_performance,
+                ARRAY_SIZE(profile_high_performance));
+        ALOGD("%s: Set performance mode", __func__);
     } else if (profile == PROFILE_BIAS_POWER) {
-        int resource_values[] = { 0x0A03, 0x0902,
-            CPU0_MAX_FREQ_NONTURBO_MAX - 2, CPU1_MAX_FREQ_NONTURBO_MAX - 2,
-            CPU1_MAX_FREQ_NONTURBO_MAX - 2, CPU2_MAX_FREQ_NONTURBO_MAX - 2,
-            CPU4_MAX_FREQ_NONTURBO_MAX, CPU5_MAX_FREQ_NONTURBO_MAX };
-        perform_hint_action(DEFAULT_PROFILE_HINT_ID,
-            resource_values, ARRAY_SIZE(resource_values));
-        ALOGD("%s: set bias power mode", __func__);
+        perform_hint_action(DEFAULT_PROFILE_HINT_ID, profile_bias_power,
+                ARRAY_SIZE(profile_bias_power));
+        ALOGD("%s: Set bias power mode", __func__);
     } else if (profile == PROFILE_BIAS_PERFORMANCE) {
-        int resource_values[] = { CPUS_ONLINE_MAX_LIMIT_MAX,
-            CPU4_MIN_FREQ_NONTURBO_MAX + 1, CPU5_MIN_FREQ_NONTURBO_MAX + 1 };
-        perform_hint_action(DEFAULT_PROFILE_HINT_ID,
-            resource_values, ARRAY_SIZE(resource_values));
-        ALOGD("%s: set bias perf mode", __func__);
+        perform_hint_action(DEFAULT_PROFILE_HINT_ID, profile_bias_performance,
+                ARRAY_SIZE(profile_bias_performance));
+        ALOGD("%s: Set bias perf mode", __func__);
     }
 
     current_power_profile = profile;
@@ -128,8 +151,7 @@ static int process_video_decode_hint(void *metadata)
     }
 
     if (video_decode_metadata.state == 1) {
-        if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
+        if (is_interactive_governor(governor)) {
             /* sched and cpufreq params
              * hispeed freq - 768 MHz
              * target load - 90
@@ -143,8 +165,7 @@ static int process_video_decode_hint(void *metadata)
             return HINT_HANDLED;
         }
     } else if (video_decode_metadata.state == 0) {
-        if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
+        if (is_interactive_governor(governor)) {
             undo_hint_action(video_decode_metadata.hint_id);
             return HINT_HANDLED;
         }
@@ -179,8 +200,7 @@ static int process_video_encode_hint(void *metadata)
     }
 
     if (video_encode_metadata.state == 1) {
-        if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
+        if (is_interactive_governor(governor)) {
             /* sched and cpufreq params
              * hispeed freq - 768 MHz
              * target load - 90
@@ -194,8 +214,7 @@ static int process_video_encode_hint(void *metadata)
             return HINT_HANDLED;
         }
     } else if (video_encode_metadata.state == 0) {
-        if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
-                (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
+        if (is_interactive_governor(governor)) {
             undo_hint_action(video_encode_metadata.hint_id);
             return HINT_HANDLED;
         }
@@ -203,8 +222,7 @@ static int process_video_encode_hint(void *metadata)
     return HINT_NONE;
 }
 
-int power_hint_override(__attribute__((unused)) struct power_module *module,
-        power_hint_t hint, void *data)
+int power_hint_override(power_hint_t hint, void *data)
 {
     if (hint == POWER_HINT_SET_PROFILE) {
         set_power_profile(*(int32_t *)data);
@@ -212,7 +230,7 @@ int power_hint_override(__attribute__((unused)) struct power_module *module,
     }
 
     // Skip other hints in custom power modes
-    if (current_power_profile == PROFILE_POWER_SAVE) {
+    if (current_power_profile != PROFILE_BALANCED) {
         return HINT_HANDLED;
     }
 
@@ -230,7 +248,7 @@ int power_hint_override(__attribute__((unused)) struct power_module *module,
     }
 }
 
-int set_interactive_override(__attribute__((unused)) struct power_module *module, int on)
+int set_interactive_override(int on)
 {
     char governor[80];
 
@@ -242,8 +260,7 @@ int set_interactive_override(__attribute__((unused)) struct power_module *module
 
     if (!on) {
         /* Display off */
-        if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
-            (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
+        if (is_interactive_governor(governor)) {
             // sched upmigrate = 99, sched downmigrate = 95
             // keep the big cores around, but make them very hard to use
             int resource_values[] = { 0x4E63, 0x4F5F };
@@ -253,8 +270,7 @@ int set_interactive_override(__attribute__((unused)) struct power_module *module
         }
     } else {
         /* Display on */
-        if ((strncmp(governor, INTERACTIVE_GOVERNOR, strlen(INTERACTIVE_GOVERNOR)) == 0) &&
-            (strlen(governor) == strlen(INTERACTIVE_GOVERNOR))) {
+        if (is_interactive_governor(governor)) {
             undo_hint_action(DISPLAY_STATE_HINT_ID);
             return HINT_HANDLED;
         }
