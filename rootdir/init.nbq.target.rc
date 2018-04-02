@@ -56,3 +56,7 @@ on boot
 on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
     swapon_all fstab.qcom
+
+# Panel frame rate control
+on property:sys.boot_completed=1 && property:persist.sys.display.frame_rate=*
+    write /sys/class/graphics/fb0/fps ${persist.sys.display.frame_rate}
