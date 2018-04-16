@@ -2,9 +2,5 @@
   {
     "repository": "android_kernel_nextbit_msm8992",
     "target_path": "kernel/nextbit/msm8992"
-  },
-  {
-    "repository": "android_device_qcom_common",
-    "target_path": "device/qcom/common"
   }
 ]
