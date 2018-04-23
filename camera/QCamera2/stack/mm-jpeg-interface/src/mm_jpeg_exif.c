@@ -326,15 +326,13 @@ int process_sensor_data(cam_sensor_params_t *p_sensor_params,
   }
 
   /*Flash*/
-  short val_short = 0;
+  short val_short;
   int flash_mode_exif, flash_fired;
   if (p_sensor_params->flash_state == CAM_FLASH_STATE_FIRED) {
     flash_fired = 1;
   } else {
     flash_fired = 0;
   }
-  CDBG("%s: Flash value %d flash mode %d flash state %d", __func__, val_short,
-    p_sensor_params->flash_mode, p_sensor_params->flash_state);
 
   switch(p_sensor_params->flash_mode) {
   case  CAM_FLASH_MODE_OFF:
@@ -351,6 +349,9 @@ int process_sensor_data(cam_sensor_params_t *p_sensor_params,
     ALOGE("%s:%d]: Unsupported flash mode", __func__, __LINE__);
   }
   val_short = (short)(flash_fired | (flash_mode_exif << 3));
+
+  CDBG("%s: Flash value %d flash mode %d flash state %d", __func__, val_short,
+    p_sensor_params->flash_mode, p_sensor_params->flash_state);
 
   rc = addExifEntry(exif_info, EXIFTAGID_FLASH, EXIF_SHORT, 1, &val_short);
   if (rc) {
