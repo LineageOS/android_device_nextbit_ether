@@ -865,7 +865,7 @@ OMX_ERRORTYPE mm_jpeg_session_config_ports(mm_jpeg_job_session_t* p_session)
  *
  */
 OMX_ERRORTYPE mm_jpeg_get_thumbnail_crop(mm_jpeg_dim_t *p_thumb_dim,
-  mm_jpeg_dim_t *p_main_dim, uint8_t crop_width) {
+  mm_jpeg_dim_t *p_main_dim __unused, uint8_t crop_width) {
   OMX_ERRORTYPE ret = OMX_ErrorNone;
   int cropped_width = 0, cropped_height = 0;
 
@@ -2730,9 +2730,9 @@ int32_t mm_jpeg_close(mm_jpeg_obj *my_obj, uint32_t client_hdl)
   return rc;
 }
 
-OMX_ERRORTYPE mm_jpeg_ebd(OMX_HANDLETYPE hComponent,
+OMX_ERRORTYPE mm_jpeg_ebd(OMX_HANDLETYPE hComponent __unused,
   OMX_PTR pAppData,
-  OMX_BUFFERHEADERTYPE *pBuffer)
+  OMX_BUFFERHEADERTYPE *pBuffer __unused)
 {
   mm_jpeg_job_session_t *p_session = (mm_jpeg_job_session_t *) pAppData;
 
@@ -2743,7 +2743,7 @@ OMX_ERRORTYPE mm_jpeg_ebd(OMX_HANDLETYPE hComponent,
   return 0;
 }
 
-OMX_ERRORTYPE mm_jpeg_fbd(OMX_HANDLETYPE hComponent,
+OMX_ERRORTYPE mm_jpeg_fbd(OMX_HANDLETYPE hComponent __unused,
   OMX_PTR pAppData,
   OMX_BUFFERHEADERTYPE *pBuffer)
 {
@@ -2799,12 +2799,12 @@ OMX_ERRORTYPE mm_jpeg_fbd(OMX_HANDLETYPE hComponent,
 
 
 
-OMX_ERRORTYPE mm_jpeg_event_handler(OMX_HANDLETYPE hComponent,
+OMX_ERRORTYPE mm_jpeg_event_handler(OMX_HANDLETYPE hComponent __unused,
   OMX_PTR pAppData,
   OMX_EVENTTYPE eEvent,
   OMX_U32 nData1,
   OMX_U32 nData2,
-  OMX_PTR pEventData)
+  OMX_PTR pEventData __unused)
 {
   mm_jpeg_job_session_t *p_session = (mm_jpeg_job_session_t *) pAppData;
 

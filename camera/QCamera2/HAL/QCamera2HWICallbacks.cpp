@@ -2204,7 +2204,7 @@ void QCamera2HardwareInterface::dumpFrameToFile(QCameraStream *stream,
                             }
                         }
 
-                        CDBG_HIGH("%s: written number of bytes %ld\n",
+                        CDBG_HIGH("%s: written number of bytes %zd\n",
                             __func__, written_len);
                         close(file_fd);
                     } else {
