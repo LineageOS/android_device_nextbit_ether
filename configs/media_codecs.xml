@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!-- Copyright (C) 2012 The Android Open Source Project
-     Copyright (C) 2014 - 2015 The Linux Foundation. All rights reserved.
+     Copyright (C) 2014 The Linux Foundation. All rights reserved.
      Not a contribution.
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -81,13 +81,13 @@ Only the three quirks included above are recognized at this point:
 -->
 
 <!--
- 8994 Decoder capabilities (If Encode is supported, same numbers apply)
+ Non Secure 8994 Decoder capabilities (If Encode is supported, same numbers apply)
  __________________________________________________________________________
  | Codec    | W       H       fps     Mbps    MB/s    | Encode Secure-dec |
  |__________|_________________________________________|___________________|
  | h264     | 3840    2160    30      100     972000  |  Y       Y        |
  |          | (4096)  (2160)  (24)    (100)           |                   |
- | hevc     | 3840    2160    30      100     972000  |  Y       Y        |
+ | hevc     | 3840    2160    30      100     972000  |  N       Y        |
  |          | (4096)  (2160)  (24)    (100)           |                   |
  | mpeg4    | 1920    1088    60      60      489600  |  Y       N        |
  | vc1      | 1920    1088    60      60      489600  |  N       Y        |
@@ -97,13 +97,21 @@ Only the three quirks included above are recognized at this point:
  | h263     | 864     480     30      2       48600   |  Y       N        |
  | mpeg2    | 1920    1088    30      40      244800  |  N       Y        |
  |__________|_________________________________________|___________________|
+
+ Secure 8994 Decoder capabilities
+ | mpeg2    | 1920    1088    30      20      244800  |  N       Y        |
+ | hevc     | 1920    1088    30      20      244800  |  N       Y        |
+ | h264     | 1920    1088    30      20      244800  |  N       Y        |
+ | vc1      | 1920    1088    30      20      244800  |  N       Y        |
+ |__________|_________________________________________|___________________|
+
 -->
 
 <MediaCodecs>
     <Include href="media_codecs_google_audio.xml" />
     <Include href="media_codecs_google_telephony.xml" />
     <Settings>
-        <Setting name="max-video-encoder-input-buffers" value="11" />
+        <Setting name="max-video-encoder-input-buffers" value="9" />
     </Settings>
     <Encoders>
         <!-- Audio Hardware  -->
@@ -153,21 +161,10 @@ Only the three quirks included above are recognized at this point:
             <Limit name="bitrate" range="1-20000000" />
             <Limit name="concurrent-instances" max="13" />
         </MediaCodec>
-        <!--
-        <MediaCodec name="OMX.qcom.video.encoder.hevc" type="video/hevc" >
-            <Quirk name="requires-allocate-on-input-ports" />
-            <Quirk name="requires-allocate-on-output-ports" />
-            <Quirk name="requires-loaded-to-idle-after-allocation" />
-            <Limit name="size" min="176x64" max="4096x2160" />
-            <Limit name="alignment" value="2x2" />
-            <Limit name="block-size" value="16x16" />
-            <Limit name="blocks-per-second" min="1" max="972000" />
-            <Limit name="bitrate" range="1-100000000" />
-            <Limit name="concurrent-instances" max="13" />
-        </MediaCodec>
-        -->
     </Encoders>
     <Decoders>
+        <!-- Audio Hardware  -->
+        <!-- Audio Software  -->
         <!-- Video Hardware  -->
         <MediaCodec name="OMX.qcom.video.decoder.avc" type="video/avc" >
             <Quirk name="requires-allocate-on-input-ports" />
@@ -183,11 +180,11 @@ Only the three quirks included above are recognized at this point:
         <MediaCodec name="OMX.qcom.video.decoder.avc.secure" type="video/avc" >
             <Quirk name="requires-allocate-on-input-ports" />
             <Quirk name="requires-allocate-on-output-ports" />
-            <Limit name="size" min="64x64" max="4096x2160" />
+            <Limit name="size" min="64x64" max="1920x1088" />
             <Limit name="alignment" value="2x2" />
             <Limit name="block-size" value="16x16" />
-            <Limit name="blocks-per-second" min="1" max="972000" />
-            <Limit name="bitrate" range="1-100000000" />
+            <Limit name="blocks-per-second" min="1" max="244800" />
+            <Limit name="bitrate" range="1-20000000" />
             <Feature name="adaptive-playback" />
             <Feature name="secure-playback" required="true" />
             <Limit name="concurrent-instances" max="6" />
@@ -221,7 +218,7 @@ Only the three quirks included above are recognized at this point:
             <Limit name="alignment" value="2x2" />
             <Limit name="block-size" value="16x16" />
             <Limit name="blocks-per-second" min="1" max="244800" />
-            <Limit name="bitrate" range="1-40000000" />
+            <Limit name="bitrate" range="1-20000000" />
             <Feature name="adaptive-playback" />
             <Feature name="secure-playback" required="true" />
             <Limit name="concurrent-instances" max="13" />
@@ -254,8 +251,8 @@ Only the three quirks included above are recognized at this point:
             <Limit name="size" min="64x64" max="1920x1088" />
             <Limit name="alignment" value="2x2" />
             <Limit name="block-size" value="16x16" />
-            <Limit name="blocks-per-second" min="1" max="489600" />
-            <Limit name="bitrate" range="1-60000000" />
+            <Limit name="blocks-per-second" min="1" max="244800" />
+            <Limit name="bitrate" range="1-20000000" />
             <Feature name="adaptive-playback" />
             <Feature name="secure-playback" required="true" />
             <Limit name="concurrent-instances" max="13" />
@@ -318,15 +315,17 @@ Only the three quirks included above are recognized at this point:
         <MediaCodec name="OMX.qcom.video.decoder.hevc.secure" type="video/hevc" >
             <Quirk name="requires-allocate-on-input-ports" />
             <Quirk name="requires-allocate-on-output-ports" />
-            <Limit name="size" min="64x64" max="4096x2160" />
+            <Limit name="size" min="64x64" max="1920x1088" />
             <Limit name="alignment" value="2x2" />
             <Limit name="block-size" value="16x16" />
-            <Limit name="blocks-per-second" min="1" max="972000" />
-            <Limit name="bitrate" range="1-100000000" />
+            <Limit name="blocks-per-second" min="1" max="244800" />
+            <Limit name="bitrate" range="1-20000000" />
             <Feature name="adaptive-playback" />
             <Feature name="secure-playback" required="true" />
             <Limit name="concurrent-instances" max="6" />
         </MediaCodec>
+        <!-- Audio Software  -->
+        <MediaCodec name="OMX.qti.audio.decoder.flac" type="audio/flac" />
     </Decoders>
     <Include href="media_codecs_google_video.xml" />
 </MediaCodecs>
