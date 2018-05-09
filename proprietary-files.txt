@@ -1,61 +1,61 @@
 # ADSP
-bin/adsprpcd
+bin/adsprpcd:vendor/bin/adsprpcd
 vendor/lib/libadsprpc.so
 vendor/lib/libfastcvadsp_stub.so
 vendor/lib/libfastcvopt.so
 vendor/lib64/libadsprpc.so
 
 # Amplifier
-etc/nxp/settings/os/alarm/1/HQ_KS_13X18_DUMBO.eq|84c9fc98cbccb7724ce927ce7d8ecadcfc0efda4
-etc/nxp/settings/os/alarm/1/HQ_KS_13X18_DUMBO.preset
-etc/nxp/settings/os/alarm/2/HQ_KS_13X18_DUMBO.eq|3e9dd6858e6b7b45a25d8853c7e8fd1b84de9ded
-etc/nxp/settings/os/alarm/2/HQ_KS_13X18_DUMBO.preset
-etc/nxp/settings/os/alarm/3/HQ_KS_13X18_DUMBO.eq|84c9fc98cbccb7724ce927ce7d8ecadcfc0efda4
-etc/nxp/settings/os/alarm/3/HQ_KS_13X18_DUMBO.preset
-etc/nxp/settings/os/alarm/4/HQ_KS_13X18_DUMBO.eq|3e9dd6858e6b7b45a25d8853c7e8fd1b84de9ded
-etc/nxp/settings/os/alarm/4/HQ_KS_13X18_DUMBO.preset
-etc/nxp/settings/os/keytone/1/HQ_KS_13X18_DUMBO.eq|84c9fc98cbccb7724ce927ce7d8ecadcfc0efda4
-etc/nxp/settings/os/keytone/1/HQ_KS_13X18_DUMBO.preset
-etc/nxp/settings/os/keytone/2/HQ_KS_13X18_DUMBO.eq|3e9dd6858e6b7b45a25d8853c7e8fd1b84de9ded
-etc/nxp/settings/os/keytone/2/HQ_KS_13X18_DUMBO.preset
-etc/nxp/settings/os/keytone/3/HQ_KS_13X18_DUMBO.eq|84c9fc98cbccb7724ce927ce7d8ecadcfc0efda4
-etc/nxp/settings/os/keytone/3/HQ_KS_13X18_DUMBO.preset
-etc/nxp/settings/os/keytone/4/HQ_KS_13X18_DUMBO.eq|3e9dd6858e6b7b45a25d8853c7e8fd1b84de9ded
-etc/nxp/settings/os/keytone/4/HQ_KS_13X18_DUMBO.preset
-etc/nxp/settings/os/playback/1/HQ_KS_13X18_DUMBO.eq|84c9fc98cbccb7724ce927ce7d8ecadcfc0efda4
-etc/nxp/settings/os/playback/1/HQ_KS_13X18_DUMBO.preset|9cd8f05b748dde6e51a0379c8dd6dd7595b8f330
-etc/nxp/settings/os/playback/1/TFA9887_N1D2.config
-etc/nxp/settings/os/playback/1/TFA9887_N1D2_2_4_1.patch
-etc/nxp/settings/os/playback/1/coldboot.patch
-etc/nxp/settings/os/playback/1/devkit_Release.parms
-etc/nxp/settings/os/playback/1/speaker.speaker|5521a99d3e66b99d6d9c58533e6c38b084797e93
-etc/nxp/settings/os/playback/2/HQ_KS_13X18_DUMBO.eq|3e9dd6858e6b7b45a25d8853c7e8fd1b84de9ded
-etc/nxp/settings/os/playback/2/HQ_KS_13X18_DUMBO.preset|276f14c6e8d208ad69ed8f57219ec7ac614ce50d
-etc/nxp/settings/os/playback/2/TFA9887_N1D2.config
-etc/nxp/settings/os/playback/2/TFA9887_N1D2_2_4_1.patch
-etc/nxp/settings/os/playback/2/coldboot.patch
-etc/nxp/settings/os/playback/2/devkit_Release.parms
-etc/nxp/settings/os/playback/2/speaker.speaker|8c59037a3aaf00dfcd2114eecbbe5a14509d0ce0
-etc/nxp/settings/os/playback/3/HQ_KS_13X18_DUMBO.eq|84c9fc98cbccb7724ce927ce7d8ecadcfc0efda4
-etc/nxp/settings/os/playback/3/HQ_KS_13X18_DUMBO.preset
-etc/nxp/settings/os/playback/3/TFA9887_N1D2.config
-etc/nxp/settings/os/playback/3/TFA9887_N1D2_2_4_1.patch
-etc/nxp/settings/os/playback/3/coldboot.patch
-etc/nxp/settings/os/playback/3/devkit_Release.parms
-etc/nxp/settings/os/playback/3/speaker.speaker
-etc/nxp/settings/os/playback/4/HQ_KS_13X18_DUMBO.eq|3e9dd6858e6b7b45a25d8853c7e8fd1b84de9ded
-etc/nxp/settings/os/playback/4/HQ_KS_13X18_DUMBO.preset
-etc/nxp/settings/os/playback/4/TFA9887_N1D2.config
-etc/nxp/settings/os/playback/4/TFA9887_N1D2_2_4_1.patch
-etc/nxp/settings/os/playback/4/coldboot.patch
-etc/nxp/settings/os/playback/4/devkit_Release.parms
-etc/nxp/settings/os/playback/4/speaker.speaker
-lib/libFIHNxp.so
-lib/libtfa98xx_hal.so
-lib/libtfa98xx.so
-lib64/libFIHNxp.so
-lib64/libtfa98xx_hal.so
-lib64/libtfa98xx.so
+etc/nxp/settings/os/alarm/1/HQ_KS_13X18_DUMBO.eq:vendor/etc/nxp/settings/os/alarm/1/HQ_KS_13X18_DUMBO.eq|84c9fc98cbccb7724ce927ce7d8ecadcfc0efda4
+etc/nxp/settings/os/alarm/1/HQ_KS_13X18_DUMBO.preset:vendor/etc/nxp/settings/os/alarm/1/HQ_KS_13X18_DUMBO.preset
+etc/nxp/settings/os/alarm/2/HQ_KS_13X18_DUMBO.eq:vendor/etc/nxp/settings/os/alarm/2/HQ_KS_13X18_DUMBO.eq|3e9dd6858e6b7b45a25d8853c7e8fd1b84de9ded
+etc/nxp/settings/os/alarm/2/HQ_KS_13X18_DUMBO.preset:vendor/etc/nxp/settings/os/alarm/2/HQ_KS_13X18_DUMBO.preset
+etc/nxp/settings/os/alarm/3/HQ_KS_13X18_DUMBO.eq:vendor/etc/nxp/settings/os/alarm/3/HQ_KS_13X18_DUMBO.eq|84c9fc98cbccb7724ce927ce7d8ecadcfc0efda4
+etc/nxp/settings/os/alarm/3/HQ_KS_13X18_DUMBO.preset:vendor/etc/nxp/settings/os/alarm/3/HQ_KS_13X18_DUMBO.preset
+etc/nxp/settings/os/alarm/4/HQ_KS_13X18_DUMBO.eq:vendor/etc/nxp/settings/os/alarm/4/HQ_KS_13X18_DUMBO.eq|3e9dd6858e6b7b45a25d8853c7e8fd1b84de9ded
+etc/nxp/settings/os/alarm/4/HQ_KS_13X18_DUMBO.preset:vendor/etc/nxp/settings/os/alarm/4/HQ_KS_13X18_DUMBO.preset
+etc/nxp/settings/os/keytone/1/HQ_KS_13X18_DUMBO.eq:vendor/etc/nxp/settings/os/keytone/1/HQ_KS_13X18_DUMBO.eq|84c9fc98cbccb7724ce927ce7d8ecadcfc0efda4
+etc/nxp/settings/os/keytone/1/HQ_KS_13X18_DUMBO.preset:vendor/etc/nxp/settings/os/keytone/1/HQ_KS_13X18_DUMBO.preset
+etc/nxp/settings/os/keytone/2/HQ_KS_13X18_DUMBO.eq:vendor/etc/nxp/settings/os/keytone/2/HQ_KS_13X18_DUMBO.eq|3e9dd6858e6b7b45a25d8853c7e8fd1b84de9ded
+etc/nxp/settings/os/keytone/2/HQ_KS_13X18_DUMBO.preset:vendor/etc/nxp/settings/os/keytone/2/HQ_KS_13X18_DUMBO.preset
+etc/nxp/settings/os/keytone/3/HQ_KS_13X18_DUMBO.eq:vendor/etc/nxp/settings/os/keytone/3/HQ_KS_13X18_DUMBO.eq|84c9fc98cbccb7724ce927ce7d8ecadcfc0efda4
+etc/nxp/settings/os/keytone/3/HQ_KS_13X18_DUMBO.preset:vendor/etc/nxp/settings/os/keytone/3/HQ_KS_13X18_DUMBO.preset
+etc/nxp/settings/os/keytone/4/HQ_KS_13X18_DUMBO.eq:vendor/etc/nxp/settings/os/keytone/4/HQ_KS_13X18_DUMBO.eq:vendor|3e9dd6858e6b7b45a25d8853c7e8fd1b84de9ded
+etc/nxp/settings/os/keytone/4/HQ_KS_13X18_DUMBO.preset:vendor/etc/nxp/settings/os/keytone/4/HQ_KS_13X18_DUMBO.preset
+etc/nxp/settings/os/playback/1/HQ_KS_13X18_DUMBO.eq:vendor/etc/nxp/settings/os/playback/1/HQ_KS_13X18_DUMBO.eq|84c9fc98cbccb7724ce927ce7d8ecadcfc0efda4
+etc/nxp/settings/os/playback/1/HQ_KS_13X18_DUMBO.preset:vendor/etc/nxp/settings/os/playback/1/HQ_KS_13X18_DUMBO.preset|9cd8f05b748dde6e51a0379c8dd6dd7595b8f330
+etc/nxp/settings/os/playback/1/TFA9887_N1D2.config:vendor/etc/nxp/settings/os/playback/1/TFA9887_N1D2.config
+etc/nxp/settings/os/playback/1/TFA9887_N1D2_2_4_1.patch:vendor/etc/nxp/settings/os/playback/1/TFA9887_N1D2_2_4_1.patch
+etc/nxp/settings/os/playback/1/coldboot.patch:vendor/etc/nxp/settings/os/playback/1/coldboot.patch
+etc/nxp/settings/os/playback/1/devkit_Release.parms:vendor/etc/nxp/settings/os/playback/1/devkit_Release.parms
+etc/nxp/settings/os/playback/1/speaker.speaker:vendor/etc/nxp/settings/os/playback/1/speaker.speaker|5521a99d3e66b99d6d9c58533e6c38b084797e93
+etc/nxp/settings/os/playback/2/HQ_KS_13X18_DUMBO.eq:vendor/etc/nxp/settings/os/playback/2/HQ_KS_13X18_DUMBO.eq|3e9dd6858e6b7b45a25d8853c7e8fd1b84de9ded
+etc/nxp/settings/os/playback/2/HQ_KS_13X18_DUMBO.preset:vendor/etc/nxp/settings/os/playback/2/HQ_KS_13X18_DUMBO.preset|276f14c6e8d208ad69ed8f57219ec7ac614ce50d
+etc/nxp/settings/os/playback/2/TFA9887_N1D2.config:vendor/etc/nxp/settings/os/playback/2/TFA9887_N1D2.config
+etc/nxp/settings/os/playback/2/TFA9887_N1D2_2_4_1.patch:vendor/etc/nxp/settings/os/playback/2/TFA9887_N1D2_2_4_1.patch
+etc/nxp/settings/os/playback/2/coldboot.patch:vendor/etc/nxp/settings/os/playback/2/coldboot.patch
+etc/nxp/settings/os/playback/2/devkit_Release.parms:vendor/etc/nxp/settings/os/playback/2/devkit_Release.parms
+etc/nxp/settings/os/playback/2/speaker.speaker:vendor/etc/nxp/settings/os/playback/2/speaker.speaker|8c59037a3aaf00dfcd2114eecbbe5a14509d0ce0
+etc/nxp/settings/os/playback/3/HQ_KS_13X18_DUMBO.eq:vendor/etc/nxp/settings/os/playback/3/HQ_KS_13X18_DUMBO.eq|84c9fc98cbccb7724ce927ce7d8ecadcfc0efda4
+etc/nxp/settings/os/playback/3/HQ_KS_13X18_DUMBO.preset:vendor/etc/nxp/settings/os/playback/3/HQ_KS_13X18_DUMBO.preset
+etc/nxp/settings/os/playback/3/TFA9887_N1D2.config:vendor/etc/nxp/settings/os/playback/3/TFA9887_N1D2.config
+etc/nxp/settings/os/playback/3/TFA9887_N1D2_2_4_1.patch:vendor/etc/nxp/settings/os/playback/3/TFA9887_N1D2_2_4_1.patch
+etc/nxp/settings/os/playback/3/coldboot.patch:vendor/etc/nxp/settings/os/playback/3/coldboot.patch
+etc/nxp/settings/os/playback/3/devkit_Release.parms:vendor/etc/nxp/settings/os/playback/3/devkit_Release.parms
+etc/nxp/settings/os/playback/3/speaker.speaker:vendor/etc/nxp/settings/os/playback/3/speaker.speaker
+etc/nxp/settings/os/playback/4/HQ_KS_13X18_DUMBO.eq:vendor/etc/nxp/settings/os/playback/4/HQ_KS_13X18_DUMBO.eq|3e9dd6858e6b7b45a25d8853c7e8fd1b84de9ded
+etc/nxp/settings/os/playback/4/HQ_KS_13X18_DUMBO.preset:vendor/etc/nxp/settings/os/playback/4/HQ_KS_13X18_DUMBO.preset
+etc/nxp/settings/os/playback/4/TFA9887_N1D2.config:vendor/etc/nxp/settings/os/playback/4/TFA9887_N1D2.config
+etc/nxp/settings/os/playback/4/TFA9887_N1D2_2_4_1.patch:vendor/etc/nxp/settings/os/playback/4/TFA9887_N1D2_2_4_1.patch
+etc/nxp/settings/os/playback/4/coldboot.patch:vendor/etc/nxp/settings/os/playback/4/coldboot.patch
+etc/nxp/settings/os/playback/4/devkit_Release.parms:vendor/etc/nxp/settings/os/playback/4/devkit_Release.parms
+etc/nxp/settings/os/playback/4/speaker.speaker:vendor/etc/nxp/settings/os/playback/4/speaker.speaker
+lib/libFIHNxp.so:vendor/lib/libFIHNxp.so|f6704f21b9ef90957b8e8af56cd3e4d5c79d086b
+lib/libtfa98xx_hal.so:vendor/lib/libtfa98xx_hal.so
+lib/libtfa98xx.so:vendor/lib/libtfa98xx.so
+lib64/libFIHNxp.so:vendor/lib64/libFIHNxp.so|983a45cf42e7d40b5111ab3c5b546a572db1549a
+lib64/libtfa98xx_hal.so:vendor/lib64/libtfa98xx_hal.so
+lib64/libtfa98xx.so:vendor/lib64/libtfa98xx.so
 
 # Audio
 vendor/lib/libacdb-fts.so
@@ -73,13 +73,13 @@ vendor/lib64/libadiertac.so
 vendor/lib64/libaudcal.so
 
 # Bluetooth
-bin/hci_qcomm_init
-bin/wcnss_filter
+bin/hci_qcomm_init:vendor/bin/hci_qcomm_init
+bin/wcnss_filter:vendor/bin/wcnss_filter
 vendor/lib/libbtnv.so
 vendor/lib64/libbtnv.so
 
 # Camera
-bin/mm-qcamera-daemon
+bin/mm-qcamera-daemon:vendor/bin/mm-qcamera-daemon
 vendor/lib/libjpegdhw.so
 vendor/lib/libjpegdmahw.so
 vendor/lib/libjpegehw.so
@@ -194,12 +194,13 @@ vendor/lib/libchromatix_s5k5e2_versions.so
 vendor/lib/libmmcamera_dw9761b_eeprom.so
 
 # Camera firmware
-etc/firmware/cpp_firmware_v1_1_1.fw
-etc/firmware/cpp_firmware_v1_1_6.fw
-etc/firmware/cpp_firmware_v1_2_0.fw
-etc/firmware/cpp_firmware_v1_4_0.fw
-etc/firmware/cpp_firmware_v1_6_0.fw
-etc/firmware/cpp_firmware_v1_8_0.fw
+etc/firmware/cpp_firmware_v1_1_1.fw:vendor/firmware/cpp_firmware_v1_1_1.fw
+etc/firmware/cpp_firmware_v1_1_6.fw:vendor/firmware/cpp_firmware_v1_1_6.fw
+etc/firmware/cpp_firmware_v1_2_0.fw:vendor/firmware/cpp_firmware_v1_2_0.fw
+etc/firmware/cpp_firmware_v1_4_0.fw:vendor/firmware/cpp_firmware_v1_4_0.fw
+etc/firmware/cpp_firmware_v1_6_0.fw:vendor/firmware/cpp_firmware_v1_6_0.fw
+etc/firmware/cpp_firmware_v1_8_0.fw:vendor/firmware/cpp_firmware_v1_8_0.fw
+
 
 # Camera sensors
 vendor/lib/libmmcamera_s5k3m2xm.so
@@ -207,19 +208,19 @@ vendor/lib/libmmcamera_s5k5e2evt1.so
 vendor/lib/libmmcamera_s5k5e2.so
 
 # DRM
-bin/qseecomd
+bin/qseecomd:vendor/bin/qseecomd
 vendor/lib/libQSEEComAPI.so
 vendor/lib64/libQSEEComAPI.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
-vendor/lib64/librpmb.so
+vendor/lib64/librpmb.so|0909af697bd38dbeae94661fb3b295b09770ea8c
 vendor/lib64/libssd.so
 
 # Fingerprint
-lib/lib_fpc_tac_shared.so
-lib/hw/fingerprint.msm8992.so
-lib64/lib_fpc_tac_shared.so
-lib64/hw/fingerprint.msm8992.so
+lib/lib_fpc_tac_shared.so:vendor/lib/lib_fpc_tac_shared.so|4d046ea654184470acab596b58b44437d8466b00
+lib/hw/fingerprint.msm8992.so:vendor/lib/hw/fingerprint.msm8992.so
+lib64/lib_fpc_tac_shared.so:vendor/lib64/lib_fpc_tac_shared.so|15e5d63a8e4e7e63a1e72375916cd5da0ce1898e
+lib64/hw/fingerprint.msm8992.so:vendor/lib64/hw/fingerprint.msm8992.so
 vendor/firmware/fpctzappfingerprint.b00
 vendor/firmware/fpctzappfingerprint.b01
 vendor/firmware/fpctzappfingerprint.b02
@@ -231,10 +232,10 @@ vendor/lib/hw/gatekeeper.msm8992.so
 vendor/lib64/hw/gatekeeper.msm8992.so
 
 # GPS
--lib/libloc_api_v02.so|904104898f6ee512f98679612d9a210e2e0d3d67
--lib/libloc_ds_api.so|e00edf46d7fd808402c7a4392e4bc39999197bd4
--lib64/libloc_api_v02.so|1db714846d90a94b00db54486e156b25b2a1e64e
--lib64/libloc_ds_api.so|375785257c6dc8e8451eb25babfea9128e1d5749
+-lib/libloc_api_v02.so:vendor/lib/libloc_api_v02.so|904104898f6ee512f98679612d9a210e2e0d3d67
+-lib/libloc_ds_api.so:vendor/lib/libloc_ds_api.so|e00edf46d7fd808402c7a4392e4bc39999197bd4
+-lib64/libloc_api_v02.so:vendor/lib64/libloc_api_v02.so|1db714846d90a94b00db54486e156b25b2a1e64e
+-lib64/libloc_ds_api.so:vendor/lib64/libloc_ds_api.so|375785257c6dc8e8451eb25babfea9128e1d5749
 vendor/lib/hw/flp.default.so|a29928c6d7d95af1f621aca07246950d4af8c82a
 vendor/lib/libflp.so|af06b5da26f1a6944abbcc6b9098f2242133202f
 vendor/lib/libgeofence.so|aebe235ea40372ea35157a472fdeb48dd7ce91e8
@@ -283,8 +284,8 @@ vendor/lib64/librs_adreno_sha1.so
 vendor/lib64/libscale.so
 
 # Graphics firmware
-etc/firmware/a420_pfp.fw
-etc/firmware/a420_pm4.fw
+etc/firmware/a420_pfp.fw:vendor/firmware/a420_pfp.fw
+etc/firmware/a420_pm4.fw:vendor/firmware/a420_pm4.fw
 
 # Keystore
 vendor/lib/hw/keystore.msm8992.so
@@ -299,21 +300,21 @@ vendor/lib/libOmxQcelp13Dec.so
 vendor/firmware/libpn547_fw.so
 
 # Perf
-bin/energy-awareness
+bin/energy-awareness:/vendor/bin/energy-awareness
 vendor/bin/perfd
 vendor/lib/libqti-perfd-client.so
 vendor/lib64/libqti-perfd-client.so
 
 # Peripheral manager
-bin/pm-proxy
-bin/pm-service
+bin/pm-proxy:/vendor/bin/pm-proxy
+bin/pm-service:/vendor/bin/pm-service
 vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 
 # Qualcomm framework
-bin/irsc_util
+bin/irsc_util:vendor/bin/irsc_util
 vendor/lib/libdiag.so
-vendor/lib/libdsi_netctrl.so
+vendor/lib/libdsi_netctrl.so|669fa6480d6d05f8b7ec9121d00719f8405b47f5
 vendor/lib/libdsutils.so
 vendor/lib/libidl.so
 vendor/lib/libqdi.so
@@ -327,7 +328,7 @@ vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_encdec.so
 vendor/lib/libsmemlog.so
 vendor/lib64/libdiag.so
-vendor/lib64/libdsi_netctrl.so
+vendor/lib64/libdsi_netctrl.so|32baa6b8efc19dd7267d5087de447986dbcc8c55
 vendor/lib64/libdsutils.so
 vendor/lib64/libidl.so
 vendor/lib64/libqdi.so
@@ -342,13 +343,13 @@ vendor/lib64/libqmi_encdec.so
 vendor/lib64/libsmemlog.so
 
 # Radio
-bin/netmgrd
-bin/qmuxd
-bin/rfs_access
-bin/rmt_storage
-etc/data/dsi_config.xml
-etc/data/netmgr_config.xml
-etc/data/qmi_config.xml
+bin/netmgrd:vendor/bin/netmgrd|4186a07585e300c392fca706e5e87fa90d30ab7e
+bin/qmuxd:vendor/bin/qmuxd|d8e0eceea0138234e9129dee6c3ad508c41dd902
+bin/rfs_access:vendor/bin/rfs_access
+bin/rmt_storage:vendor/bin/rmt_storage
+etc/data/dsi_config.xml:vendor/etc/data/dsi_config.xml
+etc/data/netmgr_config.xml:vendor/etc/data/netmgr_config.xml
+etc/data/qmi_config.xml:vendor/etc/data/qmi_config.xml
 vendor/bin/qti
 vendor/lib/liblqe.so
 vendor/lib/libmdmdetect.so
@@ -359,7 +360,7 @@ vendor/lib64/libmdmdetect.so
 vendor/lib64/libnetmgr.so
 vendor/lib64/libqcmaputils.so
 vendor/lib64/libqmiservices.so
-vendor/lib64/libril-qc-qmi-1.so
+vendor/lib64/libril-qc-qmi-1.so|7440aa8e20d85fa7194844cbc5ae164e00f48d78
 vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/libril-qcril-hook-oem.so
 vendor/lib64/libril-qc-ltedirectdisc.so
@@ -370,11 +371,11 @@ vendor/lib64/libxml.so
 vendor/qcril.db
 
 # Sensors
-bin/sensors.qcom
+bin/sensors.qcom:vendor/bin/sensors.qcom
 etc/sensors/hals.conf:vendor/etc/sensors/hals.conf
-etc/sensors/sensor_def_qcomdev.conf
-etc/sensors/sensor_fih_def_nbq_EVT1C_qcomdev.conf
-etc/sensors/sensor_fih_def_nbq_qcomdev.conf
+etc/sensors/sensor_def_qcomdev.conf:vendor/etc/sensors/sensor_def_qcomdev.conf
+etc/sensors/sensor_fih_def_nbq_EVT1C_qcomdev.conf:vendor/etc/sensors/sensor_fih_def_nbq_EVT1C_qcomdev.conf
+etc/sensors/sensor_fih_def_nbq_qcomdev.conf:vendor/etc/sensors/sensor_fih_def_nbq_qcomdev.conf
 vendor/lib/hw/activity_recognition.msm8992.so
 vendor/lib/libsensor1.so
 vendor/lib/libsensor_reg.so
@@ -385,36 +386,37 @@ vendor/lib64/libsensor_reg.so
 vendor/lib64/sensors.ssc.so
 
 # Signed Venus (media) firmware
-etc/firmware/venus.b00
-etc/firmware/venus.b01
-etc/firmware/venus.b02
-etc/firmware/venus.b03
-etc/firmware/venus.b04
-etc/firmware/venus.mbn
-etc/firmware/venus.mdt
+etc/firmware/venus.b00:vendor/firmware/venus.b00
+etc/firmware/venus.b01:vendor/firmware/venus.b01
+etc/firmware/venus.b02:vendor/firmware/venus.b02
+etc/firmware/venus.b03:vendor/firmware/venus.b03
+etc/firmware/venus.b04:vendor/firmware/venus.b04
+etc/firmware/venus.mbn:vendor/firmware/venus.mbn
+etc/firmware/venus.mdt:vendor/firmware/venus.mdt
 
 # Thermal
-vendor/bin/thermal-engine
+vendor/bin/thermal-engine|93e92347e502a6b7c7ef20c9c6e46a9939542a43
 vendor/lib/libthermalclient.so
 vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
 
 # Time services
--app/TimeService/TimeService.apk
-bin/time_daemon
+-app/TimeService/TimeService.apk:vendor/app/TimeService/TimeService.apk
+bin/time_daemon:vendor/bin/time_daemon
 vendor/lib/libTimeService.so
 vendor/lib/libtime_genoff.so
 vendor/lib64/libTimeService.so
 vendor/lib64/libtime_genoff.so
 
 # TP firmware
-etc/firmware/TP_Firmware_nbq_ebbg.img
-etc/firmware/TP_Firmware_nbq_ebbg_V29.img
-etc/firmware/TP_Firmware_nbq_ebbg_V35.img
+etc/firmware/TP_Firmware_nbq_ebbg.img:vendor/firmware/TP_Firmware_nbq_ebbg.img
+etc/firmware/TP_Firmware_nbq_ebbg_V29.img:vendor/firmware/TP_Firmware_nbq_ebbg_V29.img
+etc/firmware/TP_Firmware_nbq_ebbg_V35.img:vendor/firmware/TP_Firmware_nbq_ebbg_V35.img
+
 
 # Widevine DRM
 vendor/lib/mediadrm/libwvdrmengine.so|e3a79580033962d8396d52617d849d44af5257f7
 vendor/lib64/mediadrm/libwvdrmengine.so|6750d614e77a1c0e08926f3fe78e427fa890ac06
 
 # Wifi
-bin/cnss-daemon
+bin/cnss-daemon:vendor/bin/cnss-daemon
