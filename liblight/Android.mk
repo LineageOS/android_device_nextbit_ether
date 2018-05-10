@@ -23,5 +23,6 @@ LOCAL_SHARED_LIBRARIES := liblog
 LOCAL_CFLAGS := $(common_flags) -DLOG_TAG=\"ether-lights\"
 LOCAL_MODULE := lights.$(TARGET_BOARD_PLATFORM)
 LOCAL_MODULE_TAGS := optional
+LOCAL_VENDOR_MODULE := true
 
 include $(BUILD_SHARED_LIBRARY)
