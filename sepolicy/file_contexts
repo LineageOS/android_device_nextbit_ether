@@ -14,10 +14,10 @@
 /dev/pn547                                                                       u:object_r:nfc_device:s0
 
 # WiFi
-/system/bin/init.nbq.mac.sh                                                      u:object_r:init-mac-sh_exec:s0
+/vendor/bin/init.nbq.mac.sh                                                      u:object_r:init-mac-sh_exec:s0
 
 # Power
-/system/bin/init.nbq.power.sh                                                    u:object_r:init-power-sh_exec:s0
+/vendor/bin/init.nbq.power.sh                                                    u:object_r:init-power-sh_exec:s0
 /sys/devices/virtual/net/rmnet_ipa0/queues/rx-0/rps_cpus                         u:object_r:sysfs_devices_system_cpu:s0
 /sys/devices/soc\.0/qcom,cpubw\.[0-9]+/devfreq/qcom,cpubw\.[0-9]+(/.*)?          u:object_r:sysfs_devices_system_cpu:s0
 /sys/devices/soc\.0/qcom,cpubw\.[0-9]+/devfreq/qcom,cpubw\.[0-9]+/bw_hwmon(/.*)? u:object_r:sysfs_devices_system_cpu:s0
