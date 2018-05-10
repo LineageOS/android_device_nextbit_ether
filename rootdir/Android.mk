@@ -46,11 +46,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE       := init.nbq.usb.rc
 LOCAL_MODULE_TAGS  := optional
 LOCAL_MODULE_CLASS := ETC
-ifeq ($(TARGET_NEEDS_HACKED_VENDORID), true)
-LOCAL_SRC_FILES    := init.bullhead.usb.rc
-else
 LOCAL_SRC_FILES    := init.nbq.usb.rc
-endif
 LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)
 include $(BUILD_PREBUILT)
 
