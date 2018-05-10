@@ -36,7 +36,7 @@ on fs
     wait /dev/block/platform/soc.0/f9824900.sdhci/mmcblk0
     symlink /dev/block/platform/soc.0/f9824900.sdhci /dev/block/bootdevice
 
-    mount_all fstab.qcom
+    mount_all /vendor/etc/fstab.qcom
 
     restorecon_recursive /persist
     mkdir /persist/data 0700 system system
