@@ -260,7 +260,7 @@ service netmgrd /vendor/bin/netmgrd
     user root
     group root wifi wakelock radio inet
 
-service ipacm /system/bin/ipacm
+service ipacm /vendor/bin/ipacm
     class main
     user net_admin
     group net_admin inet
