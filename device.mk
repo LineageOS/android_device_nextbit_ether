@@ -43,14 +43,14 @@ PRODUCT_PACKAGES += \
     tinymix
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf \
-    $(LOCAL_PATH)/audio/audio_output_policy.conf:system/vendor/etc/audio_output_policy.conf \
-    $(LOCAL_PATH)/audio/audio_platform_info.xml:system/vendor/etc/audio_platform_info.xml \
-    $(LOCAL_PATH)/audio/audio_policy.conf:system/vendor/etc/audio_policy.conf \
+    $(LOCAL_PATH)/audio/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
+    $(LOCAL_PATH)/audio/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
+    $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
+    $(LOCAL_PATH)/audio/audio_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy.conf \
     $(LOCAL_PATH)/audio/listen_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/listen_platform_info.xml \
-    $(LOCAL_PATH)/audio/mixer_paths.xml:system/vendor/etc/mixer_paths.xml \
-    $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:system/vendor/etc/sound_trigger_mixer_paths.xml \
-    $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:system/vendor/etc/sound_trigger_platform_info.xml
+    $(LOCAL_PATH)/audio/mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths.xml \
+    $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml \
+    $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_platform_info.xml
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/acdbdata/NBQ_Bluetooth_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Bluetooth_cal.acdb \
@@ -168,7 +168,7 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/media_profiles_V1_0.xml:system/vendor/etc/media_profiles_V1_0.xml \
+    $(LOCAL_PATH)/configs/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
     $(LOCAL_PATH)/configs/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
     $(LOCAL_PATH)/configs/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml
 
@@ -228,12 +228,12 @@ PRODUCT_PACKAGES += \
     init.nbq.power.sh
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/perf-profiles/perf-profile1.conf:system/vendor/etc/perf-profile0.conf \
-    $(LOCAL_PATH)/configs/perf-profiles/perf-profile1.conf:system/vendor/etc/perf-profile1.conf \
-    $(LOCAL_PATH)/configs/perf-profiles/perf-profile2.conf:system/vendor/etc/perf-profile2.conf \
-    $(LOCAL_PATH)/configs/perf-profiles/perf-profile3.conf:system/vendor/etc/perf-profile3.conf \
-    $(LOCAL_PATH)/configs/perf-profiles/perf-profile4.conf:system/vendor/etc/perf-profile4.conf \
-    $(LOCAL_PATH)/configs/perf-profiles/perf-profile5.conf:system/vendor/etc/perf-profile5.conf
+    $(LOCAL_PATH)/configs/perf-profiles/perf-profile1.conf:$(TARGET_COPY_OUT_VENDOR)/etc/perf-profile0.conf \
+    $(LOCAL_PATH)/configs/perf-profiles/perf-profile1.conf:$(TARGET_COPY_OUT_VENDOR)/etc/perf-profile1.conf \
+    $(LOCAL_PATH)/configs/perf-profiles/perf-profile2.conf:$(TARGET_COPY_OUT_VENDOR)/etc/perf-profile2.conf \
+    $(LOCAL_PATH)/configs/perf-profiles/perf-profile3.conf:$(TARGET_COPY_OUT_VENDOR)/etc/perf-profile3.conf \
+    $(LOCAL_PATH)/configs/perf-profiles/perf-profile4.conf:$(TARGET_COPY_OUT_VENDOR)/etc/perf-profile4.conf \
+    $(LOCAL_PATH)/configs/perf-profiles/perf-profile5.conf:$(TARGET_COPY_OUT_VENDOR)/etc/perf-profile5.conf
 
 # Radio
 PRODUCT_PACKAGES += \
@@ -249,8 +249,8 @@ PRODUCT_PACKAGES += \
 
 # Seccomp
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:system/vendor/etc/seccomp_policy/mediacodec.policy \
-    $(LOCAL_PATH)/seccomp/mediaextractor-seccomp.policy:system/vendor/etc/seccomp_policy/mediaextractor.policy
+    $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
+    $(LOCAL_PATH)/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
 
 # Sensors
 PRODUCT_PACKAGES += \
