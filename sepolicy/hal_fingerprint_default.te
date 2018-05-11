@@ -1,0 +1,8 @@
+allow hal_fingerprint_default fpc_data_file:dir { add_name remove_name write };
+allow hal_fingerprint_default fpc_data_file:file { rename unlink };
+allow hal_fingerprint_default fpc_data_file:sock_file { create unlink };
+allow hal_fingerprint_default fpc_sysfs:dir { read open };
+allow hal_fingerprint_default fpc_sysfs:dir { search };
+allow hal_fingerprint_default fpc_sysfs:file { open read write };
+allow hal_fingerprint_default tee_device:chr_file { ioctl open read write };
+r_dir_file(hal_fingerprint_default, firmware_file)

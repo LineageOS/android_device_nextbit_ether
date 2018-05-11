@@ -1,1 +1,3 @@
 allow rfs_access self:capability net_raw;
+allow rfs_access debugfs_rmt:dir search;
+allow rfs_access debugfs_rmt:file { write open };

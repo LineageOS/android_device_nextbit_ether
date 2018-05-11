@@ -1,2 +1,3 @@
 type_transition mm-qcamerad system_data_file:file camera_data_file "EP_Valid.bin";
 allow mm-qcamerad system_data_file:dir w_dir_perms;
+allow mm-qcamerad sysfs_camera:file { open };
