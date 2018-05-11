@@ -236,7 +236,7 @@ service hci_filter_root /vendor/bin/wcnss_filter
     group bluetooth oem_2950 system
     disabled
 
-service hciattach /system/bin/sh /vendor/bin/init.qcom.bt.sh
+service hciattach /vendor/bin/init.qcom.bt.sh
     class late_start
     user bluetooth
     group bluetooth net_bt_admin
@@ -302,7 +302,7 @@ service cnss-daemon /vendor/bin/cnss-daemon -n -l
     user system
     group system inet net_admin wifi
 
-service qcom-sh /system/bin/sh /vendor/bin/init.qcom.sh
+service qcom-sh /vendor/bin/init.qcom.sh
     class late_start
     user root
     oneshot

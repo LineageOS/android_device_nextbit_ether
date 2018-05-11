@@ -1,5 +1,18 @@
+# Amplifier
+/dev/i2c-1                                                                       u:object_r:smartamp_device:s0
+
+# Bluetooth
+/sys/devices/bt_qca6174\.85/rfkill/rfkill0/state                                 u:object_r:sysfs_bluetooth_writable:s0
+/sys/devices/bt_qca6174\.85/extldo                                               u:object_r:sysfs_bluetooth_writable:s0
+
 # Camera
 /data/EP_Valid.bin                                                               u:object_r:camera_data_file:s0
+/sys/devices/soc\.0/fd8c0000\.qcom,msm-cam/video4linux/video0/name               u:object_r:sysfs_camera:s0
+/sys/devices/soc\.0/fda0c000\.qcom,cci/0\.qcom,camera/video4linux/video1/name    u:object_r:sysfs_camera:s0
+/sys/devices/soc\.0/fda0c000\.qcom,cci/1\.qcom,camera/video4linux/video2/name    u:object_r:sysfs_camera:s0
+
+# Filesystems
+/dev/block/platform/soc\.0/f9824900\.sdhci/by-name/persist                       u:object_r:persist_block_device:s0
 
 # Fingerprint
 /sys/devices/soc\.0/f9968000\.spi/spi_master/spi12/spi12\.1(/.*)?                u:object_r:fpc_sysfs:s0
@@ -7,19 +20,6 @@
 /data/fpc(/.*)?                                                                  u:object_r:fpc_data_file:s0
 /data/fpc_images(/.*)?                                                           u:object_r:fpc_data_file:s0
 
-# Amplifier
-/dev/i2c-1                                                                       u:object_r:smartamp_device:s0
-
 # NFC
 /dev/pn547                                                                       u:object_r:nfc_device:s0
 
-# WiFi
-/vendor/bin/init.nbq.mac.sh                                                      u:object_r:init-mac-sh_exec:s0
-
-# Power
-/vendor/bin/init.nbq.power.sh                                                    u:object_r:init-power-sh_exec:s0
-/sys/devices/virtual/net/rmnet_ipa0/queues/rx-0/rps_cpus                         u:object_r:sysfs_devices_system_cpu:s0
-/sys/devices/soc\.0/qcom,cpubw\.[0-9]+/devfreq/qcom,cpubw\.[0-9]+(/.*)?          u:object_r:sysfs_devices_system_cpu:s0
-/sys/devices/soc\.0/qcom,cpubw\.[0-9]+/devfreq/qcom,cpubw\.[0-9]+/bw_hwmon(/.*)? u:object_r:sysfs_devices_system_cpu:s0
-/sys/devices/soc\.0/qcom,mincpubw\.[0-9]+/devfreq/qcom,mincpubw\.[0-9]+(/.*)?    u:object_r:sysfs_devices_system_cpu:s0
-/sys/devices/system/cpu/cpu[0-9]+/cpufreq/scaling_governor                       u:object_r:sysfs_devices_system_cpu:s0

@@ -1,0 +1,1 @@
+allow bluetooth proc_bt_mac:file { open read };
