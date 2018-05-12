@@ -1,1 +1,1 @@
-allow time_daemon sysfs_file:file { open read };
+allow time_daemon sysfs:file { open read };

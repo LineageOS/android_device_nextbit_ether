@@ -9,6 +9,7 @@
 /data/EP_Valid.bin                                                               u:object_r:camera_data_file:s0
 /sys/devices/soc\.0/fd8c0000\.qcom,msm-cam/video4linux/video0/name               u:object_r:sysfs_camera:s0
 /sys/devices/soc\.0/fda0c000\.qcom,cci/0\.qcom,camera/video4linux/video1/name    u:object_r:sysfs_camera:s0
+/sys/devices/soc\.0/fda0c000\.qcom,cci/1\.qcom,camera/video4linux/video2/name    u:object_r:sysfs_camera:s0
 
 # Filesystems
 /dev/block/platform/soc\.0/f9824900\.sdhci/by-name/persist                       u:object_r:persist_block_device:s0
