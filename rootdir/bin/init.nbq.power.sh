@@ -87,6 +87,10 @@ write /sys/devices/system/cpu/cpu5/online 1
 # Restore CPU 4 max freq from msm_performance
 write /sys/module/msm_performance/parameters/cpu_max_freq "4:4294967295 5:4294967295"
 
+# input boost configuration
+write /sys/module/cpu_boost/parameters/input_boost_freq "0:787200"
+write /sys/module/cpu_boost/parameters/input_boost_ms 40
+
 # Configure core_ctl
 write /sys/devices/system/cpu/cpu4/core_ctl/max_cpus 2
 write /sys/devices/system/cpu/cpu4/core_ctl/min_cpus 0
