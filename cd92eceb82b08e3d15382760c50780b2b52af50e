@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bbc084da_fdbdbf88",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-05-14T18:45:17Z",
+      "side": 1,
+      "message": "What do you mean here exactly?",
+      "range": {
+        "startLine": 9,
+        "startChar": 2,
+        "endLine": 9,
+        "endChar": 30
+      },
+      "revId": "cd92eceb82b08e3d15382760c50780b2b52af50e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
