@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "e57fe8f1_5582a0d8",
+        "filename": "sepolicy/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-05-15T18:24:50Z",
+      "side": 0,
+      "message": "Should keep these",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 119
+      },
+      "revId": "03f31fa0ad9118cb7d93307dedf14172a5f35402",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "24c7b581_f90e635a",
+        "filename": "sepolicy/init-power-sh.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-05-15T18:24:50Z",
+      "side": 0,
+      "message": "Should heep this file",
+      "revId": "03f31fa0ad9118cb7d93307dedf14172a5f35402",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}

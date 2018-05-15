@@ -1,0 +1,165 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2015e9f2_e8a69735",
+        "filename": "rootdir/Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-05-15T18:24:50Z",
+      "side": 1,
+      "message": "No reason to rename this script",
+      "range": {
+        "startLine": 94,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 25
+      },
+      "revId": "d8e5be03b8d4f595d35f3524c7b5ce23726c012b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "f0e66376_07063c48",
+        "filename": "sepolicy/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-05-15T18:24:50Z",
+      "side": 1,
+      "message": "Should go to device/qcom/sepolicy probably. They apply to all 8994",
+      "range": {
+        "startLine": 5,
+        "startChar": 0,
+        "endLine": 6,
+        "endChar": 119
+      },
+      "revId": "d8e5be03b8d4f595d35f3524c7b5ce23726c012b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "988d25a7_89421f9d",
+        "filename": "sepolicy/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-05-15T18:24:50Z",
+      "side": 1,
+      "message": "Should go to device/qcom/sepolicy probably. They apply to all 8994",
+      "range": {
+        "startLine": 10,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 107
+      },
+      "revId": "d8e5be03b8d4f595d35f3524c7b5ce23726c012b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "7345c177_763e2585",
+        "filename": "sepolicy/qmuxd.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-05-15T18:24:50Z",
+      "side": 1,
+      "message": "Should find what sysfs it tries to read and label it. Too broad",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 28
+      },
+      "revId": "d8e5be03b8d4f595d35f3524c7b5ce23726c012b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9af678c_f4165af0",
+        "filename": "sepolicy/rild.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-05-15T18:24:50Z",
+      "side": 1,
+      "message": "This can be ignored",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 34
+      },
+      "revId": "d8e5be03b8d4f595d35f3524c7b5ce23726c012b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b6978b44_55b74289",
+        "filename": "sepolicy/sensors.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-05-15T18:24:50Z",
+      "side": 1,
+      "message": "Should find what sysfs it tries to read and label it. Too broad",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 39
+      },
+      "revId": "d8e5be03b8d4f595d35f3524c7b5ce23726c012b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "e136add3_88e3ea72",
+        "filename": "sepolicy/time_daemon.te",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-05-15T18:24:50Z",
+      "side": 1,
+      "message": "Should find what sysfs it tries to read and label it. Too broad",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 43
+      },
+      "revId": "d8e5be03b8d4f595d35f3524c7b5ce23726c012b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
