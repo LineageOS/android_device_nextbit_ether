@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "2c89dbc6_0e059289",
+        "filename": "data-ipa-cfg-mgr/ipacm/src/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 3917
+      },
+      "writtenOn": "2018-05-15T19:04:02Z",
+      "side": 1,
+      "message": "uncessary whitespace change",
+      "revId": "3de8b0693fcdc7a7583fa197c118144797ab13f8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
