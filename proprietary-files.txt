@@ -1,8 +1,5 @@
 # ADSP
 bin/adsprpcd
-vendor/lib/libadsprpc.so
-vendor/lib/libfastcvadsp_stub.so
-vendor/lib/libfastcvopt.so
 vendor/lib64/libadsprpc.so
 
 # Amplifier
@@ -75,7 +72,6 @@ vendor/lib64/libaudcal.so
 # Bluetooth
 bin/hci_qcomm_init
 bin/wcnss_filter
-vendor/lib/libbtnv.so
 vendor/lib64/libbtnv.so
 
 # Camera
@@ -128,7 +124,6 @@ vendor/lib/libmmcamera_pdafcamif.so
 vendor/lib/libmmcamera_ppbase_module.so
 vendor/lib/libmmcamera_tintless_algo.so
 vendor/lib/libmmcamera_tintless_bg_pca_algo.so
-vendor/lib/libmmcamera_tuning.so
 vendor/lib/libmmcamera_vpu_module.so
 vendor/lib/libmmcamera2_c2d_module.so
 vendor/lib/libmmcamera2_cpp_module.so
@@ -194,11 +189,6 @@ vendor/lib/libchromatix_s5k5e2_versions.so
 vendor/lib/libmmcamera_dw9761b_eeprom.so
 
 # Camera firmware
-etc/firmware/cpp_firmware_v1_1_1.fw
-etc/firmware/cpp_firmware_v1_1_6.fw
-etc/firmware/cpp_firmware_v1_2_0.fw
-etc/firmware/cpp_firmware_v1_4_0.fw
-etc/firmware/cpp_firmware_v1_6_0.fw
 etc/firmware/cpp_firmware_v1_8_0.fw
 
 # Camera sensors
@@ -208,7 +198,6 @@ vendor/lib/libmmcamera_s5k5e2.so
 
 # DRM
 bin/qseecomd
-vendor/lib/libQSEEComAPI.so
 vendor/lib64/libQSEEComAPI.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
@@ -216,8 +205,6 @@ vendor/lib64/librpmb.so
 vendor/lib64/libssd.so
 
 # Fingerprint
-lib/lib_fpc_tac_shared.so
-lib/hw/fingerprint.msm8992.so
 lib64/lib_fpc_tac_shared.so
 lib64/hw/fingerprint.msm8992.so
 vendor/firmware/fpctzappfingerprint.b00
@@ -227,19 +214,11 @@ vendor/firmware/fpctzappfingerprint.b03
 vendor/firmware/fpctzappfingerprint.mdt
 
 # Gatekeeper
-vendor/lib/hw/gatekeeper.msm8992.so
 vendor/lib64/hw/gatekeeper.msm8992.so
 
 # GPS
--lib/libloc_api_v02.so|904104898f6ee512f98679612d9a210e2e0d3d67
--lib/libloc_ds_api.so|e00edf46d7fd808402c7a4392e4bc39999197bd4
 -lib64/libloc_api_v02.so|1db714846d90a94b00db54486e156b25b2a1e64e
 -lib64/libloc_ds_api.so|375785257c6dc8e8451eb25babfea9128e1d5749
-vendor/lib/hw/flp.default.so|a29928c6d7d95af1f621aca07246950d4af8c82a
-vendor/lib/libflp.so|af06b5da26f1a6944abbcc6b9098f2242133202f
-vendor/lib/libgeofence.so|aebe235ea40372ea35157a472fdeb48dd7ce91e8
-vendor/lib/libizat_core.so|eee665c38dc3797085ddb5d36e2e2284a6bc1f24
-vendor/lib/liblbs_core.so|05ce9cec0bf7848f98e4b69dabff4e141e18e4cd
 vendor/lib64/hw/flp.default.so|8b151d16862a78df4d75f9158468cfb10fea86fe
 vendor/lib64/libflp.so|b29bcc5ba9e9bb81b61c5f8c1db8216d15b718c3
 vendor/lib64/libgeofence.so|96bf6e10ab1128607bc21f3064c53e978a785dfa
@@ -263,7 +242,6 @@ vendor/lib/libllvm-glnext.so
 vendor/lib/libllvm-qcom.so
 vendor/lib/librs_adreno.so
 vendor/lib/librs_adreno_sha1.so
-vendor/lib/libscale.so
 vendor/lib64/egl/eglSubDriverAndroid.so
 vendor/lib64/egl/libEGL_adreno.so
 vendor/lib64/egl/libGLESv1_CM_adreno.so
@@ -280,14 +258,12 @@ vendor/lib64/libllvm-glnext.so
 vendor/lib64/libllvm-qcom.so
 vendor/lib64/librs_adreno.so
 vendor/lib64/librs_adreno_sha1.so
-vendor/lib64/libscale.so
 
 # Graphics firmware
 etc/firmware/a420_pfp.fw
 etc/firmware/a420_pm4.fw
 
 # Keystore
-vendor/lib/hw/keystore.msm8992.so
 vendor/lib64/hw/keystore.msm8992.so
 
 # Media
@@ -314,7 +290,6 @@ vendor/etc/perf-profile5.conf
 # Peripheral manager
 bin/pm-proxy
 bin/pm-service
-vendor/lib/libperipheral_client.so
 vendor/lib64/libperipheral_client.so
 
 # Qualcomm framework
@@ -409,19 +384,11 @@ vendor/lib64/libthermalioctl.so
 # Time services
 -app/TimeService/TimeService.apk
 bin/time_daemon
-vendor/lib/libTimeService.so
-vendor/lib/libtime_genoff.so
 vendor/lib64/libTimeService.so
 vendor/lib64/libtime_genoff.so
 
-# TP firmware
-etc/firmware/TP_Firmware_nbq_ebbg.img
-etc/firmware/TP_Firmware_nbq_ebbg_V29.img
-etc/firmware/TP_Firmware_nbq_ebbg_V35.img
-
 # Widevine DRM
 vendor/lib/mediadrm/libwvdrmengine.so|e3a79580033962d8396d52617d849d44af5257f7
-vendor/lib64/mediadrm/libwvdrmengine.so|6750d614e77a1c0e08926f3fe78e427fa890ac06
 
 # Wifi
 bin/cnss-daemon
