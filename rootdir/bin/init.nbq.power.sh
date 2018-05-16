@@ -113,9 +113,10 @@ write /proc/sys/kernel/sched_upmigrate_min_nice 9
 
 # devfreq
 get-set-forall /sys/class/devfreq/qcom,cpubw*/governor bw_hwmon
+restorecon -R /sys/class/devfreq/qcom,cpubw*
+restorecon -R /sys/class/devfreq/qcom,cpubw*/bw_hwmon
 get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/io_percent 20
 get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/guard_band_mbps 30
-restorecon -R /sys/class/devfreq/qcom,cpubw*
 get-set-forall /sys/class/devfreq/qcom,mincpubw*/governor cpufreq
 
 # Disable sched_boost
