@@ -1,0 +1,2 @@
+allow tee fpc_data_file:dir { add_name open read search write };
+allow tee fpc_data_file:file { create open read write };
