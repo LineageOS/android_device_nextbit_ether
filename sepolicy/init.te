@@ -1,2 +1,0 @@
-allow init socket_device:sock_file { create setattr unlink };
-allow init debugfs:file write;
