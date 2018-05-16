@@ -26,11 +26,6 @@ get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode disable
 bcl_hotplug_mask=`get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_mask 0`
 bcl_hotplug_soc_mask=`get-set-forall /sys/devices/soc.0/qcom,bcl.*/hotplug_soc_mask 0`
 
-# some files in /sys/devices/system/cpu are created after the restorecon of
-# /sys/. These files receive the default label "sysfs".
-# Restorecon again to give new files the correct label.
-restorecon -R /sys/devices/system/cpu
-
 # Limit A57 max freq from msm_perf module in case CPU 4 is offline
 write /sys/module/msm_performance/parameters/cpu_max_freq "4:960000 5:960000"
 
@@ -39,7 +34,6 @@ write /sys/module/lpm_levels/parameters/sleep_disabled 0
 
 # configure governor settings for little cluster
 write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor interactive
-restorecon -R /sys/devices/system/cpu # must restore after interactive
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_sched_load 1
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/use_migration_notif 1
 write /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 19000
@@ -54,11 +48,9 @@ write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 384000
 
 # online CPU4
 write /sys/devices/system/cpu/cpu4/online 1
-restorecon -R /sys/devices/system/cpu # must restore after online
 
 # configure governor settings for big cluster
 write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor interactive
-restorecon -R /sys/devices/system/cpu # must restore after interactive
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_sched_load 1
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/use_migration_notif 1
 write /sys/devices/system/cpu/cpu4/cpufreq/interactive/above_hispeed_delay 19000
@@ -115,7 +107,6 @@ write /proc/sys/kernel/sched_upmigrate_min_nice 9
 get-set-forall /sys/class/devfreq/qcom,cpubw*/governor bw_hwmon
 get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/io_percent 20
 get-set-forall /sys/class/devfreq/qcom,cpubw*/bw_hwmon/guard_band_mbps 30
-restorecon -R /sys/class/devfreq/qcom,cpubw*
 get-set-forall /sys/class/devfreq/qcom,mincpubw*/governor cpufreq
 
 # Disable sched_boost
