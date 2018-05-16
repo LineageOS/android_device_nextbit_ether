@@ -1,0 +1,1 @@
+allow sensors proc_baseband:file { open read };

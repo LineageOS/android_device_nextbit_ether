@@ -1,3 +1,5 @@
+genfscon proc /baseband                               u:object_r:proc_baseband:s0
+genfscon proc /bt_mac                                 u:object_r:proc_bt_mac:s0
 genfscon proc /sys/kernel/sched_migration_fixup       u:object_r:proc_kernel_sched:s0
 genfscon proc /sys/kernel/sched_upmigrate             u:object_r:proc_kernel_sched:s0
 genfscon proc /sys/kernel/sched_downmigrate           u:object_r:proc_kernel_sched:s0
