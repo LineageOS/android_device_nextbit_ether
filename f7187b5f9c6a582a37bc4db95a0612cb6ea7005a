@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7b316b6e_8f9c9ca3",
+        "filename": "rootdir/bin/init.nbq.power.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-05-20T11:57:44Z",
+      "side": 1,
+      "message": "This doesn\u0027t seem to work for some reason, bw_hwmon remains labeled as sysfs",
+      "range": {
+        "startLine": 116,
+        "startChar": 0,
+        "endLine": 117,
+        "endChar": 53
+      },
+      "revId": "f7187b5f9c6a582a37bc4db95a0612cb6ea7005a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
