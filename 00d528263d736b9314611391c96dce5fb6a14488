@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dd34f992_ee540b83",
+        "filename": "gps/core/LocApiBase.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 19335
+      },
+      "writtenOn": "2018-05-22T18:17:25Z",
+      "side": 1,
+      "message": "why messageChecker is 32-bit while everything else is 64-bit? This function will return true for all msgID between 32 and 64.",
+      "revId": "00d528263d736b9314611391c96dce5fb6a14488",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
