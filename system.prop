@@ -59,6 +59,7 @@ ro.qualcomm.cabl=0
 ro.sf.lcd_density=480
 
 debug.composition.type=c2d
+debug.hwui.use_buffer_age=false
 persist.debug.wfd.enable=1
 persist.hwc.enable_vds=1
 persist.hwc.mdpcomp.enable=true
