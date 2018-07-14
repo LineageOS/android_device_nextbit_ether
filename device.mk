@@ -122,6 +122,7 @@ PRODUCT_PACKAGES += \
     init.nbq.poweroff_charging.rc \
     init.nbq.target.rc \
     init.nbq.usb.rc \
+    init.qcom.bt.sh \
     init.qcom.fs.rc \
     init.qcom.rc \
     init.qcom.sh \
