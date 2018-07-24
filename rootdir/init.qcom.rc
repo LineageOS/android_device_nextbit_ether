@@ -143,6 +143,20 @@ on post-fs-data
     mkdir /data/misc/wifi/sockets 0770 wifi wifi
     mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
 
+    # Create the directories used by CnE subsystem
+    mkdir /data/connectivity 0771 system system
+    chown system system /data/connectivity
+
+    # Create the directories used by DPM subsystem
+    mkdir /data/dpm 0771 system system
+    chown system system /data/dpm
+
+    mkdir /data/dpm/fdMgr 0771 system system
+    chown system system /data/dpm/fdMgr
+
+    mkdir /data/dpm/nsrm 0771 system system
+    chown system system /data/dpm/nsrm
+
     # Create directory used by audio subsystem
     mkdir /data/misc/audio 0770 audio audio
 
@@ -166,6 +180,10 @@ on post-fs-data
     mkdir /data/misc/location/gpsone_d 0770 system gps
     mkdir /data/misc/location/quipc 0770 gps system
     mkdir /data/misc/location/gsiff 0770 gps gps
+
+    # Create directory from IMS services
+    mkdir /data/shared 0755
+    chown system system /data/shared
 
     # Create directory for FOTA
     mkdir /data/fota 0771
@@ -196,6 +214,17 @@ service perfd /system/vendor/bin/perfd
     group system
     socket perfd seqpacket 0666 root system
     writepid /dev/cpuset/system-background/tasks
+
+on property:persist.env.fastdorm.enabled=true
+    setprop persist.radio.data_no_toggle 1
+
+service cnd /vendor/bin/cnd
+    class main
+    socket cnd stream 660 root inet
+
+service dpmd /vendor/bin/dpmd
+    class late_start
+    socket dpmd stream 660 root system
 
 service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class main
