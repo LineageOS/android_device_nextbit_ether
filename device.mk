@@ -229,7 +229,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ebtables \
     ethertypes \
-    libcneapiclient \
+    libcnefeatureconfig \
     librmnetctl \
     libxml2
 
