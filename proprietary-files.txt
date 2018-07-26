@@ -327,7 +327,6 @@ vendor/lib64/libperipheral_client.so
 
 # Qualcomm framework
 bin/irsc_util:vendor/bin/irsc_util
-etc/permissions/qti_permissions.xml
 vendor/lib/libdiag.so
 vendor/lib/libdsi_netctrl.so|669fa6480d6d05f8b7ec9121d00719f8405b47f5
 vendor/lib/libdsutils.so
@@ -391,6 +390,7 @@ bin/imscmservice:vendor/bin/imscmservice
 bin/imsdatadaemon:vendor/bin/imsdatadaemon
 bin/imsqmidaemon:vendor/bin/imsqmidaemon
 bin/ims_rtp_daemon:vendor/bin/ims_rtp_daemon
+etc/permissions/qti_permissions.xml:vendor/etc/permissions/qti_permissions.xml|2826b33ed8e2756cc748c80bd6c466ff8af97ac5
 vendor/lib64/lib-dplmedia.so
 vendor/lib64/libimscamera_jni.so
 vendor/lib64/libimsmedia_jni.so
