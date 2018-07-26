@@ -67,9 +67,4 @@ TWRP_QSEECOMD="$BLOB_ROOT"/recovery/root/sbin/qseecomd
 
 sed -i "s|/system/bin/linker64|/sbin/linker64\x0\x0\x0\x0\x0\x0|g" "$TWRP_QSEECOMD"
 
-LIBMMJPEG="$BLOB_ROOT"/vendor/lib/libmmjpeg.so
-
-sed -i "s|QCOM-AA|Nextbit|g" "$LIBMMJPEG"
-sed -i "s|QCAM-AA|Robin\x0\x0|g" "$LIBMMJPEG"
-
 "$MY_DIR"/setup-makefiles.sh
