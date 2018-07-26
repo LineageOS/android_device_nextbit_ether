@@ -345,10 +345,6 @@ vendor/lib64/libqmi_encdec.so
 vendor/lib64/libsmemlog.so
 
 # Radio
--app/datastatusnotification/datastatusnotification.apk
--app/fastdormancy/fastdormancy.apk
--app/shutdownlistener/shutdownlistener.apk
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 bin/netmgrd:vendor/bin/netmgrd|4186a07585e300c392fca706e5e87fa90d30ab7e
 bin/qmuxd:vendor/bin/qmuxd|d8e0eceea0138234e9129dee6c3ad508c41dd902
 bin/rfs_access:vendor/bin/rfs_access
@@ -356,14 +352,6 @@ bin/rmt_storage:vendor/bin/rmt_storage
 etc/data/dsi_config.xml:vendor/etc/data/dsi_config.xml
 etc/data/netmgr_config.xml:vendor/etc/data/netmgr_config.xml
 etc/data/qmi_config.xml:vendor/etc/data/qmi_config.xml
-etc/permissions/qcnvitems.xml
-etc/permissions/qcrilhook.xml
-etc/permissions/telephonyservice.xml
-etc/permissions/qti_telephony_common.xml
-framework/qcnvitems.jar
-framework/qcrilhook.jar
-framework/qti-telephony-common.jar
-framework/QtiTelephonyServicelibrary.jar
 vendor/bin/qti
 vendor/lib/liblqe.so
 vendor/lib/libmdmdetect.so
@@ -386,7 +374,6 @@ vendor/qcril.db
 
 # Radio - IMS
 -vendor/app/ims/ims.apk
--vendor/app/imssettings/imssettings.apk
 bin/imscmservice:vendor/bin/imscmservice
 bin/imsdatadaemon:vendor/bin/imsdatadaemon
 bin/imsqmidaemon:vendor/bin/imsqmidaemon
