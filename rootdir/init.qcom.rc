@@ -117,6 +117,12 @@ on boot
     chown system graphics /sys/class/graphics/fb0/modes
     chmod 0664 /sys/class/graphics/fb0/modes
 
+    # LiveDisplay sysfs
+    chown system system /sys/devices/virtual/graphics/fb0/reading_mode
+    chmod 0660 /sys/devices/virtual/graphics/fb0/reading_mode
+    chown system system /sys/devices/virtual/graphics/fb0/video_mode
+    chmod 0660 /sys/devices/virtual/graphics/fb0/video_mode
+
     # Wifi firmware reload path
     chown wifi wifi /sys/module/wlan/parameters/fwpath
 
