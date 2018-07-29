@@ -22,6 +22,30 @@
       "revId": "ac20cfa286f004bdba6e9be502525db70e57c5ad",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5971dea8_1a63e7ed",
+        "filename": "extract-files.sh",
+        "patchSetId": 1
+      },
+      "lineNbr": 68,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-07-29T19:19:49Z",
+      "side": 0,
+      "message": "Ah, forgot about that. I\u0027ll fix that soon(tm)",
+      "parentUuid": "cacc4a63_cf0e6399",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 68,
+        "endChar": 83
+      },
+      "revId": "ac20cfa286f004bdba6e9be502525db70e57c5ad",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
