@@ -51,10 +51,15 @@
 static const int BRIGHTNESS_RAMP[RAMP_SIZE]
         = { 0, 12, 25, 37, 50, 72, 85, 100 };
 
+struct battery_state_t {
+    int bars;
+    int brightness;
+};
+
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
+static struct battery_state_t g_battery;
 static struct light_state_t g_attention;
 static struct light_state_t g_notification;
-static int g_battery_bars = -1;
 
 static int write_int(const char *path, int value)
 {
@@ -134,12 +139,17 @@ static int set_light_battery(struct light_device_t *dev,
             bars = 1;
     }
 
-    if (bars == g_battery_bars)
+    // framework sends brightness as the color from the range
+    // 0-255, and we need to get and scale it from 0-100
+    brightness = rgb_to_brightness(state);
+    brightness = SEGMENT_BRIGHTNESS * brightness / 0xff;
+
+    if (bars == g_battery.bars && brightness == g_battery.brightness)
         goto out;
 
     for (int i = 1; i <= NUM_LED_SEGMENTS; i++) {
-        brightness = (bars >= i) ? SEGMENT_BRIGHTNESS : 0;
-        snprintf(buf, sizeof(buf), "%d %d", NUM_LED_SEGMENTS - (i - 1), brightness);
+        int level = (bars >= i) ? brightness : 0;
+        snprintf(buf, sizeof(buf), "%d %d", NUM_LED_SEGMENTS - (i - 1), level);
         ALOGV("%s: %d = %s (bars=%d)", __func__, i, buf, bars);
         err = write_str(SEGMENTED_LED_FILE, buf);
         if (err < 0) {
@@ -147,7 +157,8 @@ static int set_light_battery(struct light_device_t *dev,
             break;
         }
     }
-    g_battery_bars = bars;
+    g_battery.bars = bars;
+    g_battery.brightness = brightness;
 
 out:
     pthread_mutex_unlock(&g_lock);
