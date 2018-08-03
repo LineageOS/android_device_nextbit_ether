@@ -22,6 +22,30 @@
       "revId": "e589ad0253a81070e31472d2fc8219146de63bb7",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "82c1b72c_06c20d1b",
+        "filename": "proprietary-files-twrp.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-08-03T17:42:24Z",
+      "side": 1,
+      "message": "This fixes extracting from stock",
+      "parentUuid": "8ed74013_e84e7b25",
+      "range": {
+        "startLine": 2,
+        "startChar": 47,
+        "endLine": 2,
+        "endChar": 88
+      },
+      "revId": "e589ad0253a81070e31472d2fc8219146de63bb7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
