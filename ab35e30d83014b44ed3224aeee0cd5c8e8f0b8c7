@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "051ddc54_c17db8ac",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-08-03T17:35:29Z",
+      "side": 1,
+      "message": "Not used, CNE is 64bit",
+      "range": {
+        "startLine": 202,
+        "startChar": 0,
+        "endLine": 212,
+        "endChar": 98
+      },
+      "revId": "ab35e30d83014b44ed3224aeee0cd5c8e8f0b8c7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ee98886d_d7883d76",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-08-03T17:35:29Z",
+      "side": 1,
+      "message": "Data latency HAL is not used",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 100
+      },
+      "revId": "ab35e30d83014b44ed3224aeee0cd5c8e8f0b8c7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "914ece71_63132a18",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-08-03T17:35:29Z",
+      "side": 1,
+      "message": "Not used, DPM is 64bit",
+      "range": {
+        "startLine": 227,
+        "startChar": 0,
+        "endLine": 228,
+        "endChar": 67
+      },
+      "revId": "ab35e30d83014b44ed3224aeee0cd5c8e8f0b8c7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
