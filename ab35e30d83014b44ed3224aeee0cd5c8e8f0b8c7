@@ -48,6 +48,30 @@
     },
     {
       "key": {
+        "uuid": "a9c4d563_b9208002",
+        "filename": "proprietary-files.txt",
+        "patchSetId": 2
+      },
+      "lineNbr": 223,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-08-03T17:43:31Z",
+      "side": 1,
+      "message": "cnd, libcne, and libwms depend on it.",
+      "parentUuid": "ee98886d_d7883d76",
+      "range": {
+        "startLine": 223,
+        "startChar": 0,
+        "endLine": 223,
+        "endChar": 100
+      },
+      "revId": "ab35e30d83014b44ed3224aeee0cd5c8e8f0b8c7",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "914ece71_63132a18",
         "filename": "proprietary-files.txt",
         "patchSetId": 2
