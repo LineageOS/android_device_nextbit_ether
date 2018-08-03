@@ -139,7 +139,7 @@ static int set_light_battery(struct light_device_t *dev,
 
     for (int i = 1; i <= NUM_LED_SEGMENTS; i++) {
         brightness = (bars >= i) ? SEGMENT_BRIGHTNESS : 0;
-        snprintf(buf, sizeof(buf), "%d %d", i, brightness);
+        snprintf(buf, sizeof(buf), "%d %d", NUM_LED_SEGMENTS - (i - 1), brightness);
         ALOGV("%s: %d = %s (bars=%d)", __func__, i, buf, bars);
         err = write_str(SEGMENTED_LED_FILE, buf);
         if (err < 0) {
