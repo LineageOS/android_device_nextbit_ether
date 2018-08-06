@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1fc1118_b298bb8e",
+        "filename": "liblight/lights.c",
+        "patchSetId": 11
+      },
+      "lineNbr": 345,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-08-06T17:02:04Z",
+      "side": 1,
+      "message": "Should change this to just 1",
+      "range": {
+        "startLine": 345,
+        "startChar": 26,
+        "endLine": 345,
+        "endChar": 55
+      },
+      "revId": "96d8467987f8db77b44f4d52a5ea075741f09bc8",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
