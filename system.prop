@@ -102,6 +102,7 @@ persist.radio.add_power_save=1
 persist.radio.apm_sim_not_pwdn=1
 persist.radio.custom_ecc=1
 persist.radio.sib16_support=1
+ro.data.large_tcp_window_size=true
 ro.telephony.call_ring.multiple=false
 ro.telephony.default_network=9
 
