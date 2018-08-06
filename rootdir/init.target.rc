@@ -60,7 +60,7 @@ service qseecomd /vendor/bin/qseecomd
     class core
     user root
     group root
-    writepid /dev/cpuset/system-background/tasks
+    writepid /dev/cpuset/foreground/tasks
 
 service per_mgr /vendor/bin/pm-service
     class core
@@ -148,4 +148,3 @@ service energy-awareness /vendor/bin/energy-awareness
     user root
     group system
     oneshot
-    writepid /dev/cpuset/system-background/tasks

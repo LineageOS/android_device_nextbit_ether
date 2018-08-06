@@ -225,7 +225,6 @@ service irsc_util /vendor/bin/irsc_util "/vendor/etc/sec_config"
     class main
     user root
     oneshot
-    writepid /dev/cpuset/system-background/tasks
 
 service rmt_storage /vendor/bin/rmt_storage
     class core
@@ -271,7 +270,6 @@ service hciattach /vendor/bin/hci_qcomm_init -e
     group bluetooth net_bt_admin oem_2950 diag radio
     disabled
     oneshot
-    writepid /dev/cpuset/system-background/tasks
 
 on property:bluetooth.hciattach=true
     start hciattach
@@ -330,7 +328,6 @@ service wpa_supplicant /vendor/bin/hw/wpa_supplicant \
     socket wpa_wlan0 dgram 660 wifi wifi
     disabled
     oneshot
-    writepid /dev/cpuset/system-background/tasks
 
 service cnss-daemon /vendor/bin/cnss-daemon -n -l
     class late_start
@@ -342,7 +339,6 @@ service qcom-sh /vendor/bin/init.qcom.sh
     class late_start
     user root
     oneshot
-    writepid /dev/cpuset/system-background/tasks
 
 on property:dev.bootcomplete=1
     setprop sys.io.scheduler "bfq"
