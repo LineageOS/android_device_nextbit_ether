@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "c1c9e47f_117973d5",
+        "filename": "rootdir/init.nbq.target.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-08-06T17:55:09Z",
+      "side": 0,
+      "message": "CAF has this configuration for new devices:\n\n    mkdir /dev/cpuset/camera-daemon\n    write /dev/cpuset/camera-daemon/cpus 0-3\n    write /dev/cpuset/camera-daemon/mems 0\n    chown cameraserver cameraserver /dev/cpuset/camera-daemon\n    chown cameraserver cameraserver /dev/cpuset/camera-daemon/tasks\n    chmod 0660 /dev/cpuset/camera-daemon/tasks\n\ncamera-daemon cpuset is also used by cameraserver but devices have to define it, so I don\u0027t think you should remove this. What fails exactly?",
+      "revId": "ea6e4a7f25ec8926cd59fab98bf435bca238558a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
