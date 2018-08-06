@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1bad9dad_36095be5",
+        "filename": "overlay/frameworks/base/core/res/res/values/strings.xml",
+        "patchSetId": 2
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-08-06T17:02:42Z",
+      "side": 1,
+      "message": "Maybe set as Nextbit Robin to match bluetooth name?",
+      "range": {
+        "startLine": 20,
+        "startChar": 75,
+        "endLine": 20,
+        "endChar": 80
+      },
+      "revId": "b1b61eaba036656b971864556df70f70a149d0c6",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
