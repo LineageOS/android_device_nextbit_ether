@@ -135,7 +135,7 @@ on post-fs-data
     mkdir /data/media 0770 media_rw media_rw
     chown media_rw media_rw /data/media
 
-    mkdir /data/misc/ipa 0700 net_admin net_admin
+    mkdir /data/misc/ipa 0700 radio radio
 
     mkdir /data/vendor/ramdump 0771 root system
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
@@ -297,8 +297,9 @@ service netmgrd /vendor/bin/netmgrd
 
 service ipacm /vendor/bin/ipacm
     class main
-    user net_admin
-    group net_admin inet
+    user radio
+    group radio inet
+    capabilities NET_ADMIN
     writepid /dev/cpuset/system-background/tasks
 
 service qti /system/vendor/bin/qti
