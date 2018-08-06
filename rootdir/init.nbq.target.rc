@@ -35,18 +35,10 @@ on boot
     # don't run as a service to avoid race conditions
     exec - root root system -- /vendor/bin/init.nbq.power.sh
 
-    # add a cpuset for the camera daemon
-    # we want all the little cores for camera
-    mkdir /dev/cpuset/camera-daemon
-    chown system system /dev/cpuset/camera-daemon
-    chown system system /dev/cpuset/camera-daemon/tasks
-    chmod 0664 /dev/cpuset/camera-daemon/tasks
-
     # update foreground cpuset now that processors are up
     # foreground gets all CPUs except CPU 3
     # CPU 3 is reserved for the top app
     write /dev/cpuset/background/cpus 0-2
-    write /dev/cpuset/camera-daemon/cpus 0-3
     write /dev/cpuset/foreground/cpus 0-2,4-5
     write /dev/cpuset/system-background/cpus 0-2
     write /dev/cpuset/top-app/cpus 0-5
