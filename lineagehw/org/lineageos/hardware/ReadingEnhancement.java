@@ -56,7 +56,7 @@ public class ReadingEnhancement {
      * @return boolean Must be false if reading mode is not supported or the operation
      * failed; true in any other case.
      */
-    public static boolean setGrayscale(boolean status) {
+    public static boolean setEnabled(boolean status) {
         if (isEnabled() == status) {
             return true;
         }
