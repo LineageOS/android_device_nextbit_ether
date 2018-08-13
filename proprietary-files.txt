@@ -425,6 +425,13 @@ etc/firmware/venus.b04:vendor/firmware/venus.b04
 etc/firmware/venus.mbn:vendor/firmware/venus.mbn
 etc/firmware/venus.mdt:vendor/firmware/venus.mdt
 
+# Sound trigger
+-priv-app/HotwordEnrollmentOKGoogleWCD9330/HotwordEnrollmentOKGoogleWCD9330.apk;PRESIGNED|d51c5b92a87df3de6deeb6223dcf1c71217b31a6
+-priv-app/HotwordEnrollmentTGoogleWCD9330/HotwordEnrollmentTGoogleWCD9330.apk;PRESIGNED|1a2df735e43320595d8bb7141948ccab773b7e7e
+-priv-app/HotwordEnrollmentXGoogleWCD9330/HotwordEnrollmentXGoogleWCD9330.apk;PRESIGNED|b16b5f3983fa667392fba05815b11a520eea2f6c
+vendor/lib/hw/sound_trigger.primary.msm8992.so|fff7458c90532b2cb64c1e5ae8e6113021e0e98a
+vendor/lib64/hw/sound_trigger.primary.msm8992.so|cf44c7deca9083c113b631e5cefdf243cf42d6f8
+
 # Thermal
 vendor/bin/thermal-engine|5eef9a6ad5e09b6ac8635a9cf186ff36a42bb47f
 vendor/lib/libthermalclient.so
