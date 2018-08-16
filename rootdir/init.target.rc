@@ -54,12 +54,14 @@ service qcamerasvr /vendor/bin/mm-qcamera-daemon
     class late_start
     user camera
     group camera system inet input graphics
+    ioprio rt 4
     writepid /dev/cpuset/camera-daemon/tasks
 
 service qseecomd /vendor/bin/qseecomd
     class core
     user root
     group root
+    ioprio be 2
     writepid /dev/cpuset/foreground/tasks
 
 service per_mgr /vendor/bin/pm-service
