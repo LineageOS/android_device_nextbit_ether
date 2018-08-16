@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "afcdb4a6_1a133b08",
+        "filename": "manifest.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2018-08-16T16:36:12Z",
+      "side": 1,
+      "message": "why is this 2.1 while 2.0 is being used?",
+      "revId": "cdd76c3b9eb472fbe16dbe97d30ead307b64359f",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
