@@ -55,8 +55,6 @@ dalvik.vm.dex2oat-threads=2
 dalvik.vm.image-dex2oat-threads=4
 
 # Display
-ro.qualcomm.cabl=0
-
 ro.sf.lcd_density=480
 
 debug.composition.type=c2d
