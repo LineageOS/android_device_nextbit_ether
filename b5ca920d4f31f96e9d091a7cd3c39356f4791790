@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a1dce340_d41b2e20",
+        "filename": "Android.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-08-20T18:38:42Z",
+      "side": 1,
+      "message": "I would just remove this section...",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 54
+      },
+      "revId": "b5ca920d4f31f96e9d091a7cd3c39356f4791790",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "13b8df85_cc36ccb1",
+        "filename": "device.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2018-08-20T18:38:42Z",
+      "side": 1,
+      "message": "... and copy these to \n    $(TARGET_COPY_OUT_VENDOR)/firmware/wlan/qca_cld/WCNSS_cfg.dat\n    $(TARGET_COPY_OUT_VENDOR)/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini",
+      "revId": "b5ca920d4f31f96e9d091a7cd3c39356f4791790",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
