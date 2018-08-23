@@ -143,6 +143,12 @@ service imscmservice /vendor/bin/imscmservice
     group radio diag inet log
     writepid /dev/cpuset/system-background/tasks
 
+service ppd /vendor/bin/mm-pp-daemon
+    class hal
+    user system
+    socket pps stream 0660 system system
+    group system graphics
+
 service energy-awareness /vendor/bin/energy-awareness
     class main
     user root
