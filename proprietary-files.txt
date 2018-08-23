@@ -312,6 +312,15 @@ bin/pm-proxy:vendor/bin/pm-proxy
 bin/pm-service:vendor/bin/pm-service
 vendor/lib64/libperipheral_client.so
 
+# Postprocessing
+bin/mm-pp-daemon:vendor/bin/mm-pp-daemon
+vendor/lib64/libdisp-aba.so
+vendor/lib64/libmm-abl-oem.so
+vendor/lib64/libmm-abl.so
+vendor/lib64/libmm-als.so
+vendor/lib64/libmm-disp-apis.so
+vendor/lib64/libmm-qdcm.so
+
 # Qualcomm framework
 bin/irsc_util:vendor/bin/irsc_util
 vendor/lib/libdiag.so
