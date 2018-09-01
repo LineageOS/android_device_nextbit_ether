@@ -293,6 +293,7 @@ vendor/lib/libOmxQcelp13Dec.so
 
 # NFC
 vendor/firmware/libpn547_fw.so
+vendor/lib64/hw/nfc_nci.msm8992.so
 
 # Perf
 bin/energy-awareness:vendor/bin/energy-awareness
