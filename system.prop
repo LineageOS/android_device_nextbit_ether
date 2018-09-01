@@ -19,12 +19,14 @@ persist.audio.ssr.3mic=false
 ro.qc.sdk.audio.ssr=false
 
 audio.deep_buffer.media=true
-audio.offload.buffer.size.kb=32
+audio.offload.buffer.size.kb=64
 audio.offload.gapless.enabled=true
 audio.offload.multiple.enabled=false
 audio.offload.pcm.16bit.enable=true
 audio.offload.pcm.24bit.enable=true
 audio.offload.video=true
+
+qcom.hw.aac.encoder=true
 
 use.voice.path.for.pcm.voip=true
 
