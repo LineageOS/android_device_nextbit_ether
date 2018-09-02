@@ -112,14 +112,14 @@ service imsqmidaemon /vendor/bin/imsqmidaemon
     class main
     user system
     socket ims_qmid stream 0660 system radio
-    group radio log diag
+    group radio net_raw log diag
     writepid /dev/cpuset/system-background/tasks
 
 service imsdatadaemon /vendor/bin/imsdatadaemon
     class main
     user system
     socket ims_datad stream 0660 system radio
-    group system wifi radio inet log diag
+    group system wifi radio inet net_raw log diag net_admin
     disabled
     writepid /dev/cpuset/system-background/tasks
 
@@ -130,7 +130,7 @@ service ims_rtp_daemon /vendor/bin/ims_rtp_daemon
     class main
     user system
     socket ims_rtpd stream 0660 system radio
-    group radio diag inet log
+    group radio net_raw diag inet log
     disabled
     writepid /dev/cpuset/system-background/tasks
 
@@ -140,7 +140,7 @@ on property:sys.ims.DATA_DAEMON_STATUS=1
 service imscmservice /vendor/bin/imscmservice
     class main
     user system
-    group radio diag inet log
+    group radio net_raw diag inet log
     writepid /dev/cpuset/system-background/tasks
 
 service ppd /vendor/bin/mm-pp-daemon
