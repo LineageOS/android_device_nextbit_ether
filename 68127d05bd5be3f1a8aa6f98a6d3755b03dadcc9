@@ -22,6 +22,30 @@
       "revId": "68127d05bd5be3f1a8aa6f98a6d3755b03dadcc9",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "abd90434_d56642b3",
+        "filename": "system.prop",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 11801
+      },
+      "writtenOn": "2018-09-03T17:04:29Z",
+      "side": 1,
+      "message": "Honestly, I have no idea. It can\u0027t hurt to have it.",
+      "parentUuid": "04034139_8ac908c1",
+      "range": {
+        "startLine": 29,
+        "startChar": 0,
+        "endLine": 29,
+        "endChar": 24
+      },
+      "revId": "68127d05bd5be3f1a8aa6f98a6d3755b03dadcc9",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
