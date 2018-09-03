@@ -60,6 +60,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/acdbdata/NBQ_Headset_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Headset_cal.acdb \
     $(LOCAL_PATH)/audio/acdbdata/NBQ_Speaker_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Speaker_cal.acdb
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/acdbdata/NBQ_Bluetooth_cal.acdb:system/etc/acdbdata/VZW/VZW_Bluetooth_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/NBQ_General_cal.acdb:system/etc/acdbdata/VZW/VZW_General_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/NBQ_Global_cal.acdb:system/etc/acdbdata/VZW/VZW_Global_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/NBQ_Handset_cal.acdb:system/etc/acdbdata/VZW/VZW_Handset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/NBQ_Hdmi_cal.acdb:system/etc/acdbdata/VZW/VZW_Hdmi_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/NBQ_Headset_cal.acdb:system/etc/acdbdata/VZW/VZW_Headset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/NBQ_Speaker_cal.acdb:system/etc/acdbdata/VZW/VZW_Speaker_cal.acdb
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     android.hardware.bluetooth@1.0-impl \
