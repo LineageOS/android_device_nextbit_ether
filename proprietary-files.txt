@@ -71,7 +71,7 @@ vendor/lib64/libaudcal.so
 
 # Bluetooth
 bin/hci_qcomm_init:vendor/bin/hci_qcomm_init
-bin/wcnss_filter:vendor/bin/wcnss_filter
+vendor/bin/wcnss_filter|65c276e8ed95b55d337534411add48806e034a84
 vendor/lib64/libbtnv.so
 
 # Camera
