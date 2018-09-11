@@ -25,14 +25,14 @@ etc/nxp/settings/os/playback/1/TFA9887_N1D2.config:vendor/etc/nxp/settings/os/pl
 etc/nxp/settings/os/playback/1/TFA9887_N1D2_2_4_1.patch:vendor/etc/nxp/settings/os/playback/1/TFA9887_N1D2_2_4_1.patch
 etc/nxp/settings/os/playback/1/coldboot.patch:vendor/etc/nxp/settings/os/playback/1/coldboot.patch
 etc/nxp/settings/os/playback/1/devkit_Release.parms:vendor/etc/nxp/settings/os/playback/1/devkit_Release.parms
-etc/nxp/settings/os/playback/1/speaker.speaker:vendor/etc/nxp/settings/os/playback/1/speaker.speaker|5521a99d3e66b99d6d9c58533e6c38b084797e93
+etc/nxp/settings/os/playback/1/speaker.speaker:vendor/etc/nxp/settings/os/playback/1/speaker.speaker
 etc/nxp/settings/os/playback/2/HQ_KS_13X18_DUMBO.eq:vendor/etc/nxp/settings/os/playback/2/HQ_KS_13X18_DUMBO.eq|3e9dd6858e6b7b45a25d8853c7e8fd1b84de9ded
 etc/nxp/settings/os/playback/2/HQ_KS_13X18_DUMBO.preset:vendor/etc/nxp/settings/os/playback/2/HQ_KS_13X18_DUMBO.preset|276f14c6e8d208ad69ed8f57219ec7ac614ce50d
 etc/nxp/settings/os/playback/2/TFA9887_N1D2.config:vendor/etc/nxp/settings/os/playback/2/TFA9887_N1D2.config
 etc/nxp/settings/os/playback/2/TFA9887_N1D2_2_4_1.patch:vendor/etc/nxp/settings/os/playback/2/TFA9887_N1D2_2_4_1.patch
 etc/nxp/settings/os/playback/2/coldboot.patch:vendor/etc/nxp/settings/os/playback/2/coldboot.patch
 etc/nxp/settings/os/playback/2/devkit_Release.parms:vendor/etc/nxp/settings/os/playback/2/devkit_Release.parms
-etc/nxp/settings/os/playback/2/speaker.speaker:vendor/etc/nxp/settings/os/playback/2/speaker.speaker|8c59037a3aaf00dfcd2114eecbbe5a14509d0ce0
+etc/nxp/settings/os/playback/2/speaker.speaker:vendor/etc/nxp/settings/os/playback/2/speaker.speaker
 etc/nxp/settings/os/playback/3/HQ_KS_13X18_DUMBO.eq:vendor/etc/nxp/settings/os/playback/3/HQ_KS_13X18_DUMBO.eq|84c9fc98cbccb7724ce927ce7d8ecadcfc0efda4
 etc/nxp/settings/os/playback/3/HQ_KS_13X18_DUMBO.preset:vendor/etc/nxp/settings/os/playback/3/HQ_KS_13X18_DUMBO.preset
 etc/nxp/settings/os/playback/3/TFA9887_N1D2.config:vendor/etc/nxp/settings/os/playback/3/TFA9887_N1D2.config

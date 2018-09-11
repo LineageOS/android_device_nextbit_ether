@@ -52,13 +52,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_platform_info.xml
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/acdbdata/NBQ_Bluetooth_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Bluetooth_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/NBQ_General_cal.acdb:system/etc/acdbdata/NBQ/NBQ_General_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/NBQ_Global_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Global_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/NBQ_Handset_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Handset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/NBQ_Hdmi_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Hdmi_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/NBQ_Headset_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Headset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/NBQ_Speaker_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Speaker_cal.acdb
+    $(LOCAL_PATH)/audio/acdbdata/VZW_Bluetooth_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Bluetooth_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/VZW_General_cal.acdb:system/etc/acdbdata/NBQ/NBQ_General_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/VZW_Global_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Global_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/VZW_Handset_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Handset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/VZW_Hdmi_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Hdmi_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/VZW_Headset_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Headset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/VZW_Speaker_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Speaker_cal.acdb
 
 # Bluetooth
 PRODUCT_PACKAGES += \
