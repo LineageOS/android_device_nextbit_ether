@@ -252,19 +252,6 @@ service start_hci_filter /vendor/bin/wcnss_filter
     disabled
     writepid /dev/cpuset/system-background/tasks
 
-on property:wc_transport.start_root=true
-    start hci_filter_root
-
-on property:wc_transport.start_root=false
-    stop hci_filter_root
-
-service hci_filter_root /vendor/bin/wcnss_filter
-    class late_start
-    user bluetooth
-    group bluetooth oem_2950 system
-    disabled
-    writepid /dev/cpuset/system-background/tasks
-
 service hciattach /vendor/bin/hci_qcomm_init -e
     class late_start
     user bluetooth
