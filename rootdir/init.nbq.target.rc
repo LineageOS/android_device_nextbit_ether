@@ -38,7 +38,7 @@ on boot
     # add a cpuset for the camera daemon
     # we want all the little cores for camera
     mkdir /dev/cpuset/camera-daemon
-    write /dev/cpuset/camera-daemon/cpus 0
+    write /dev/cpuset/camera-daemon/cpus 0-3
     write /dev/cpuset/camera-daemon/mems 0
     chown system system /dev/cpuset/camera-daemon
     chown system system /dev/cpuset/camera-daemon/tasks
@@ -49,7 +49,6 @@ on boot
     # background gets all little CPUs except CPU 3
     # CPU 3 is reserved for the top app and camera
     write /dev/cpuset/background/cpus 0-2
-    write /dev/cpuset/camera-daemon/cpus 0-3
     write /dev/cpuset/foreground/cpus 0-2,4-5
     write /dev/cpuset/system-background/cpus 0-2
     write /dev/cpuset/top-app/cpus 0-5
