@@ -21,6 +21,8 @@ on boot
     write /sys/class/android_usb/android0/iSerial ${ro.serialno}
     write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
+    setprop sys.usb.ffs.aio_compat 1
+
 
 on post-fs
     mkdir /dev/usb-ffs 0770 shell shell
