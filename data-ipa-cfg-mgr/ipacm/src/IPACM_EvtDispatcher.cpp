@@ -1,5 +1,5 @@
 /* 
-Copyright (c) 2013, The Linux Foundation. All rights reserved.
+Copyright (c) 2013-2018, The Linux Foundation. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are
@@ -58,7 +58,16 @@ int IPACM_EvtDispatcher::PostEvt
 	Message *item = NULL;
 	MessageQueue *MsgQueue = NULL;
 
-	MsgQueue = MessageQueue::getInstance();
+	if(data->event < IPA_EXTERNAL_EVENT_MAX)
+	{
+		IPACMDBG("Insert event into external queue.\n");
+		MsgQueue = MessageQueue::getInstanceExternal();
+	}
+	else
+	{
+		IPACMDBG("Insert event into internal queue.\n");
+		MsgQueue = MessageQueue::getInstanceInternal();
+	}
 	if(MsgQueue == NULL)
 	{
 		IPACMERR("unable to retrieve MsgQueue instance\n");
@@ -72,7 +81,6 @@ int IPACM_EvtDispatcher::PostEvt
 		return IPACM_FAILURE;
 	}
 
-	IPACMDBG("Populating item to post to queue\n");
 	item->evt.callback_ptr = IPACM_EvtDispatcher::ProcessEvt;
 	memcpy(&item->evt.data, data, sizeof(ipacm_cmd_q_data));
 
@@ -84,7 +92,7 @@ int IPACM_EvtDispatcher::PostEvt
 
 	IPACMDBG("Enqueing item\n");
 	MsgQueue->enqueue(item);
-	IPACMDBG("Enqueued item %p\n", item);
+	IPACMDBG("Enqueued item %pK\n", item);
 
 	if(pthread_cond_signal(&cond_var) != 0)
 	{
@@ -133,7 +141,7 @@ void IPACM_EvtDispatcher::ProcessEvt(ipacm_cmd_q_data *data)
 			
 	if(data->evt_data != NULL)
 	{
-		IPACMDBG("free the event:%d data: %p\n", data->event, data->evt_data);
+		IPACMDBG("free the event:%d data: %pK\n", data->event, data->evt_data);
 		free(data->evt_data);
 	}
 	return;
