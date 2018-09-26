@@ -1,2 +1,5 @@
 allow vold firmware_file:dir search;
 allow vold firmware_file:file { getattr open read };
+
+# For setting read_ahead_kb
+allow vold sysfs_mmc_host:file create_file_perms;
