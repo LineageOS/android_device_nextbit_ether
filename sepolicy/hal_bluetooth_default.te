@@ -1,0 +1,1 @@
+allow hal_bluetooth_default proc_bt_mac:file { open read };

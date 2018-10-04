@@ -1,3 +1,0 @@
-allow audioserver smartamp_device:chr_file { ioctl open read write };
-
-set_prop(audioserver, audio_smartamp_init_prop)
