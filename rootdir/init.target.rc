@@ -30,7 +30,6 @@
 on early-init
     mkdir /firmware 0771 system system
     mkdir /bt_firmware 0771 system system
-    symlink /data/tombstones /tombstones
 
 on fs
     wait /dev/block/platform/soc.0/${ro.boot.bootdevice}
@@ -42,11 +41,10 @@ on fs
     mkdir /persist/data 0700 system system
 
 on post-fs-data
-    mkdir /data/tombstones 0771 system system
-    mkdir /tombstones/modem 0771 system system
-    mkdir /tombstones/lpass 0771 system system
-    mkdir /tombstones/wcnss 0771 system system
-    mkdir /tombstones/dsps 0771 system system
+    mkdir /data/tombstones/modem 0771 system system
+    mkdir /data/tombstones/lpass 0771 system system
+    mkdir /data/tombstones/wcnss 0771 system system
+    mkdir /data/tombstones/dsps 0771 system system
     mkdir /data/misc/dts 0770 media audio
 
 #start camera server as daemon
