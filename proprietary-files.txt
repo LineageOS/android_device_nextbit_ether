@@ -380,36 +380,6 @@ vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libxml.so|6046cbc32cffc231d26c72e2d3f288800ecf2cd1
 vendor/qcril.db
 
-# Radio - IMS
--vendor/app/ims/ims.apk
-bin/imscmservice:vendor/bin/imscmservice
-bin/imsdatadaemon:vendor/bin/imsdatadaemon
-bin/imsqmidaemon:vendor/bin/imsqmidaemon
-bin/ims_rtp_daemon:vendor/bin/ims_rtp_daemon
-etc/permissions/qti_permissions.xml:vendor/etc/permissions/qti_permissions.xml|2826b33ed8e2756cc748c80bd6c466ff8af97ac5
-vendor/lib64/lib-dplmedia.so
-vendor/lib64/libimscamera_jni.so
-vendor/lib64/libimsmedia_jni.so
-vendor/lib64/lib-imscamera.so
-vendor/lib64/lib-imsdpl.so
-vendor/lib64/lib-imsqimf.so
-vendor/lib64/lib-imsrcscmclient.so
-vendor/lib64/lib-ims-rcscmjni.so
-vendor/lib64/lib-imsrcscmservice.so
-vendor/lib64/lib-imsrcscm.so
-vendor/lib64/lib-imsrcs.so
-vendor/lib64/lib-imsSDP.so
-vendor/lib64/lib-imss.so
-vendor/lib64/lib-imsvt.so
-vendor/lib64/lib-imsxml.so
-vendor/lib64/lib-rcsimssjni.so
-vendor/lib64/lib-rtpcommon.so
-vendor/lib64/lib-rtpcore.so
-vendor/lib64/lib-rtpdaemoninterface.so
-vendor/lib64/lib-rtpsl.so
-vendor/lib64/librcc.so
-vendor/lib64/libvoice-svc.so
-
 # Sensors
 bin/sensors.qcom:vendor/bin/sensors.qcom
 etc/sensors/hals.conf:vendor/etc/sensors/hals.conf
