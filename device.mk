@@ -24,12 +24,6 @@ DEVICE_PACKAGE_OVERLAYS := \
 
 PRODUCT_ENFORCE_RRO_TARGETS := framework-res
 
-# ANT+
-PRODUCT_PACKAGES += \
-    AntHalService \
-    com.dsi.ant.antradio_library \
-    libantradio
-
 # Audio
 PRODUCT_PACKAGES += \
     android.hardware.audio@2.0-impl \
