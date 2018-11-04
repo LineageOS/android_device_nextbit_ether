@@ -7,7 +7,3 @@ on post-fs-data
     chown system system /sys/bus/spi/devices/spi12.1/irq
     chown system system /sys/bus/spi/devices/spi12.1/clk_enable
     chown system system /sys/bus/spi/devices/spi12.1/wakeup_enable
-
-service fingerprintd /system/bin/fingerprintd
-    class late_start
-    user system
