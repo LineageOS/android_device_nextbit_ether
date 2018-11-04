@@ -38,6 +38,8 @@ on init
 
     symlink /sdcard /storage/sdcard0
 
+    start program_bdaddr
+
 on early-boot
     # set RLIMIT_MEMLOCK to 64MB
     setrlimit 8 67108864 67108864
@@ -264,6 +266,13 @@ on property:vendor.bluetooth.hciattach=true
 
 on property:vendor.bluetooth.hciattach=false
     setprop vendor.bluetooth.status off
+
+service program_bdaddr /system/vendor/bin/init.nbq.mac.sh
+    user bluetooth
+    group bluetooth
+    seclabel u:r:bluetooth_loader:s0
+    disabled
+    oneshot
 
 # QMUX must be in multiple groups to support external process connections
 service qmuxd /vendor/bin/qmuxd
