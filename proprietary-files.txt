@@ -291,6 +291,9 @@ vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxQcelp13Dec.so
 
+# Media - AC3
+lib/libstagefright_soft_ddpdec.so|e6a3fcd535f421d6a98ce9fc24a386e4086aade5
+
 # NFC
 vendor/firmware/libpn547_fw.so
 
