@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "cfbd1fee_c3279290",
+        "filename": "data-ipa-cfg-mgr/ipanat/src/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2018-11-26T06:57:56Z",
+      "side": 1,
+      "message": "uhhh, wat?",
+      "range": {
+        "startLine": 10,
+        "startChar": 26,
+        "endLine": 10,
+        "endChar": 66
+      },
+      "revId": "b5132c3df36b0682d7f8abe5e519401a51b0a87b",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
