@@ -87,11 +87,6 @@ on boot
     # Allow access for CCID command/response timeout configuration
     chown system system /sys/module/ccid_bridge/parameters/bulk_msg_timeout
 
-    # Mark the copy complete flag to not completed
-    write /data/misc/radio/copy_complete 0
-    chown radio radio /data/misc/radio/copy_complete
-    chmod 0660 /data/misc/radio/copy_complete
-
     # Graphics node permissions
     chown system graphics /sys/class/graphics/fb0/dyn_pu
     chmod 0664 /sys/class/graphics/fb0/dyn_pu
@@ -140,6 +135,11 @@ on post-fs-data
 
     # Create /data/time folder for time-services
     mkdir /data/time 0700 system system
+
+    # Mark the copy complete flag to not completed
+    write /data/misc/radio/copy_complete 0
+    chown radio radio /data/misc/radio/copy_complete
+    chmod 0660 /data/misc/radio/copy_complete
 
     setprop vold.post_fs_data_done 1
 
