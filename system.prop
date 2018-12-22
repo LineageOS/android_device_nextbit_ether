@@ -90,6 +90,9 @@ media.aac_51_output_enabled=true
 vidc.debug.level=1
 vidc.enc.dcvs.extra-buff-count=2
 
+# Memory optimizations
+ro.vendor.qti.sys.fw.bservice_enable=true
+
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 ro.core_ctl_min_cpu=0
