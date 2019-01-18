@@ -382,12 +382,13 @@ vendor/lib64/libxml.so
 vendor/qcril.db
 
 # Radio - IMS
--vendor/app/ims/ims.apk
 bin/imscmservice:vendor/bin/imscmservice
 bin/imsdatadaemon:vendor/bin/imsdatadaemon
 bin/imsqmidaemon:vendor/bin/imsqmidaemon
 bin/ims_rtp_daemon:vendor/bin/ims_rtp_daemon
 etc/permissions/qti_permissions.xml:vendor/etc/permissions/qti_permissions.xml|2826b33ed8e2756cc748c80bd6c466ff8af97ac5
+framework/qti-telephony-common.jar|b1953a3599255f08f1785c677d22810f65e0167b
+priv-app/ims/ims.apk|e01326c9ed240ee8f3b1824b81f7e60d88b52515
 vendor/lib64/lib-dplmedia.so
 vendor/lib64/libimscamera_jni.so
 vendor/lib64/libimsmedia_jni.so
