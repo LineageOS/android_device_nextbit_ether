@@ -72,15 +72,7 @@ persist.mdpcomp.4k2kSplit=1
 persist.mdpcomp_perfhint=50
 persist.metadata_dynfps.disable=true
 ro.opengles.version=196610
-
-# FRP
-ro.frp.pst=/dev/block/platform/soc.0/f9824900.sdhci/by-name/config
-
-# GPS
-persist.gps.qc_nlp_in_use=0
-ro.gps.agps_provider=1
-ro.qc.sdk.izat.premium.enabled=0
-ro.qc.sdk.izat.service_mask=0x0
+ro.qualcomm.cabl=0
 
 # OEM Unlocking
 ro.oem_unlock_supported=1
