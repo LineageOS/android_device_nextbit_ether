@@ -229,6 +229,9 @@
     <!-- Wifi driver supports batched scan -->
     <bool translatable="false" name="config_wifi_batched_scan_supported">true</bool>
 
+    <!-- ImsService package name to bind to by default -->
+    <string name="config_ims_package">org.codeaurora.ims</string>
+
     <!-- Flag specifying whether VoLTE is available on device -->
     <bool name="config_device_volte_available">true</bool>
 
