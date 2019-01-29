@@ -208,7 +208,6 @@ vendor/lib64/libcneapiclient.so|1e2dd92b55a323c3163a9b2771579e3ab2d5c7b8
 vendor/lib64/libcneoplookup.so|aed419cc2a6e321bc332cffe25eeede778c38946
 vendor/lib64/libwms.so|8ed7fa87fbadba2ffbc28ed18ed73602f9207a73
 vendor/lib64/libwqe.so|85e2c9f13d06039b72dd733c96d2b431c9b5c2a3
-vendor/lib64/libxml.so|6046cbc32cffc231d26c72e2d3f288800ecf2cd1
 vendor/lib64/vendor.qti.hardware.data.latency@1.0_vendor.so|8eae1cb1cc6ce993d6ee1127e480fba180d341a7
 
 # DPM
@@ -378,7 +377,7 @@ vendor/lib64/libril-qc-ltedirectdisc.so
 vendor/lib64/librilqmiservices.so
 vendor/lib64/libsettings.so|20c4cfbafdae30682a8e4d9d22e242cdb3706c72
 vendor/lib64/libsystem_health_mon.so
-vendor/lib64/libxml.so
+vendor/lib64/libxml.so|6046cbc32cffc231d26c72e2d3f288800ecf2cd1
 vendor/qcril.db
 
 # Radio - IMS
