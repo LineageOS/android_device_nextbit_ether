@@ -26,7 +26,6 @@
 #
 
 import /vendor/etc/init/hw/init.nbq.target.rc
-import /vendor/etc/init/hw/init.qcom.fs.rc
 import /vendor/etc/init/hw/init.target.rc
 
 on early-init
