@@ -25,6 +25,8 @@ allow init-power-sh sysfs_msm_perf:file { open write };
 allow init-power-sh sysfs_msm_power:dir search;
 allow init-power-sh sysfs_msm_power:file { open write };
 
+allow init-power-sh sysfs_net:dir search;
+
 allow init-power-sh sysfs_thermal:file write;
 
 allow init-power-sh vendor_toolbox_exec:file execute_no_trans;
