@@ -19,3 +19,8 @@ genfscon proc  /sys/kernel/sched_window_stats_policy   u:object_r:proc_kernel_sc
 
 genfscon sysfs /devices/soc.0/qcom,cpubw.27/devfreq    u:object_r:sysfs_devfreq:s0
 genfscon sysfs /devices/soc.0/qcom,mincpubw.28/devfreq u:object_r:sysfs_devfreq:s0
+
+genfscon sysfs /devices/soc.0/f9200000.ssusb/power_supply/usb         u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/soc.0/fih_battery.84/power_supply/fih_battery u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/soc.0/msm-bcl-15/power_supply/fg_adc          u:object_r:sysfs_battery_supply:s0
+genfscon sysfs /devices/soc.0/qcom,bcl.67/power_supply/bcl            u:object_r:sysfs_battery_supply:s0
