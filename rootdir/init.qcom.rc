@@ -198,12 +198,12 @@ on post-fs-data
     # Create PERFD deamon related dirs
     mkdir /data/system/perfd 0770 root system
     chmod 2770 /data/system/perfd
-    rm /data/system/perfd/default_values
 
 service perfd /system/vendor/bin/perfd
     class main
     user root
     group system
+    disabled
     socket perfd seqpacket 0666 root system
     writepid /dev/cpuset/system-background/tasks
 
@@ -326,3 +326,5 @@ service qcom-sh /vendor/bin/init.qcom.sh
 
 on property:dev.bootcomplete=1
     setprop sys.io.scheduler "bfq"
+    rm /data/system/perfd/default_values
+    start perfd

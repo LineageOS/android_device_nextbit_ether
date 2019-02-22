@@ -28,3 +28,5 @@ allow init-power-sh sysfs_msm_power:file { open write };
 allow init-power-sh sysfs_thermal:file write;
 
 allow init-power-sh vendor_toolbox_exec:file execute_no_trans;
+
+set_prop(init-power-sh, vendor_mpctl_prop)
