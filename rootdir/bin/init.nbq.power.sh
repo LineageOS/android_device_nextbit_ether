@@ -127,3 +127,5 @@ get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode enable
 
 # set GPU default power level to 5 (180MHz) instead of 4 (305MHz)
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
+
+setprop vendor.post_boot.parsed 1
