@@ -210,7 +210,6 @@ static int set_speaker_light_locked(struct light_device_t *dev,
 {
     int brightness, blink;
     int onMS, offMS, stepDuration, pauseHi;
-    unsigned int colorRGB;
     char *duty;
 
     if (!dev)
