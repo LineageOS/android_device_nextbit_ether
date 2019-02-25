@@ -17,6 +17,9 @@ LOCAL_MODULE_PATH_32 := $(TARGET_OUT_VENDOR)/lib
 ifneq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
 LOCAL_CFLAGS := -DDEBUG
 endif
+LOCAL_CFLAGS += \
+    -Wno-unused-parameter
+
 LOCAL_MODULE := libipanat
 LOCAL_MODULE_TAGS := optional
 include $(BUILD_SHARED_LIBRARY)
