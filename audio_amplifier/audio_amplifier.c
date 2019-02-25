@@ -158,7 +158,6 @@ void *write_dummy_data(void *param)
         pthread_mutex_unlock(&tfa9887->mutex);
     } while (tfa9887->calibrating);
 
-err_free:
     free(buffer);
 err_close_pcm:
     pcm_close(pcm);
@@ -245,7 +244,6 @@ out:
 static void *amp_watch(void *param)
 {
     struct snd_ctl_event event;
-    int current_mode;
     tfa9887_amplifier_t *tfa9887 = (tfa9887_amplifier_t *) param;
 
     while(read(tfa9887->mixer_fd, &event, sizeof(struct snd_ctl_event)) > 0) {
