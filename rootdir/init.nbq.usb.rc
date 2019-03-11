@@ -38,7 +38,7 @@ on post-fs-data
 on property:sys.usb.config=adb
     write /sys/class/android_usb/android0/enable 0
     write /sys/class/android_usb/android0/idVendor 2C3F
-    write /sys/class/android_usb/android0/idProduct 0002
+    write /sys/class/android_usb/android0/idProduct 0009
     write /sys/class/android_usb/android0/bDeviceClass 0
     write /sys/class/android_usb/android0/bDeviceSubClass 0
     write /sys/class/android_usb/android0/bDeviceProtocol 0
