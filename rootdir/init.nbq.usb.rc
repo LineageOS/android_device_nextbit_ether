@@ -22,7 +22,7 @@ on boot
     write /sys/class/android_usb/android0/iManufacturer ${ro.product.manufacturer}
     write /sys/class/android_usb/android0/iProduct ${ro.product.model}
     setprop sys.usb.ffs.aio_compat 1
-    setprop sys.mtp.device_type 2
+    setprop sys.usb.mtp.device_type 2
 
 on post-fs
     mkdir /dev/usb-ffs 0770 shell shell
