@@ -104,6 +104,10 @@ on boot
 
 # msm specific files that need to be created on /data
 on post-fs-data
+    # Avoid USB crash
+    setprop persist.adb.nonblocking_ffs 0
+    setprop ro.adb.nonblocking_ffs 0
+
     # Create folder for mm-qcamera-daemon
     mkdir /data/misc/camera 0770 camera camera
 
