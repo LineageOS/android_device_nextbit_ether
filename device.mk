@@ -130,6 +130,7 @@ PRODUCT_PACKAGES += \
     init.nbq.usb.rc \
     init.qcom.rc \
     init.qcom.sh \
+    init.recovery.qcom.rc \
     init.target.rc \
     fstab.qcom \
     ueventd.qcom.rc
