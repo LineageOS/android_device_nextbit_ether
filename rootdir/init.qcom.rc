@@ -284,6 +284,9 @@ service qcom-sh /vendor/bin/init.qcom.sh
     user root
     oneshot
 
+on property:apexd.status=ready
+    mount none /system/etc/swcodec/ld.config.txt /apex/com.android.media.swcodec/etc/ld.config.txt bind
+
 on property:dev.bootcomplete=1
     setprop sys.io.scheduler "bfq"
     rm /data/system/perfd/default_values
