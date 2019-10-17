@@ -1,4 +1,4 @@
-service charger /charger
+service charger /system/bin/charger
     class charger
     group log
     seclabel u:r:healthd:s0
