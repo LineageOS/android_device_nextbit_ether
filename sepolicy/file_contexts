@@ -4,6 +4,9 @@
 # Camera
 /data/EP_Valid.bin                                                               u:object_r:camera_data_file:s0
 
+# DRM
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.2-service\.clearkey     u:object_r:hal_drm_clearkey_exec:s0
+
 # Fingerprint
 /sys/devices/soc\.0/f9968000\.spi/spi_master/spi12/spi12\.1(/.*)?                u:object_r:fpc_sysfs:s0
 /data/fpc(/.*)?                                                                  u:object_r:fpc_data_file:s0
