@@ -1,0 +1,5 @@
+# Init must be allowed to mount
+allow init {
+    firmware_file
+    persist_file
+}:dir mounton;
