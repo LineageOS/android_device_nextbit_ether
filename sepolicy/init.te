@@ -1,0 +1,6 @@
+# Init must be allowed to mount
+allow init {
+    bt_firmware_file
+    firmware_file
+    persist_file
+}:dir mounton;
