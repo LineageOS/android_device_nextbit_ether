@@ -48,7 +48,7 @@ service qcamerasvr /vendor/bin/mm-qcamera-daemon
     group camera system inet input graphics gps
     writepid /dev/cpuset/camera-daemon/tasks
 
-service qseecomd /vendor/bin/qseecomd
+service vendor.qseecomd /vendor/bin/qseecomd
     class core
     user root
     group root
