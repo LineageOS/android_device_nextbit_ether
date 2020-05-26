@@ -144,9 +144,6 @@ on post-fs-data
     mkdir /data/misc/location/xtwifi 0770 gps gps
     mkdir /data/misc/location/gpsone_d 0770 system gps
 
-    # Create /data/time folder for time-services
-    mkdir /data/time 0700 system system
-
     # Mark the copy complete flag to not completed
     write /data/misc/radio/copy_complete 0
     chown radio radio /data/misc/radio/copy_complete
