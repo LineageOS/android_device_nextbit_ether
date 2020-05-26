@@ -1,1 +1,2 @@
 audio.smartamp.init u:object_r:audio_smartamp_init_prop:s0
+persist.vendor.timeadjust u:object_r:vendor_timekeep_prop:s0
