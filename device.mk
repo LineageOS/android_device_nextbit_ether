@@ -50,13 +50,13 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_platform_info.xml
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/acdbdata/NBQ_Bluetooth_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Bluetooth_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/NBQ_General_cal.acdb:system/etc/acdbdata/NBQ/NBQ_General_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/NBQ_Global_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Global_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/NBQ_Handset_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Handset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/NBQ_Hdmi_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Hdmi_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/NBQ_Headset_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Headset_cal.acdb \
-    $(LOCAL_PATH)/audio/acdbdata/NBQ_Speaker_cal.acdb:system/etc/acdbdata/NBQ/NBQ_Speaker_cal.acdb
+    $(LOCAL_PATH)/audio/acdbdata/NBQ_Bluetooth_cal.acdb:$(TARGET_COPY_OUT_SYSTEM)/etc/acdbdata/NBQ/NBQ_Bluetooth_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/NBQ_General_cal.acdb:$(TARGET_COPY_OUT_SYSTEM)/etc/acdbdata/NBQ/NBQ_General_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/NBQ_Global_cal.acdb:$(TARGET_COPY_OUT_SYSTEM)/etc/acdbdata/NBQ/NBQ_Global_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/NBQ_Handset_cal.acdb:$(TARGET_COPY_OUT_SYSTEM)/etc/acdbdata/NBQ/NBQ_Handset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/NBQ_Hdmi_cal.acdb:$(TARGET_COPY_OUT_SYSTEM)/etc/acdbdata/NBQ/NBQ_Hdmi_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/NBQ_Headset_cal.acdb:$(TARGET_COPY_OUT_SYSTEM)/etc/acdbdata/NBQ/NBQ_Headset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdbdata/NBQ_Speaker_cal.acdb:$(TARGET_COPY_OUT_SYSTEM)/etc/acdbdata/NBQ/NBQ_Speaker_cal.acdb
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -116,10 +116,10 @@ PRODUCT_PACKAGES += \
     gps.msm8992
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/gps/flp.conf:system/etc/flp.conf \
-    $(LOCAL_PATH)/gps/gps.conf:system/etc/gps.conf \
-    $(LOCAL_PATH)/gps/izat.conf:system/etc/izat.conf \
-    $(LOCAL_PATH)/gps/sap.conf:system/etc/sap.conf
+    $(LOCAL_PATH)/gps/flp.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/flp.conf \
+    $(LOCAL_PATH)/gps/gps.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/gps.conf \
+    $(LOCAL_PATH)/gps/izat.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/izat.conf \
+    $(LOCAL_PATH)/gps/sap.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/sap.conf
 
 # Init
 PRODUCT_PACKAGES += \
@@ -196,7 +196,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nci.conf \
     $(LOCAL_PATH)/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf \
-    $(LOCAL_PATH)/nfc/nfcee_access.xml:system/etc/nfcee_access.xml
+    $(LOCAL_PATH)/nfc/nfcee_access.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/nfcee_access.xml
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -229,7 +229,7 @@ PRODUCT_COPY_FILES += \
 
 # Privapp Whitelist
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:system/etc/permissions/privapp-permissions-qti.xml
+    $(LOCAL_PATH)/configs/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml
 
 # Power
 PRODUCT_PACKAGES += \
