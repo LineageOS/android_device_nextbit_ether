@@ -102,6 +102,15 @@ on boot
     # Wifi firmware reload path
     chown wifi wifi /sys/module/wlan/parameters/fwpath
 
+    # ACDB
+    setprop persist.audio.calfile0 /vendor/etc/acdbdata/NBQ/NBQ_Bluetooth_cal.acdb
+    setprop persist.audio.calfile1 /vendor/etc/acdbdata/NBQ/NBQ_General_cal.acdb
+    setprop persist.audio.calfile2 /vendor/etc/acdbdata/NBQ/NBQ_Global_cal.acdb
+    setprop persist.audio.calfile3 /vendor/etc/acdbdata/NBQ/NBQ_Handset_cal.acdb
+    setprop persist.audio.calfile4 /vendor/etc/acdbdata/NBQ/NBQ_Hdmi_cal.acdb
+    setprop persist.audio.calfile5 /vendor/etc/acdbdata/NBQ/NBQ_Headset_cal.acdb
+    setprop persist.audio.calfile6 /vendor/etc/acdbdata/NBQ/NBQ_Speaker_cal.acdb
+
 # msm specific files that need to be created on /data
 on post-fs-data
     # Avoid USB crash
