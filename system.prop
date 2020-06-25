@@ -57,6 +57,7 @@ dalvik.vm.dex2oat-threads=2
 dalvik.vm.image-dex2oat-threads=4
 
 # Display
+debug.sf.enable_gl_backpressure=1
 debug.sf.latch_unsignaled=1
 ro.qualcomm.cabl=0
 
