@@ -26,3 +26,7 @@
 /sys/devices/soc\.0/qcom,bcl\.[0-9]+/vph_high_thresh_uv                          u:object_r:sysfs_thermal:s0
 /sys/devices/soc\.0/qcom,bcl\.[0-9]+/vph_low_thresh_uv                           u:object_r:sysfs_thermal:s0
 /sys/devices/virtual/net/rmnet_ipa0/queues/rx-0/rps_cpus                         u:object_r:sysfs_devices_system_cpu:s0
+
+# Root files
+/bt_firmware(/.*)?                                                               u:object_r:bt_firmware_file:s0
+
