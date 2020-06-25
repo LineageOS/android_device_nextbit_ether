@@ -1,3 +1,5 @@
+## All blobs are from ether-user-7.1.1-Robin_Nougat_108-00WW_Jenkins_108-release-keys
+## unless pinned, in which case please see that line's relevant `git blame`
 # ADSP
 bin/adsprpcd:vendor/bin/adsprpcd
 vendor/lib64/libadsprpc.so
