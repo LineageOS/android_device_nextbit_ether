@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "86d83e7d_96ffa9d7",
+        "filename": "rootdir/init.target.rc",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2020-06-26T05:58:10Z",
+      "side": 1,
+      "message": "not sure if naming is still correct",
+      "revId": "3b0e4bcb056cee99d0083dd4fbb80950a06afdfb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
