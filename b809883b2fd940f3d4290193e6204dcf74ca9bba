@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f4ee74cf_4bff58ed",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2020-06-26T03:36:39Z",
+      "side": 1,
+      "message": "todo: Check if there\u0027s newer stuff in a newer tag worth re-pulling the file.",
+      "range": {
+        "startLine": 13,
+        "startChar": 11,
+        "endLine": 13,
+        "endChar": 28
+      },
+      "revId": "b809883b2fd940f3d4290193e6204dcf74ca9bba",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
