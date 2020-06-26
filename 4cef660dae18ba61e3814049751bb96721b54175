@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "6bc71c4e_3b3e15d6",
+        "filename": "BoardConfig.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 16208
+      },
+      "writtenOn": "2020-06-26T05:54:44Z",
+      "side": 0,
+      "message": "This seems not deprecated",
+      "revId": "4cef660dae18ba61e3814049751bb96721b54175",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": true
+    }
+  ]
+}
