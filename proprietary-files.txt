@@ -383,7 +383,7 @@ vendor/lib64/libxml.so|6046cbc32cffc231d26c72e2d3f288800ecf2cd1
 vendor/qcril.db
 
 # Radio - IMS
--vendor/app/ims/ims.apk
+-vendor/app/ims/ims.apk|855a883eed9a07bc609dbc6059f3d225c6e15a5c
 bin/imscmservice:vendor/bin/imscmservice
 bin/imsdatadaemon:vendor/bin/imsdatadaemon
 bin/imsqmidaemon:vendor/bin/imsqmidaemon
