@@ -17,14 +17,11 @@ $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 $(call inherit-product, device/nextbit/ether/device.mk)
 
 ## Device identifier. This must come after all inclusions
-PRODUCT_NAME := lineage_ether
-BOARD_VENDOR := nextbit
-TARGET_VENDOR := nextbit
-PRODUCT_DEVICE := ether
-
 PRODUCT_BRAND := Nextbit
+PRODUCT_DEVICE := ether
 PRODUCT_MODEL := Robin
 PRODUCT_MANUFACTURER := Nextbit
+PRODUCT_NAME := lineage_ether
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="ether-user 7.1.1 Robin_Nougat_108 00WW_Jenkins_108 release-keys"
