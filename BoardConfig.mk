@@ -151,6 +151,10 @@ include device/qcom/sepolicy-legacy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     $(DEVICE_PATH)/sepolicy
 
+# Shims
+TARGET_LD_SHIM_LIBS := \
+    /system/vendor/lib/libril-qc-qmi-1.so|libaudioclient_shim.so
+
 # WiFi
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_HOSTAPD_DRIVER             := NL80211

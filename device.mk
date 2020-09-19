@@ -39,6 +39,7 @@ PRODUCT_PACKAGES += \
     audio_policy.msm8992 \
     audio.r_submix.default \
     audio.usb.default \
+    libaudioclient_shim \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessingdescriptors \
