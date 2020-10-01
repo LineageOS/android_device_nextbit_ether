@@ -137,6 +137,12 @@ PRODUCT_PACKAGES += \
 # HIDL
 PRODUCT_ENFORCE_VINTF_MANIFEST_OVERRIDE := true
 
+PRODUCT_PACKAGES += \
+    libhidltransport \
+    libhidltransport.vendor \
+    libhwbinder \
+    libhwbinder.vendor
+
 # Init
 PRODUCT_PACKAGES += \
     init.nbq.fingerprint.rc \
