@@ -133,6 +133,9 @@ TARGET_USES_64_BIT_BINDER := true
 # Keymaster
 TARGET_PROVIDES_KEYMASTER := true
 
+# Legacy memfd
+TARGET_HAS_MEMFD_BACKPORT := true
+
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
