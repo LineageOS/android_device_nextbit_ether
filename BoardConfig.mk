@@ -150,11 +150,6 @@ include device/qcom/sepolicy-legacy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     $(DEVICE_PATH)/sepolicy
 
-# TWRP
-ifeq ($(WITH_TWRP),true)
-include $(DEVICE_PATH)/twrp.mk
-endif
-
 # WiFi
 BOARD_HAS_QCOM_WLAN              := true
 BOARD_HOSTAPD_DRIVER             := NL80211
