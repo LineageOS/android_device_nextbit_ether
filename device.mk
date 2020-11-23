@@ -36,13 +36,11 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio_amplifier.msm8992 \
     audio.primary.msm8992 \
-    audio_policy.msm8992 \
     audio.r_submix.default \
     audio.usb.default \
     libaudioclient_shim \
     libqcompostprocbundle \
     libqcomvisualizer \
-    libqcomvoiceprocessingdescriptors \
     libqcomvoiceprocessing
 
 PRODUCT_COPY_FILES += \
@@ -91,12 +89,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-impl \
     android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.composer@2.1-service \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
-    copybit.msm8992 \
     gralloc.msm8992 \
     hwcomposer.msm8992 \
     liboverlay \
@@ -262,8 +258,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
     android.hidl.manager@1.0 \
-    ebtables \
-    ethertypes \
     libcnefeatureconfig \
     librmnetctl \
     libxml2
@@ -283,10 +277,6 @@ PRODUCT_COPY_FILES += \
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl
-
-# TextClassifier
-PRODUCT_PACKAGES += \
-    textclassifier.bundle1
 
 # TimeKeep
 PRODUCT_PACKAGES += \
