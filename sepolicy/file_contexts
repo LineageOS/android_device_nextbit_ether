@@ -5,6 +5,7 @@
 /data/EP_Valid.bin                                                               u:object_r:camera_data_file:s0
 
 # Fingerprint
+/(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.0-service.ether u:object_r:hal_fingerprint_default_exec:s0
 /sys/devices/soc\.0/f9968000\.spi/spi_master/spi12/spi12\.1(/.*)?                u:object_r:fpc_sysfs:s0
 /data/fpc(/.*)?                                                                  u:object_r:fpc_data_file:s0
 /data/fpc_images(/.*)?                                                           u:object_r:fpc_data_file:s0
