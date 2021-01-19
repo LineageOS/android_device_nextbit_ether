@@ -110,7 +110,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.0-service
+    android.hardware.biometrics.fingerprint@2.0-service.ether
 
 # For android_filesystem_config.h
 PRODUCT_PACKAGES += \
