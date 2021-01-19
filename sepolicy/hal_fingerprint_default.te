@@ -2,13 +2,13 @@ allow hal_fingerprint_default fpc_data_file:dir { add_name remove_name search wr
 allow hal_fingerprint_default fpc_data_file:file { rename unlink };
 allow hal_fingerprint_default fpc_data_file:sock_file { create unlink };
 
-allow hal_fingerprint_default fpc_sysfs:dir { open read search };
-allow hal_fingerprint_default fpc_sysfs:file { open read write };
+allow hal_fingerprint_default fpc_sysfs:dir r_dir_perms;
+allow hal_fingerprint_default fpc_sysfs:file rw_file_perms;
 
-allow hal_fingerprint_default tee_device:chr_file { ioctl open read write };
+allow hal_fingerprint_default tee_device:chr_file rw_file_perms;
 
 allow hal_fingerprint_default firmware_file:dir search;
-allow hal_fingerprint_default firmware_file:file { getattr open read };
+allow hal_fingerprint_default firmware_file:file r_file_perms;
 
 # TODO(b/36644492): Remove data_between_core_and_vendor_violators once
 # hal_fingerprint no longer directly accesses fingerprintd_data_file.
@@ -16,3 +16,4 @@ typeattribute hal_fingerprint_default data_between_core_and_vendor_violators;
 # access to /data/system/users/[0-9]+/fpdata
 allow hal_fingerprint_default fingerprintd_data_file:file create_file_perms;
 allow hal_fingerprint_default fingerprintd_data_file:dir rw_dir_perms;
+allow hal_fingerprint_default fingerprintd_data_file:sock_file { create unlink };
