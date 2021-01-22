@@ -126,7 +126,7 @@ BOARD_RAMDISK_USE_XZ := true
 TARGET_KERNEL_SOURCE := kernel/nextbit/msm8992
 TARGET_KERNEL_CONFIG := lineageos_ether_defconfig
 TARGET_KERNEL_ARCH := arm64
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5 loop.max_part=7
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 boot_cpus=0-5 loop.max_part=7 androidboot.selinux=permissive
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 
 TARGET_USES_64_BIT_BINDER := true
