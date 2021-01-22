@@ -79,8 +79,6 @@ PRODUCT_PACKAGES += \
     camera.msm8992 \
     Snap
 
-PRODUCT_COPY_FILES += \
-
 # CryptfsHW
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee
