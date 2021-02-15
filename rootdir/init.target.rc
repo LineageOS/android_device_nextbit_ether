@@ -35,6 +35,12 @@ on fs
 
     restorecon_recursive /persist
 
+    # Boot time fs tune
+    write /sys/block/mmcblk0/queue/scheduler noop
+    write /sys/block/mmcblk0rpmb/queue/scheduler noop
+    write /sys/block/mmcblk0/queue/read_ahead_kb 2048
+    write /sys/block/mmcblk0rpmb/queue/read_ahead_kb 2048
+
     # Start HW service manager early
     start hwservicemanager
 
