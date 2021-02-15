@@ -125,4 +125,9 @@ get-set-forall /sys/devices/soc.0/qcom,bcl.*/mode enable
 # set GPU default power level to 5 (180MHz) instead of 4 (305MHz)
 write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 5
 
+# Setting I/O scheduler parameters 
+echo 128 > $block_device/queue/read_ahead_kb
+echo "bfq" > /sys/block/mmcblk0/queue/scheduler
+echo "bfq" > /sys/block/mmcblk0rpmb/queue/scheduler
+
 setprop vendor.post_boot.parsed 1
