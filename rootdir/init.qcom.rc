@@ -115,6 +115,10 @@ on boot
 
 # msm specific files that need to be created on /data
 on post-fs-data
+    # Boot time fs tune
+    write /sys/block/mmcblk0/queue/read_ahead_kb 2048
+    write /sys/block/mmcblk0rpmb/queue/read_ahead_kb 2048
+
     # Create folder for mm-qcamera-daemon
     mkdir /data/misc/camera 0770 camera camera
 
@@ -274,6 +278,8 @@ on property:apexd.status=ready
 
 on property:dev.bootcomplete=1
     setprop sys.io.scheduler "bfq"
+    write /sys/block/mmcblk0/queue/read_ahead_kb 128
+    write /sys/block/mmcblk0rpmb/queue/read_ahead_kb 128
     rm /data/system/perfd/default_values
     start perfd
 
