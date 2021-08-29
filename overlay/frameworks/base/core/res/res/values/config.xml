@@ -272,4 +272,8 @@
     <string-array name="config_biometric_sensors" translatable="false" >
         <item>0:2:15</item> <!-- ID0:Fingerprint:Strong -->
     </string-array>
+
+    <!-- AOSP WFD -->
+    <bool name="config_enableWifiDisplay">true</bool>
+
 </resources>
